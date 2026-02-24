@@ -1,0 +1,11 @@
+﻿# 14_Maleng_Legacy_Tech_and_Consulting
+
+Standalone subsidiary website package.
+
+## Run locally
+
+`ash
+cd 02_Code_and_Development/project
+npm install
+npm run dev
+`

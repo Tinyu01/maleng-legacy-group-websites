@@ -1,6 +1,9 @@
 # Content Management Guide
 ## How to Update Website Content
 
+For full developer startup and sync workflow, see:
+`DEVELOPER_WORKFLOW.md`
+
 This guide explains how to modify website content without touching code.
 
 ---
@@ -154,6 +157,30 @@ const founder = {
 ---
 
 ## 🔄 UPDATING AFTER LAUNCH
+
+### Sync Standalone Subsidiary Edits to Parent Routes
+
+If you update a standalone subsidiary site in:
+
+`02_Subsidiary_Sites_Template/[Subsidiary]/02_Code_and_Development/project/pages/index.js`
+
+and still run/deploy the parent-integrated site, run this command from the parent project:
+
+```bash
+npm run sync:subsidiaries
+```
+
+This mirrors all 16 standalone subsidiary pages into:
+
+`pages/subsidiaries/*.js`
+
+so updates appear when running the parent site.
+
+For continuous auto-sync while editing, run:
+
+```bash
+npm run sync:subsidiaries:watch
+```
 
 ### When to Update What
 

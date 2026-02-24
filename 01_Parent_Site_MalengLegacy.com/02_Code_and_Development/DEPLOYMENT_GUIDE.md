@@ -1,6 +1,9 @@
 # Maleng Legacy Group Parent Website
 ## Complete Setup & Deployment Guide
 
+Developer day-to-day workflow (dev server + auto-sync) is documented in:
+`DEVELOPER_WORKFLOW.md`
+
 ---
 
 ## 📋 PROJECT OVERVIEW
@@ -143,6 +146,16 @@ Replace `G-XXXXXXX` with your Google Analytics Measurement ID
 ---
 
 ## 🏗️ BUILD & DEPLOYMENT
+
+### Sync Subsidiary Routes (Recommended Before Build)
+
+If subsidiary edits were made in standalone folders, sync them into parent routes first:
+
+```bash
+npm run sync:subsidiaries
+```
+
+This updates `pages/subsidiaries/*.js` from standalone subsidiary `pages/index.js` files.
 
 ### Development
 ```bash

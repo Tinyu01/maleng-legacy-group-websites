@@ -1,6 +1,20 @@
 # Deployment Guide - Maleng Legacy Group Websites
 
-Complete guide for deploying the parent site and all 16 subsidiaries to production.
+Complete guide for deploying the parent site and subsidiary websites to production.
+
+## 🧭 Deployment Models
+
+This repository supports two valid deployment models:
+
+1. **Parent-integrated model**
+   - Deploy `01_Parent_Site_MalengLegacy.com/02_Code_and_Development/project`
+   - Parent site is available at `/`
+   - Subsidiary pages are available at `/subsidiaries/[name]`
+
+2. **Standalone subsidiary model**
+   - Deploy each subsidiary from its own folder:
+     `02_Subsidiary_Sites_Template/[Subsidiary]/02_Code_and_Development/project`
+   - Each subsidiary runs as an independent website/app
 
 ## 📋 Pre-Deployment Checklist
 
@@ -13,14 +27,17 @@ Complete guide for deploying the parent site and all 16 subsidiaries to producti
 - [ ] Mobile responsiveness verified
 - [ ] All links working (internal and external)
 
-## 🔗 Project Path for Deployment
+## 🔗 Deployment Targets
 
-The actual Next.js application to deploy is located at:
+### Parent-integrated target
 ```
 01_Parent_Site_MalengLegacy.com/02_Code_and_Development/project/
 ```
 
-**All subsidiaries are contained within this single Next.js application.**
+### Standalone subsidiary target
+```
+02_Subsidiary_Sites_Template/[Subsidiary Folder]/02_Code_and_Development/project/
+```
 
 ## ☁️ Deployment Options
 
@@ -69,9 +86,8 @@ git push -u origin main
 **Access after deployment:**
 ```
 https://yourdomain.com                    ← Parent site
-https://yourdomain.com/subsidiaries/construction
-https://yourdomain.com/subsidiaries/security
-... all subsidiaries accessible
+https://yourdomain.com/subsidiaries/construction    ← Parent-integrated route
+https://tech.yourdomain.com                          ← Example standalone subsidiary domain
 ```
 
 ---
@@ -105,6 +121,8 @@ npm run build
    - Add custom domain in Netlify settings
    - Update DNS
 
+> For standalone subsidiary deployment on Netlify, set the **Root directory** to that specific subsidiary's `02_Code_and_Development/project` folder.
+
 ---
 
 ### Option 3: AWS Amplify
@@ -132,6 +150,8 @@ amplify publish
    - Add domain in Amplify Console
    - Update DNS records
 
+> For standalone subsidiary deployment on Amplify, initialize and publish from that subsidiary's `project` folder.
+
 ---
 
 ### Option 4: Traditional VPS/Server
@@ -149,6 +169,8 @@ amplify publish
 git clone https://github.com/yourusername/maleng-legacy-group-websites.git
 cd maleng-legacy-group-websites/01_Parent_Site_MalengLegacy.com/02_Code_and_Development/project
 ```
+
+For standalone subsidiary deployment, replace the `cd` path with the relevant subsidiary `project` folder.
 
 2. **Install & Build**
 ```bash
@@ -223,11 +245,14 @@ NEXT_PUBLIC_SITE_NAME=Maleng Legacy Group
 # Parent site
 curl https://yourdomain.com
 
-# All subsidiaries
+# Parent-integrated subsidiaries
 curl https://yourdomain.com/subsidiaries/construction
 curl https://yourdomain.com/subsidiaries/security
 curl https://yourdomain.com/subsidiaries/agri
-# ... test all 16
+
+# Standalone subsidiaries (if using standalone model)
+curl https://tech.yourdomain.com
+curl https://security.yourdomain.com
 ```
 
 ### 2. Google Search Console
@@ -237,7 +262,7 @@ curl https://yourdomain.com/subsidiaries/agri
 
 ### 3. Analytics
 - Set up Google Analytics
-- Track subsidiary page views
+- Track subsidiary page views (integrated or standalone)
 - Monitor user engagement
 
 ### 4. SEO Check
@@ -262,7 +287,7 @@ These platforms automatically deploy when you push to GitHub:
 2. **Commit & push**
 ```bash
 git add .
-git commit -m "Update subsidiaries"
+git commit -m "Update website content"
 git push origin main
 ```
 
@@ -349,9 +374,9 @@ npm run lint
 - Use CDN
 
 ### 404 Errors on Subsidiaries
-- Verify routing in `pages/subsidiaries/[name].js`
-- Check build output includes all files
-- Verify path structure in deployment
+- Parent-integrated model: verify `pages/subsidiaries/[name].js` exists in parent project
+- Standalone model: verify subsidiary `pages/index.js` exists in that subsidiary project
+- Check build output includes expected pages for selected deployment target
 
 ### Environment Variables Not Working
 - Verify `.env` file exists (not `.env.local`)

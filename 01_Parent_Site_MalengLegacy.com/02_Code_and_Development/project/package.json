@@ -7,7 +7,11 @@
     "build": "next build",
     "start": "next start",
     "export": "next build",
-    "lint": "next lint"
+    "lint": "next lint",
+    "sync:subsidiaries": "node scripts/sync-subsidiaries.js",
+    "sync:subsidiaries:watch": "node scripts/sync-subsidiaries.js --watch",
+    "prepare:deploy": "npm run sync:subsidiaries && npm run build",
+    "prepare:export": "npm run sync:subsidiaries && npm run export"
   },
   "dependencies": {
     "autoprefixer": "^10.4.0",

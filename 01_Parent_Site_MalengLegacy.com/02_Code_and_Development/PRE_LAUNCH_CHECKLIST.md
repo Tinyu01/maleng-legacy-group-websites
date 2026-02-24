@@ -7,6 +7,9 @@
 **Prepared By:** Development Team
 **Date:** February 20, 2026
 
+Developer handover workflow reference:
+`DEVELOPER_WORKFLOW.md`
+
 ---
 
 ## ✅ DEVELOPMENT CHECKLIST
@@ -85,6 +88,7 @@
 ## 🚀 PRODUCTION BUILD CHECKLIST
 
 ### Build Process
+- [ ] Run `npm run prepare:deploy` (sync subsidiaries + build)
 - [ ] Run `npm run build` successfully
 - [ ] Build completes without errors
 - [ ] Build completes without warnings
@@ -92,6 +96,7 @@
 - [ ] All pages are pre-rendered
 
 ### Static Export (if using)
+- [ ] Run `npm run prepare:export` (sync subsidiaries + export)
 - [ ] Run `npm run export` successfully
 - [ ] `/out` folder created with all files
 - [ ] Test HTML files locally before upload

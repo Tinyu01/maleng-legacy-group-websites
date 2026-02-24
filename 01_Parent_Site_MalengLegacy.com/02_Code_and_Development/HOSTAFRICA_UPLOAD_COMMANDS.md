@@ -7,8 +7,10 @@ Use this with the static export in `project/out`.
 ```powershell
 Set-Location "D:\Maleng Legacy Group Workspace\maleng-legacy-group-websites\01_Parent_Site_MalengLegacy.com\02_Code_and_Development\project"
 npm install
-npm run export
+npm run prepare:export
 ```
+
+`prepare:export` runs subsidiary sync first, then export, so parent `/subsidiaries/*` pages are always up to date before upload.
 
 ## 2) Upload via WinSCP CLI (recommended on Windows)
 
@@ -60,7 +62,7 @@ scp -r "$localOut\*" "$user@$host:/public_html/"
 ## 6) Notes
 
 - This project is configured for static export using `output: 'export'` in Next.js config.
-- Re-deploy after any content/code change by re-running `npm run export` and upload again.
+- Re-deploy after any content/code change by re-running `npm run prepare:export` and upload again.
 - Place production analytics ID in `.env.local` before export:
 
 ```env

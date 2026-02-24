@@ -1,0 +1,11 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: linear-gradient(to bottom, #1a1a2e, #16213e);
+  color: white;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+}
