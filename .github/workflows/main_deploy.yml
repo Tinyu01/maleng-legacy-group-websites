@@ -41,13 +41,15 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Deploy Parent to Root Domain
-        uses: samuelmeuli/action-fast-sync@v1
+        uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.MLG_DEPLOY_USER }}
           password: ${{ secrets.MLG_DEPLOY_PASSWORD }}
-          local_path: './01_Parent_Site_MalengLegacy.com/'
-          remote_path: '/home/mlg-deploy/web/malenglegacy.co.za/public_html/'
+          source: '01_Parent_Site_MalengLegacy.com/**'
+          target: '/home/mlg-deploy/web/malenglegacy.co.za/public_html/'
+          strip_components: 1
+          overwrite: true
 
   deploy-subsidiaries:
     name: Update All Subsidiary Sites
@@ -79,10 +81,12 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Deploy Template to ${{ matrix.subdomain }}
-        uses: samuelmeuli/action-fast-sync@v1
+        uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.MLG_DEPLOY_USER }}
           password: ${{ secrets.MLG_DEPLOY_PASSWORD }}
-          local_path: './02_Subsidiary_Sites_Template/'
-          remote_path: '/home/mlg-deploy/web/${{ matrix.subdomain }}.malenglegacy.co.za/public_html/'
+          source: '02_Subsidiary_Sites_Template/**'
+          target: '/home/mlg-deploy/web/${{ matrix.subdomain }}.malenglegacy.co.za/public_html/'
+          strip_components: 1
+          overwrite: true
