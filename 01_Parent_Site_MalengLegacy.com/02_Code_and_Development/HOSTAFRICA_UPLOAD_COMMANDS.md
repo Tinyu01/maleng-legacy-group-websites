@@ -1,5 +1,7 @@
 # HostAfrica Upload Commands (Exact)
 
+> Public-safe documentation note: This document may use placeholders. See `DOCUMENTATION_PLACEHOLDER_MAP.md` in workspace root.
+
 Use this with the static export in `project/out`.
 
 ## 1) Build Export (from project root)
@@ -49,9 +51,9 @@ scp -r "$localOut\*" "$user@$host:/public_html/"
 
 ```powershell
 # Quick checks to run in browser:
-# https://www.malenglegacy.co.za/
-# https://www.malenglegacy.co.za/robots.txt
-# https://www.malenglegacy.co.za/subsidiaries/tech
+# https://www.<root-domain>/
+# https://www.<root-domain>/robots.txt
+# https://www.<root-domain>/subsidiaries/tech
 ```
 
 ## 5) Required DNS records (HostAfrica panel)

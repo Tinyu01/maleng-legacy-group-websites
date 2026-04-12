@@ -1,6 +1,8 @@
 # Content Management Guide
 ## How to Update Website Content
 
+> Public-safe documentation note: This document may use placeholders. See `DOCUMENTATION_PLACEHOLDER_MAP.md` in workspace root.
+
 For full developer startup and sync workflow, see:
 `DEVELOPER_WORKFLOW.md`
 
@@ -16,7 +18,7 @@ This guide explains how to modify website content without touching code.
 
 ```javascript
 const contactData = {
-  email: "ceo@malenglegacy.co.za",      // ← Update email
+  email: "<primary-email>",      // ← Update email
   phone: "+27 73 884 7449",              // ← Update phone
   location: "Gauteng, South Africa",     // ← Update location
   status: "Phase 1 Activation"           // ← Update status
@@ -291,7 +293,7 @@ npm run export
 
 # 4. Clear browser cache (Ctrl+Shift+Del)
 
-# 5. Visit https://www.malenglegacy.co.za
+# 5. Visit https://www.<root-domain>
 ```
 
 ---
@@ -369,7 +371,7 @@ All components have comments explaining their purpose:
 - **Edit a component?** Look at similar components first
 - **Stuck on syntax?** Check JavaScript/React documentation
 - **Deploy issue?** See DEPLOYMENT_GUIDE.md
-- **Technical help?** Email: ceo@malenglegacy.co.za
+- **Technical help?** Email: <primary-email>
 
 ---
 

@@ -113,6 +113,7 @@ function watchMode() {
     }, 250);
   };
 
+  let watchedCount = 0;
   sourceFiles.forEach((filePath) => {
     if (!fs.existsSync(filePath)) {
       console.warn(`Watch skipped (missing): ${filePath}`);
@@ -125,9 +126,28 @@ function watchMode() {
         triggerSync();
       }
     });
+
+    watchedCount += 1;
   });
 
+  if (watchedCount === 0) {
+    console.warn('No source files are currently available to watch.');
+    console.warn('Watcher will stay active and retry sync every 10 seconds until files appear.');
+  } else {
+    console.log(`Watching ${watchedCount} file(s).`);
+  }
+
+  const retryInterval = setInterval(() => {
+    if (watchedCount === 0) {
+      const result = syncOnce();
+      if (result.synced > 0) {
+        console.log('Source files detected. Re-evaluating watch targets...');
+      }
+    }
+  }, 10000);
+
   process.on('SIGINT', () => {
+    clearInterval(retryInterval);
     sourceFiles.forEach((filePath) => fs.unwatchFile(filePath));
     console.log('\nWatch mode stopped.');
     process.exit(0);
@@ -138,11 +158,14 @@ function main() {
   const isWatchMode = process.argv.includes('--watch');
 
   const result = syncOnce();
-  if (!result.ok) {
+  if (!result.ok && !isWatchMode) {
     process.exit(1);
   }
 
   if (isWatchMode) {
+    if (!result.ok) {
+      console.warn('Initial sync had issues; watch mode will continue and resync on changes/retry.');
+    }
     watchMode();
     return;
   }

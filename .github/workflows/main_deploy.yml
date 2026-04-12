@@ -1,0 +1,88 @@
+name: MLG Group Master Deployment
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: master-deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  detect-changes:
+    name: Detect Changed Website Areas
+    runs-on: ubuntu-latest
+    outputs:
+      parent: ${{ steps.filter.outputs.parent }}
+      template: ${{ steps.filter.outputs.template }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check which folders changed
+        id: filter
+        uses: dorny/paths-filter@v3
+        with:
+          filters: |
+            parent:
+              - '01_Parent_Site_MalengLegacy.com/**'
+            template:
+              - '02_Subsidiary_Sites_Template/**'
+
+  deploy-parent:
+    name: Update Main Holding Site
+    runs-on: ubuntu-latest
+    needs: detect-changes
+    if: needs.detect-changes.outputs.parent == 'true'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy Parent to Root Domain
+        uses: samuelmeuli/action-fast-sync@v1
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.MLG_DEPLOY_USER }}
+          password: ${{ secrets.MLG_DEPLOY_PASSWORD }}
+          local_path: './01_Parent_Site_MalengLegacy.com/'
+          remote_path: '/home/mlg-deploy/web/malenglegacy.co.za/public_html/'
+
+  deploy-subsidiaries:
+    name: Update All Subsidiary Sites
+    runs-on: ubuntu-latest
+    needs: detect-changes
+    if: needs.detect-changes.outputs.template == 'true'
+    strategy:
+      fail-fast: false
+      matrix:
+        subdomain:
+          - agri
+          - capital
+          - carwash
+          - catering
+          - construction
+          - corporate
+          - energy
+          - events
+          - facility
+          - logistics
+          - media
+          - property
+          - security
+          - tech
+          - training
+          - assets
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy Template to ${{ matrix.subdomain }}
+        uses: samuelmeuli/action-fast-sync@v1
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.MLG_DEPLOY_USER }}
+          password: ${{ secrets.MLG_DEPLOY_PASSWORD }}
+          local_path: './02_Subsidiary_Sites_Template/'
+          remote_path: '/home/mlg-deploy/web/${{ matrix.subdomain }}.malenglegacy.co.za/public_html/'

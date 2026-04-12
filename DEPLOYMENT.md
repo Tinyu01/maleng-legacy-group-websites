@@ -1,6 +1,56 @@
 # Deployment Guide - Maleng Legacy Group Websites
 
+> Public-safe documentation note: This document may use placeholders. See `DOCUMENTATION_PLACEHOLDER_MAP.md` in workspace root.
+
 Complete guide for deploying the parent site and subsidiary websites to production.
+
+## ✅ Primary Deployment Method (Hestia + GitHub Actions)
+
+The primary production method is now **GitHub Actions -> HestiaCP server** using a dedicated deploy account.
+
+### MLG Automated Sync Protocol
+
+- **Source Control:** GitHub (`main` branch)
+- **Primary Target:** `<deploy-user>@<server-ip-or-hostname>`
+- **Workflow File:** `.github/workflows/main_deploy.yml`
+
+### Master Sync Logic
+
+On each push to `main`, the workflow checks what changed:
+
+1. If changes are in `01_Parent_Site_MalengLegacy.com/**` -> deploy parent only
+2. If changes are in `02_Subsidiary_Sites_Template/**` -> deploy all subsidiaries only
+
+This preserves your existing parent/subsidiary structure and avoids unnecessary deployments.
+
+### Required Repository Secrets
+
+In GitHub -> **Settings -> Secrets and variables -> Actions**, add:
+
+- `SERVER_IP` = `<server-ip-or-hostname>`
+- `MLG_DEPLOY_USER` = `<deploy-user>`
+- `MLG_DEPLOY_PASSWORD` = `<deploy-password>`
+
+### Security Note (Important)
+
+- No real passwords or private keys should ever be committed to this repository.
+- Keep `MLG_DEPLOY_PASSWORD` only in GitHub Secrets.
+- If this repository becomes public, replace exposed infrastructure details (such as server IP and deploy username) in docs with placeholders.
+
+### Server Mapping
+
+- Parent source: `01_Parent_Site_MalengLegacy.com/` -> `/home/<deploy-user>/web/<root-domain>/public_html/`
+- Template source: `02_Subsidiary_Sites_Template/` -> `/home/<deploy-user>/web/{subdomain}.<root-domain>/public_html/`
+
+### Note on Naming Conventions
+
+The holding company concept **"Vault"** is deployed to the domain `assets.<root-domain>`.
+
+- Business concept: Vault
+- Deployment keyword in GitHub matrix: `assets`
+- Server target path: `/home/<deploy-user>/web/assets.<root-domain>/public_html/`
+
+To add more subsidiaries, add another `subdomain` value in the matrix inside `.github/workflows/main_deploy.yml`.
 
 ## 🧭 Deployment Models
 
@@ -18,13 +68,11 @@ This repository supports two valid deployment models:
 
 ## 📋 Pre-Deployment Checklist
 
-- [ ] All 16 subsidiaries tested locally
+- [ ] Parent/subsidiary changes tested locally
 - [ ] No console errors or warnings
-- [ ] SEO meta tags verified for each page
-- [ ] Images optimized and compressed
-- [ ] Environment variables set up
-- [ ] Build tested successfully
-- [ ] Mobile responsiveness verified
+- [ ] GitHub Actions secrets configured (`SERVER_IP`, `MLG_DEPLOY_USER`, `MLG_DEPLOY_PASSWORD`)
+- [ ] `.github/workflows/main_deploy.yml` exists on `main`
+- [ ] Hestia web directories exist for target domains
 - [ ] All links working (internal and external)
 
 ## 🔗 Deployment Targets
@@ -39,9 +87,34 @@ This repository supports two valid deployment models:
 02_Subsidiary_Sites_Template/[Subsidiary Folder]/02_Code_and_Development/project/
 ```
 
-## ☁️ Deployment Options
+## ☁️ Deployment Options (Hestia Primary)
 
-### Option 1: Vercel (Recommended) ⭐
+### Option 1: Hestia + GitHub Actions (Recommended) ⭐
+
+This is the active enterprise workflow for this repository.
+
+1. **Push your changes to `main`**
+```bash
+git add .
+git commit -m "Update website content"
+git push origin main
+```
+
+2. **GitHub Actions auto-detects what changed**
+   - Parent folder change -> deploy parent domain
+   - Template folder change -> deploy all subsidiary domains in the matrix
+
+3. **Verify run status**
+   - Open Actions tab in GitHub
+   - Confirm `MLG Group Master Deployment` completed successfully
+
+4. **Add a new subsidiary deployment target**
+   - Edit `.github/workflows/main_deploy.yml`
+   - Add the new subdomain to `strategy.matrix.subdomain`
+
+---
+
+### Option 2: Vercel
 
 **Why Vercel?**
 - Official Next.js deployment platform
@@ -92,7 +165,7 @@ https://tech.yourdomain.com                          ← Example standalone subs
 
 ---
 
-### Option 2: Netlify
+### Option 3: Netlify
 
 **Steps:**
 
@@ -125,7 +198,7 @@ npm run build
 
 ---
 
-### Option 3: AWS Amplify
+### Option 4: AWS Amplify
 
 **Steps:**
 
@@ -154,7 +227,7 @@ amplify publish
 
 ---
 
-### Option 4: Traditional VPS/Server
+### Option 5: Traditional VPS/Server
 
 **Requirements:**
 - Node.js 16+ installed
@@ -279,30 +352,28 @@ curl https://security.yourdomain.com
 
 ## 🔄 Continuous Deployment
 
-### Auto-Deploy on GitHub Push (Vercel/Netlify)
+### Auto-Deploy on GitHub Push (Hestia)
 
-These platforms automatically deploy when you push to GitHub:
+Deployment is triggered automatically when changes are pushed to `main`.
 
-1. **Make changes locally**
-2. **Commit & push**
 ```bash
 git add .
 git commit -m "Update website content"
 git push origin main
 ```
 
-3. **Automatic deployment** - No manual steps needed!
+The workflow then:
+- Detects whether parent and/or template paths changed
+- Deploys only the matching target(s)
+- Uses deploy credentials from GitHub Secrets
 
-### Manual Updates
+### Manual Emergency Update (Server-Side)
 
-**Via SSH (VPS):**
+Use only if GitHub Actions is unavailable:
+
 ```bash
-ssh user@yourserver.com
-cd /path/to/project
-git pull origin main
-npm install
-npm run build
-pm2 restart maleng-legacy
+ssh <deploy-user>@<server-ip-or-hostname>
+# Sync or upload changed files manually to the matching /home/<deploy-user>/web/.../public_html/ path
 ```
 
 ---
@@ -405,6 +476,8 @@ npm run lint
 
 ## 📞 Support Resources
 
+- **HestiaCP Docs:** https://hestiacp.com/docs/
+- **GitHub Actions Docs:** https://docs.github.com/actions
 - **Vercel Docs:** https://vercel.com/docs
 - **Next.js Docs:** https://nextjs.org/docs
 - **Netlify Docs:** https://docs.netlify.com
@@ -412,5 +485,5 @@ npm run lint
 
 ---
 
-**Last Updated:** February 23, 2026
+**Last Updated:** April 12, 2026
 **Status:** Ready for Production
