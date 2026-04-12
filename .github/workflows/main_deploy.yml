@@ -106,6 +106,24 @@ jobs:
           strip_components: 4
           overwrite: true
 
+      - name: Normalize Parent Permissions and Validate Index
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.ADMIN_SSH_USER }}
+          password: ${{ secrets.ADMIN_SSH_PASSWORD }}
+          script: |
+            set -e
+            TARGET="/home/admin/web/malenglegacy.co.za/public_html"
+            find "$TARGET" -type d -exec chmod 755 {} +
+            find "$TARGET" -type f -exec chmod 644 {} +
+            if [ ! -f "$TARGET/index.html" ]; then
+              echo "ERROR: index.html not found at $TARGET/index.html"
+              echo "Found index files at:"
+              find "$TARGET" -name "index.html" || true
+              exit 1
+            fi
+
   deploy-subsidiaries:
     name: Update All Subsidiary Sites
     runs-on: ubuntu-latest
@@ -174,3 +192,21 @@ jobs:
           target: '/home/mlg-deploy/web/${{ matrix.subdomain }}.malenglegacy.co.za/public_html/'
           strip_components: 5
           overwrite: true
+
+      - name: Normalize ${{ matrix.subdomain }} Permissions and Validate Index
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.MLG_SSH_USER }}
+          password: ${{ secrets.MLG_SSH_PASSWORD }}
+          script: |
+            set -e
+            TARGET="/home/mlg-deploy/web/${{ matrix.subdomain }}.malenglegacy.co.za/public_html"
+            find "$TARGET" -type d -exec chmod 755 {} +
+            find "$TARGET" -type f -exec chmod 644 {} +
+            if [ ! -f "$TARGET/index.html" ]; then
+              echo "ERROR: index.html not found at $TARGET/index.html"
+              echo "Found index files at:"
+              find "$TARGET" -name "index.html" || true
+              exit 1
+            fi
