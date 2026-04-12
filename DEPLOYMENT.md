@@ -6,12 +6,12 @@ Complete guide for deploying the parent site and subsidiary websites to producti
 
 ## ✅ Primary Deployment Method (Hestia + GitHub Actions)
 
-The primary production method is now **GitHub Actions -> HestiaCP server** using a dedicated deploy account.
+The primary production method is now **GitHub Actions -> HestiaCP server** using isolated Linux users per website ownership.
 
 ### MLG Automated Sync Protocol
 
 - **Source Control:** GitHub (`main` branch)
-- **Primary Target:** `<deploy-user>@<server-ip-or-hostname>`
+- **Primary Target:** `<server-ip-or-hostname>`
 - **Workflow File:** `.github/workflows/main_deploy.yml`
 
 ### Master Sync Logic
@@ -27,20 +27,22 @@ This preserves your existing parent/subsidiary structure and avoids unnecessary 
 
 In GitHub -> **Settings -> Secrets and variables -> Actions**, add:
 
-- `SERVER_IP` = `<server-ip-or-hostname>`
-- `MLG_DEPLOY_USER` = `<deploy-user>`
-- `MLG_DEPLOY_PASSWORD` = `<deploy-password>`
+- `HOST` = `<server-ip-or-hostname>`
+- `ADMIN_SSH_USER` = `<admin-user>`
+- `ADMIN_SSH_PASSWORD` = `<admin-password>`
+- `MLG_SSH_USER` = `<mlg-deploy-user>`
+- `MLG_SSH_PASSWORD` = `<mlg-deploy-password>`
 
 ### Security Note (Important)
 
 - No real passwords or private keys should ever be committed to this repository.
-- Keep `MLG_DEPLOY_PASSWORD` only in GitHub Secrets.
+- Keep SSH passwords only in GitHub Secrets.
 - If this repository becomes public, replace exposed infrastructure details (such as server IP and deploy username) in docs with placeholders.
 
 ### Server Mapping
 
-- Parent source: `01_Parent_Site_MalengLegacy.com/` -> `/home/<deploy-user>/web/<root-domain>/public_html/`
-- Template source: `02_Subsidiary_Sites_Template/` -> `/home/<deploy-user>/web/{subdomain}.<root-domain>/public_html/`
+- Parent source: `01_Parent_Site_MalengLegacy.com/` -> `/home/<admin-user>/web/<root-domain>/public_html/`
+- Template source: `02_Subsidiary_Sites_Template/` -> `/home/<mlg-deploy-user>/web/{subdomain}.<root-domain>/public_html/`
 
 ### Note on Naming Conventions
 
@@ -48,7 +50,7 @@ The holding company concept **"Vault"** is deployed to the domain `assets.<root-
 
 - Business concept: Vault
 - Deployment keyword in GitHub matrix: `assets`
-- Server target path: `/home/<deploy-user>/web/assets.<root-domain>/public_html/`
+- Server target path: `/home/<mlg-deploy-user>/web/assets.<root-domain>/public_html/`
 
 To add more subsidiaries, add another `subdomain` value in the matrix inside `.github/workflows/main_deploy.yml`.
 
@@ -70,7 +72,7 @@ This repository supports two valid deployment models:
 
 - [ ] Parent/subsidiary changes tested locally
 - [ ] No console errors or warnings
-- [ ] GitHub Actions secrets configured (`SERVER_IP`, `MLG_DEPLOY_USER`, `MLG_DEPLOY_PASSWORD`)
+- [ ] GitHub Actions secrets configured (`HOST`, `ADMIN_SSH_USER`, `ADMIN_SSH_PASSWORD`, `MLG_SSH_USER`, `MLG_SSH_PASSWORD`)
 - [ ] `.github/workflows/main_deploy.yml` exists on `main`
 - [ ] Hestia web directories exist for target domains
 - [ ] All links working (internal and external)

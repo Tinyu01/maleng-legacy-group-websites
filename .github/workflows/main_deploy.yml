@@ -43,11 +43,11 @@ jobs:
       - name: Deploy Parent to Root Domain
         uses: appleboy/scp-action@v0.1.7
         with:
-          host: ${{ secrets.SERVER_IP }}
-          username: ${{ secrets.MLG_DEPLOY_USER }}
-          password: ${{ secrets.MLG_DEPLOY_PASSWORD }}
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.ADMIN_SSH_USER }}
+          password: ${{ secrets.ADMIN_SSH_PASSWORD }}
           source: '01_Parent_Site_MalengLegacy.com/**'
-          target: '/home/mlg-deploy/web/malenglegacy.co.za/public_html/'
+          target: '/home/admin/web/malenglegacy.co.za/public_html/'
           strip_components: 1
           overwrite: true
 
@@ -83,9 +83,9 @@ jobs:
       - name: Deploy Template to ${{ matrix.subdomain }}
         uses: appleboy/scp-action@v0.1.7
         with:
-          host: ${{ secrets.SERVER_IP }}
-          username: ${{ secrets.MLG_DEPLOY_USER }}
-          password: ${{ secrets.MLG_DEPLOY_PASSWORD }}
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.MLG_SSH_USER }}
+          password: ${{ secrets.MLG_SSH_PASSWORD }}
           source: '02_Subsidiary_Sites_Template/**'
           target: '/home/mlg-deploy/web/${{ matrix.subdomain }}.malenglegacy.co.za/public_html/'
           strip_components: 1
