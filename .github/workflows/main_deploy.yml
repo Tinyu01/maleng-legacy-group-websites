@@ -31,14 +31,69 @@ jobs:
             template:
               - '02_Subsidiary_Sites_Template/**'
 
-  deploy-parent:
-    name: Update Main Holding Site
+  validate-parent-secrets:
+    name: Validate Parent Deploy Secrets
     runs-on: ubuntu-latest
     needs: detect-changes
     if: needs.detect-changes.outputs.parent == 'true'
     steps:
+      - name: Check required parent secrets
+        env:
+          HOST: ${{ secrets.HOST }}
+          ADMIN_SSH_USER: ${{ secrets.ADMIN_SSH_USER }}
+          ADMIN_SSH_PASSWORD: ${{ secrets.ADMIN_SSH_PASSWORD }}
+        run: |
+          missing=0
+          if [ -z "$HOST" ]; then echo "::error::Missing required secret: HOST"; missing=1; fi
+          if [ -z "$ADMIN_SSH_USER" ]; then echo "::error::Missing required secret: ADMIN_SSH_USER"; missing=1; fi
+          if [ -z "$ADMIN_SSH_PASSWORD" ]; then echo "::error::Missing required secret: ADMIN_SSH_PASSWORD"; missing=1; fi
+          if [ "$missing" -ne 0 ]; then
+            echo "Parent deployment preflight failed. Add missing secrets in Settings -> Secrets and variables -> Actions."
+            exit 1
+          fi
+
+  validate-subsidiary-secrets:
+    name: Validate Subsidiary Deploy Secrets
+    runs-on: ubuntu-latest
+    needs: detect-changes
+    if: needs.detect-changes.outputs.template == 'true'
+    steps:
+      - name: Check required subsidiary secrets
+        env:
+          HOST: ${{ secrets.HOST }}
+          MLG_SSH_USER: ${{ secrets.MLG_SSH_USER }}
+          MLG_SSH_PASSWORD: ${{ secrets.MLG_SSH_PASSWORD }}
+        run: |
+          missing=0
+          if [ -z "$HOST" ]; then echo "::error::Missing required secret: HOST"; missing=1; fi
+          if [ -z "$MLG_SSH_USER" ]; then echo "::error::Missing required secret: MLG_SSH_USER"; missing=1; fi
+          if [ -z "$MLG_SSH_PASSWORD" ]; then echo "::error::Missing required secret: MLG_SSH_PASSWORD"; missing=1; fi
+          if [ "$missing" -ne 0 ]; then
+            echo "Subsidiary deployment preflight failed. Add missing secrets in Settings -> Secrets and variables -> Actions."
+            exit 1
+          fi
+
+  deploy-parent:
+    name: Update Main Holding Site
+    runs-on: ubuntu-latest
+    needs:
+      - detect-changes
+      - validate-parent-secrets
+    if: needs.detect-changes.outputs.parent == 'true'
+    steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Build Parent Static Export
+        working-directory: 01_Parent_Site_MalengLegacy.com/02_Code_and_Development/project
+        run: |
+          npm install
+          npm run build
 
       - name: Deploy Parent to Root Domain
         uses: appleboy/scp-action@v0.1.7
@@ -46,39 +101,68 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.ADMIN_SSH_USER }}
           password: ${{ secrets.ADMIN_SSH_PASSWORD }}
-          source: '01_Parent_Site_MalengLegacy.com/**'
+          source: '01_Parent_Site_MalengLegacy.com/02_Code_and_Development/project/out/**'
           target: '/home/admin/web/malenglegacy.co.za/public_html/'
-          strip_components: 1
+          strip_components: 4
           overwrite: true
 
   deploy-subsidiaries:
     name: Update All Subsidiary Sites
     runs-on: ubuntu-latest
-    needs: detect-changes
+    needs:
+      - detect-changes
+      - validate-subsidiary-secrets
     if: needs.detect-changes.outputs.template == 'true'
     strategy:
       fail-fast: false
       matrix:
-        subdomain:
-          - agri
-          - capital
-          - carwash
-          - catering
-          - construction
-          - corporate
-          - energy
-          - events
-          - facility
-          - logistics
-          - media
-          - property
-          - security
-          - tech
-          - training
-          - assets
+        include:
+          - subdomain: agri
+            folder: 01_Maleng_Legacy_Agri_and_Farming
+          - subdomain: capital
+            folder: 02_Maleng_Legacy_Capital_and_Investment
+          - subdomain: carwash
+            folder: 03_Maleng_Legacy_Executive_Car_Wash
+          - subdomain: catering
+            folder: 04_Maleng_Legacy_Catering_and_Events
+          - subdomain: construction
+            folder: 05_Maleng_Legacy_Construction_and_Infrastructure
+          - subdomain: corporate
+            folder: 06_Maleng_Legacy_Corporate_Services
+          - subdomain: energy
+            folder: 07_Maleng_Legacy_Energy_and_Solar
+          - subdomain: events
+            folder: 08_Maleng_Legacy_Events_and_Conferencing
+          - subdomain: facility
+            folder: 09_Maleng_Legacy_Facility_Management
+          - subdomain: logistics
+            folder: 10_Maleng_Legacy_Logistics_and_Transport
+          - subdomain: media
+            folder: 11_Maleng_Legacy_Media_and_Signage
+          - subdomain: property
+            folder: 12_Maleng_Legacy_Property_Development
+          - subdomain: security
+            folder: 13_Maleng_Legacy_Security_and_Protection
+          - subdomain: tech
+            folder: 14_Maleng_Legacy_Tech_and_Consulting
+          - subdomain: training
+            folder: 15_Maleng_Legacy_Training_and_Development
+          - subdomain: assets
+            folder: 16_Maleng_Legacy_Vault_Assets
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Build ${{ matrix.subdomain }} Static Export
+        working-directory: 02_Subsidiary_Sites_Template/${{ matrix.folder }}/02_Code_and_Development/project
+        run: |
+          npm install
+          npm run build
 
       - name: Deploy Template to ${{ matrix.subdomain }}
         uses: appleboy/scp-action@v0.1.7
@@ -86,7 +170,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.MLG_SSH_USER }}
           password: ${{ secrets.MLG_SSH_PASSWORD }}
-          source: '02_Subsidiary_Sites_Template/**'
+          source: '02_Subsidiary_Sites_Template/${{ matrix.folder }}/02_Code_and_Development/project/out/**'
           target: '/home/mlg-deploy/web/${{ matrix.subdomain }}.malenglegacy.co.za/public_html/'
-          strip_components: 1
+          strip_components: 5
           overwrite: true
