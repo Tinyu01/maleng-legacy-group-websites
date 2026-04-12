@@ -89,11 +89,11 @@ jobs:
         with:
           node-version: 20
 
-      - name: Build Parent Static Export
+      - name: Prepare Parent Export (Sync + Export)
         working-directory: 01_Parent_Site_MalengLegacy.com/02_Code_and_Development/project
         run: |
           npm install
-          npm run build
+          npm run prepare:export
 
       - name: Verify Parent Export Exists
         run: |
