@@ -78,18 +78,17 @@ const Header = ({ isSubsidiary = false, subsidiaryName = '', subsidiaryUrl = '' 
         </div>
       </div>
 
-      {/* Main Header */}
       <header
         className={`sticky top-0 w-full z-50 transition-all duration-300 ${
-          isScrolled 
-            ? 'bg-primary/98 backdrop-blur-lg border-b border-white/10 shadow-2xl' 
+          isScrolled
+            ? 'bg-primary/98 backdrop-blur-lg border-b border-white/10 shadow-2xl'
             : 'bg-primary/80 backdrop-blur'
         }`}
       >
         <div className="mx-auto px-6">
           <div className="flex justify-between items-center h-20">
             <Link href="/">
-              <motion.div 
+              <motion.div
                 className="flex items-center gap-3 cursor-pointer"
                 whileHover={{ scale: 1.02 }}
               >
@@ -120,7 +119,7 @@ const Header = ({ isSubsidiary = false, subsidiaryName = '', subsidiaryUrl = '' 
                 </Link>
               ))}
 
-              <div 
+              <div
                 className="relative"
                 onMouseEnter={() => setGroupDropdownOpen(true)}
                 onMouseLeave={() => setGroupDropdownOpen(false)}
@@ -148,7 +147,7 @@ const Header = ({ isSubsidiary = false, subsidiaryName = '', subsidiaryUrl = '' 
                         <div className="grid grid-cols-2 gap-3">
                           {subsidiaries.map((sub) => (
                             <Link key={sub.name} href={sub.url}>
-                              <motion.div 
+                              <motion.div
                                 whileHover={{ scale: 1.02 }}
                                 className="p-3 rounded-lg bg-white/5 hover:bg-accent/10 cursor-pointer transition border border-transparent hover:border-accent/30 group"
                               >
@@ -233,22 +232,39 @@ const Header = ({ isSubsidiary = false, subsidiaryName = '', subsidiaryUrl = '' 
 
           <AnimatePresence>
             {mobileMenuOpen && (
-              <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                className="lg:hidden bg-primary/95 border-t border-white/10"
+              <motion.nav
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                exit={{ opacity: 0, height: 0 }}
+                className="lg:hidden pb-4 space-y-1 border-t border-white/10 mt-2 pt-4"
               >
-                <nav className="px-6 py-4 space-y-3">
-                  {navLinks.map((link) => (
-                    <Link key={link.label} href={link.href}>
-                      <a className="block px-4 py-3 rounded-lg text-gray-300 hover:text-white hover:bg-white/5 transition">
-                        {link.label}
-                      </a>
-                    </Link>
-                  ))}
-                </nav>
-              </motion.div>
+                {navLinks.map((link) => (
+                  <Link key={link.label} href={link.href}>
+                    <p
+                      className="text-sm text-gray-300 hover:text-accent hover:bg-white/5 py-2 px-3 rounded cursor-pointer transition"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {link.label}
+                    </p>
+                  </Link>
+                ))}
+                <div className="pt-3 border-t border-white/10 mt-3">
+                  <p className="text-xs text-gray-400 font-semibold mb-2 px-3">Our Subsidiaries</p>
+                  <div className="grid grid-cols-2 gap-2">
+                    {subsidiaries.map((sub) => (
+                      <Link key={sub.name} href={sub.url}>
+                        <div className="text-sm text-gray-300 hover:text-accent hover:bg-white/5 py-2 px-3 rounded cursor-pointer transition">
+                          <span className="mr-2">{sub.icon}</span>
+                          {sub.name.split(' ')[0]}
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+                <button className="btn-primary w-full text-sm mt-4" onClick={() => setMobileMenuOpen(false)}>
+                  Contact Us
+                </button>
+              </motion.nav>
             )}
           </AnimatePresence>
         </div>

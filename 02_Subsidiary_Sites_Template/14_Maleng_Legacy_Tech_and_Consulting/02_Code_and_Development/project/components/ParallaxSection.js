@@ -5,20 +5,16 @@ export default function ParallaxSection({ children, backgroundImage, backgroundC
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start end", "end start"]
+    offset: ['start end', 'end start'],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], ["-20%", "20%"]);
+  const y = useTransform(scrollYProgress, [0, 1], ['-20%', '20%']);
   const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 1, 1, 0]);
 
   return (
     <section ref={ref} className="relative overflow-hidden">
-      {/* Background Layer */}
       {(backgroundImage || videoUrl) && (
-        <motion.div
-          style={{ y, opacity }}
-          className="absolute inset-0 z-0"
-        >
+        <motion.div style={{ y, opacity }} className="absolute inset-0 z-0">
           {videoUrl ? (
             <video
               autoPlay
@@ -39,10 +35,7 @@ export default function ParallaxSection({ children, backgroundImage, backgroundC
         </motion.div>
       )}
 
-      {/* Content Layer */}
-      <div className="relative z-10">
-        {children}
-      </div>
+      <div className="relative z-10">{children}</div>
     </section>
   );
 }

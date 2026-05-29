@@ -22,23 +22,14 @@ const Footer = ({ isSubsidiary = false }) => {
     <footer className="bg-primary/50 backdrop-blur border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-          >
-            <h3 className="text-lg font-bold gradient-text mb-4">
-              Maleng Legacy Group
-            </h3>
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
+            <h3 className="text-lg font-bold gradient-text mb-4">Maleng Legacy Group</h3>
             <p className="text-sm text-gray-400 leading-relaxed">
               Building sustainable economic legacies through diversified solutions across key sectors.
             </p>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.1 }}
-          >
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.1 }}>
             <h4 className="font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
               {footerLinks.map((link) => (
@@ -53,11 +44,7 @@ const Footer = ({ isSubsidiary = false }) => {
             </ul>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-          >
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.2 }}>
             <h4 className="font-semibold mb-4">Our Clusters</h4>
             <ul className="space-y-2 text-sm text-gray-400">
               <li className="hover:text-accent cursor-pointer transition">Infrastructure & Built Environment</li>
@@ -67,11 +54,7 @@ const Footer = ({ isSubsidiary = false }) => {
             </ul>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-          >
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.3 }}>
             <h4 className="font-semibold mb-4">Contact</h4>
             <ul className="space-y-2 text-sm text-gray-400">
               <li>
@@ -95,7 +78,6 @@ const Footer = ({ isSubsidiary = false }) => {
           <p className="text-sm text-gray-400 mb-4 md:mb-0">
             &copy; {currentYear} Maleng Legacy Group Holdings (Pty) Ltd. All rights reserved.
           </p>
-
           <div className="flex gap-6">
             {socialLinks.map((social) => (
               <a
