@@ -1,8 +1,10 @@
 # Maleng Legacy Group Website
 ## Pre-Launch Checklist
 
+> Public-safe documentation note: This document may use placeholders. See `DOCUMENTATION_PLACEHOLDER_MAP.md` in workspace root.
+
 **Project:** Parent Company Website
-**Target Domain:** malenglegacy.co.za
+**Target Domain:** <root-domain>
 **Status:** PRODUCTION READY
 **Prepared By:** Development Team
 **Date:** February 20, 2026
@@ -136,10 +138,10 @@ Developer handover workflow reference:
 - [ ] www subdomain redirects to root (or vice versa)
 - [ ] HTTPS certificate installed and working
 - [ ] SSL/TLS enabled
-- [ ] Test URL: https://www.malenglegacy.co.za
+- [ ] Test URL: https://www.<root-domain>
 
 ### Email Setup
-- [ ] ceo@malenglegacy.co.za email account created
+- [ ] <primary-email> email account created
 - [ ] Email password secure and stored
 - [ ] IMAP/POP3 settings configured
 - [ ] Email client configured (Thunderbird, Outlook, Gmail)
@@ -230,7 +232,7 @@ Developer handover workflow reference:
 
 ### Issue: Website doesn't load
 **Solution:**
-1. Check domain DNS propagation (nslookup malenglegacy.co.za)
+1. Check domain DNS propagation (nslookup <root-domain>)
 2. Verify files uploaded to correct directory
 3. Check file permissions (644 for files, 755 for folders)
 4. Restart web server on HostAfrica
@@ -278,7 +280,7 @@ Developer handover workflow reference:
 - Search Console: https://support.google.com/webmasters
 
 **Development Support:**
-- Email: ceo@malenglegacy.co.za
+- Email: <primary-email>
 - Phone: +27 73 884 7449
 
 ---
