@@ -1,11 +1,159 @@
-﻿@tailwind base;
+﻿@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap');
+
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-html { scroll-behavior: smooth; }
-body {
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-primary text-white font-sans overflow-x-hidden;
   background: linear-gradient(to bottom, #1a1a2e, #16213e);
-  color: white;
-  font-family: Inter, system-ui, -apple-system, sans-serif;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+}
+
+h1 { @apply text-display-lg; }
+h2 { @apply text-display-md; }
+h3 { @apply text-2xl; }
+
+/* Modern Button Styles */
+@layer components {
+  .btn-primary {
+    @apply px-8 py-4 bg-accent text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-btn hover:scale-105 active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply px-8 py-4 border-2 border-accent text-accent font-semibold rounded-lg transition-all duration-300 hover:bg-accent hover:text-white;
+  }
+
+  .btn-outline {
+    @apply px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-lg transition-all duration-300 hover:border-accent hover:text-accent;
+  }
+
+  .card {
+    @apply bg-surface/50 backdrop-blur border border-white/10 rounded-xl p-6 transition-all duration-300 hover:border-accent/50 hover:shadow-card;
+  }
+
+  .section-title {
+    @apply text-4xl md:text-5xl font-bold mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-lg text-gray-300 max-w-2xl;
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes glow {
+  0%, 100% { text-shadow: 0 0 10px rgba(233, 69, 96, 0.5); }
+  50% { text-shadow: 0 0 20px rgba(233, 69, 96, 0.8); }
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* Gradient Text */
+.gradient-text {
+  @apply bg-gradient-to-r from-accent via-gold to-accent bg-clip-text text-transparent;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(233, 69, 96, 0.6);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(233, 69, 96, 0.9);
+}
+
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.6s ease-out;
+}
+
+/* Tailwind utility classes */
+.glass-effect {
+  @apply bg-white/10 backdrop-blur-md border border-white/20 rounded-xl;
+}
+
+.card-hover {
+  @apply transform transition-all duration-300 hover:scale-105 hover:shadow-xl;
+}
+
+.gradient-text {
+  @apply bg-gradient-to-r from-accent via-gold to-accent bg-clip-text text-transparent;
+}
+
+/* Responsive typography */
+@media (max-width: 768px) {
+  h1 {
+    @apply text-4xl;
+  }
+  h2 {
+    @apply text-2xl;
+  }
+  h3 {
+    @apply text-xl;
+  }
 }
