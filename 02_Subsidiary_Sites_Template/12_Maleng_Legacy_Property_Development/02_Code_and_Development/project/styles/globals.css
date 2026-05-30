@@ -33,7 +33,7 @@ h3 { @apply text-2xl; }
 /* Modern Button Styles */
 @layer components {
   .btn-primary {
-    @apply px-8 py-4 bg-accent text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-btn hover:scale-105 active:scale-95;
+    @apply px-8 py-4 bg-accent text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg hover:scale-105 active:scale-95;
   }
 
   .btn-secondary {

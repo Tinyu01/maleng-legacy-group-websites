@@ -41,7 +41,7 @@ export default function ParallaxHero() {
               <span className="gradient-text">Built for Growth</span>
             </h1>
             <p className="text-2xl text-gray-200 mb-8 max-w-3xl mx-auto">
-              South Africa's premier holding company delivering integrated business solutions across 18+ subsidiaries and 4 strategic clusters
+              South Africa&apos;s premier holding company delivering integrated business solutions across 18+ subsidiaries and 4 strategic clusters
             </p>
             
             {/* Stats Grid */}
