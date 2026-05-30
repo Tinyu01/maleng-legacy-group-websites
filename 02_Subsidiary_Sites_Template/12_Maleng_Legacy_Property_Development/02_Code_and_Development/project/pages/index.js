@@ -310,7 +310,7 @@ export default function Property() {
                     <span key={i} className="text-yellow-500 text-xl">★</span>
                   ))}
                 </div>
-                <p className="text-gray-700 mb-6 italic">"{testimonial.content}"</p>
+                <p className="text-gray-700 mb-6 italic">&quot;{testimonial.content}&quot;</p>
                 <div className="border-t pt-4">
                   <p className="font-bold">{testimonial.name}</p>
                   <p className="text-sm text-gray-600">{testimonial.role}</p>

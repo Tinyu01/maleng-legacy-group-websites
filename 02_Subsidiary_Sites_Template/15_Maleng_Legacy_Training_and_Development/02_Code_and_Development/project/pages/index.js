@@ -310,7 +310,7 @@ export default function Training() {
                     <span key={i} className="text-cyan-500 text-xl">★</span>
                   ))}
                 </div>
-                <p className="text-gray-700 mb-6 italic">"{testimonial.content}"</p>
+                <p className="text-gray-700 mb-6 italic">&quot;{testimonial.content}&quot;</p>
                 <div className="border-t pt-4">
                   <p className="font-bold">{testimonial.name}</p>
                   <p className="text-sm text-gray-600">{testimonial.role}</p>
@@ -333,7 +333,7 @@ export default function Training() {
             >
               <h2 className="text-4xl font-bold mb-4 text-cyan-500">See Our Impact</h2>
               <p className="text-xl text-gray-300">
-                Watch how we're building a skilled workforce that drives Limpopo's economic growth
+                Watch how we&apos;re building a skilled workforce that drives Limpopo&apos;s economic growth
               </p>
             </motion.div>
 
