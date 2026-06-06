@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Navigation from '../../components/Navigation';
 import Footer from '../../components/Footer';
+import PageHeader from '../../components/PageHeader';
 import caseStudiesData from '../../data/caseStudies.json';
 
 export default function CaseStudiesPage() {
@@ -24,41 +25,20 @@ export default function CaseStudiesPage() {
           name="description"
           content="Explore our enterprise success stories: Infrastructure consolidation, digital transformation, cybersecurity, and more."
         />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
       <div className="min-h-screen bg-primary text-white">
         <Navigation isSubsidiary={true} subsidiaryName="Tech & Consulting" />
 
-        {/* Hero Section */}
-        <section className="relative pt-20 pb-16 md:pt-32 md:pb-24 px-6 overflow-hidden">
-          <div className="absolute inset-0 opacity-20">
-            <div className="absolute top-20 left-10 w-72 h-72 bg-highlight rounded-full blur-3xl" />
-            <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent rounded-full blur-3xl" />
-          </div>
-
-          <div className="mx-auto max-w-6xl relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center"
-            >
-              <div className="inline-block px-4 py-2 bg-accent/10 border border-accent/30 rounded-full mb-6">
-                <span className="text-accent font-bold text-sm">CLIENT SUCCESS</span>
-              </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                Enterprise{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-highlight to-accent">
-                  Success Stories
-                </span>
-              </h1>
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                See how we've helped enterprises transform their infrastructure, security, and digital capabilities.
-              </p>
-            </motion.div>
-          </div>
-        </section>
+        {/* Page Header with Image Background */}
+        <PageHeader
+          badge="CLIENT SUCCESS"
+          title="Enterprise"
+          highlight="Success Stories"
+          description="See how we've helped enterprises transform their infrastructure, security, and digital capabilities."
+          breadcrumb={[{ label: 'Case Studies', href: '#' }]}
+          bg="default"
+        />
 
         {/* Filter */}
         <section className="py-8 px-6 bg-soft">
@@ -122,7 +102,7 @@ export default function CaseStudiesPage() {
         </section>
 
         {/* CTA */}
-        <section className="py-20 px-6 bg-gradient-to-r from-b2b-primary via-b2b-secondary to-b2b-primary">
+        <section className="py-20 px-6 bg-gradient-to-r from-highlight/20 to-accent/20">
           <div className="mx-auto max-w-4xl text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -132,7 +112,7 @@ export default function CaseStudiesPage() {
               <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Write Your Success Story?</h2>
               <Link
                 href="/contact"
-                className="inline-block px-8 py-4 bg-white text-b2b-primary font-bold rounded-lg hover:shadow-2xl transition-all"
+                className="inline-block px-8 py-4 bg-gradient-to-r from-highlight to-accent text-white font-bold rounded-lg hover:shadow-2xl transition-all"
               >
                 Start Your Transformation
               </Link>

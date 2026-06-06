@@ -6,6 +6,7 @@ import Navigation from '../../components/Navigation';
 import Footer from '../../components/Footer';
 import PricingCard from '../../components/Services/PricingCard';
 import TrustIndicators from '../../components/Services/TrustIndicators';
+import PageHeader from '../../components/PageHeader';
 import services from '../../data/services.json';
 
 export default function PricingPage() {
@@ -48,36 +49,14 @@ export default function PricingPage() {
         <Navigation isSubsidiary={true} subsidiaryName="Tech & Consulting" />
 
         {/* Hero Section */}
-        <section className="relative pt-20 pb-16 md:pt-32 md:pb-24 px-6">
-          <div className="mx-auto max-w-6xl">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-center">
-                Transparent <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-highlight to-accent">
-                  Pricing for All
-                </span>
-              </h1>
-
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto text-center mb-8">
-                Choose the perfect plan for your business. All tiers include 24/7 support,
-                SSL certificates, and access to our expert team.
-              </p>
-
-              <div className="flex justify-center">
-                <div className="inline-flex items-center gap-4 p-3 rounded-full bg-white/10 border border-white/20">
-                  <span className="text-sm text-gray-300">💡 Tip:</span>
-                  <span className="text-sm">
-                    Need custom pricing? <span className="text-highlight font-semibold">Contact us</span>
-                  </span>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </section>
+       <PageHeader
+  badge="TRANSPARENT PRICING"
+  title="Enterprise"
+  highlight="Solutions for Every Budget"
+  description="Choose the perfect plan for your business. All tiers include 24/7 support and expert access."
+  breadcrumb={[{ label: 'Pricing', href: '#' }]}
+  bg="pricing"
+/>
 
         {/* Category Filter */}
         <section className="py-8 px-6 bg-soft">

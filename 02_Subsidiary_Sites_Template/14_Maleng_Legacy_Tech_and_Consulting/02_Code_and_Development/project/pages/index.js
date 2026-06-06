@@ -82,6 +82,7 @@ export default function HomePage() {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://tech.malenglegacy.co.za" />
       </Head>
+      
 
       <Header isSubsidiary={true} subsidiaryName="Tech & Consulting" />
 
