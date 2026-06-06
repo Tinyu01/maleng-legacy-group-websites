@@ -82,15 +82,14 @@ export default function HomePage() {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://tech.malenglegacy.co.za" />
       </Head>
-      
 
       <Header isSubsidiary={true} subsidiaryName="Tech & Consulting" />
 
       <main>
-        {/* Modern Hero Section - Without right column stats */}
+        {/* Modern Hero Section */}
         <HeroModern />
 
-        {/* ===== 5 Core Service Lines Section ===== */}
+        {/* ===== 6 Core Service Lines Section (KEPT - has own background) ===== */}
         <section id="services" className="py-20 md:py-28 bg-gradient-to-b from-primary via-primary/95 to-soft">
           <div className="max-w-7xl mx-auto px-6">
             <motion.div
@@ -104,7 +103,7 @@ export default function HomePage() {
                 <span className="text-accent font-bold text-sm">OUR SERVICES</span>
               </div>
               <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                5 Core <span className="text-transparent bg-clip-text bg-gradient-to-r from-highlight to-accent">Service Lines</span>
+                6 Core <span className="text-transparent bg-clip-text bg-gradient-to-r from-highlight to-accent">Service Lines</span>
               </h2>
               <p className="text-xl text-gray-300 max-w-2xl mx-auto">
                 Each category offers specialized expertise, proven methodologies, and dedicated support.
@@ -173,8 +172,8 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ===== Most Trusted Services - Carousel ===== */}
-        <section className="py-20 md:py-28 bg-soft">
+        {/* ===== Most Trusted Services - Carousel (TRANSPARENT - shows page background) ===== */}
+        <section className="py-20 md:py-28">
           <div className="max-w-7xl mx-auto px-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -183,7 +182,7 @@ export default function HomePage() {
               transition={{ duration: 0.6 }}
               className="text-center mb-12"
             >
-              <div className="inline-block px-4 py-2 bg-accent/10 border border-accent/30 rounded-full mb-4">
+              <div className="inline-block px-4 py-2 bg-accent/10 backdrop-blur-sm border border-accent/30 rounded-full mb-4">
                 <span className="text-accent font-bold text-sm">🎯 FEATURED SERVICES</span>
               </div>
               <h2 className="text-4xl md:text-5xl font-bold mb-4">
@@ -233,14 +232,14 @@ export default function HomePage() {
                 <div className="flex gap-3">
                   <button
                     onClick={prevSlide}
-                    className="p-3 rounded-xl bg-white/10 backdrop-blur border border-white/20 hover:border-highlight hover:bg-highlight/20 transition-all duration-300 group"
+                    className="p-3 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 hover:border-highlight hover:bg-highlight/20 transition-all duration-300 group"
                     aria-label="Previous slide"
                   >
                     <FaChevronLeft className="w-5 h-5 text-white group-hover:scale-110 transition-transform" />
                   </button>
                   <button
                     onClick={nextSlide}
-                    className="p-3 rounded-xl bg-white/10 backdrop-blur border border-white/20 hover:border-highlight hover:bg-highlight/20 transition-all duration-300 group"
+                    className="p-3 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 hover:border-highlight hover:bg-highlight/20 transition-all duration-300 group"
                     aria-label="Next slide"
                   >
                     <FaChevronRight className="w-5 h-5 text-white group-hover:scale-110 transition-transform" />
@@ -264,7 +263,7 @@ export default function HomePage() {
             >
               <Link
                 href="/services"
-                className="inline-flex items-center gap-2 px-8 py-3 bg-white/5 border border-white/10 text-white font-semibold rounded-xl hover:border-highlight/50 hover:bg-highlight/10 transition-all duration-300 group"
+                className="inline-flex items-center gap-2 px-8 py-3 bg-white/5 backdrop-blur-sm border border-white/10 text-white font-semibold rounded-xl hover:border-highlight/50 hover:bg-highlight/10 transition-all duration-300 group"
               >
                 View All Services
                 <FaArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -273,16 +272,16 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Why Choose Us - Highlights */}
+        {/* Why Choose Us - Highlights (KEPT - has own gradient) */}
         <HighlightGrid />
 
-        {/* How It Works */}
+        {/* How It Works (TRANSPARENT - shows page background) */}
         <HowItWorks />
 
-        {/* Client Testimonials */}
+        {/* Client Testimonials (KEPT - has own gradient) */}
         <Testimonials />
 
-        {/* Final CTA */}
+        {/* Final CTA (KEPT - has own gradient banner) */}
         <FinalCTA />
       </main>
 
@@ -291,14 +290,14 @@ export default function HomePage() {
   );
 }
 
-// Individual Service Slide Component - Modern Styling (FIXED Hydration)
+// Individual Service Slide Component - Modern Styling
 function ServiceSlide({ service, isClient }) {
   const rawPrice = service.pricing?.starter?.price;
   const formattedPrice = rawPrice ? rawPrice.toLocaleString() : '0';
 
   return (
     <Link href={`/services/${service.categorySlug}/${service.slug}`} className="block h-full group">
-      <div className="h-full bg-gradient-to-br from-soft via-surface to-surface border border-white/10 rounded-2xl p-6 hover:border-highlight/50 transition-all duration-300 overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-highlight/20">
+      <div className="h-full bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:border-highlight/50 transition-all duration-300 overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-highlight/20">
         <div className="flex items-start gap-4 mb-4">
           <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-highlight/20 to-accent/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
             <span className="text-3xl">{service.icon}</span>

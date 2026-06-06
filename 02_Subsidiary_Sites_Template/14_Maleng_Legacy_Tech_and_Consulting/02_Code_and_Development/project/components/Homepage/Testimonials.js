@@ -9,7 +9,6 @@ export default function Testimonials() {
 
   const featured = testimonials.homepage || [];
 
-  // Auto-scroll every 6 seconds
   useEffect(() => {
     if (!autoPlay || featured.length === 0) return;
     const interval = setInterval(() => {
@@ -36,9 +35,8 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-b from-transparent to-primary/10">
+    <section className="py-20 bg-gradient-to-b from-transparent to-primary/20">
       <div className="max-w-7xl mx-auto px-6">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -46,7 +44,7 @@ export default function Testimonials() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <div className="inline-block px-4 py-2 bg-accent/10 border border-accent/30 rounded-full mb-6">
+          <div className="inline-block px-4 py-2 bg-accent/10 backdrop-blur-sm border border-accent/30 rounded-full mb-6">
             <span className="text-accent font-bold text-sm">CLIENT SUCCESS STORIES</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
@@ -54,13 +52,11 @@ export default function Testimonials() {
           </h2>
         </motion.div>
 
-        {/* Carousel */}
         <div
           className="relative"
           onMouseEnter={() => setAutoPlay(false)}
           onMouseLeave={() => setAutoPlay(true)}
         >
-          {/* Testimonials Grid */}
           <div className="grid md:grid-cols-2 gap-6 min-h-[400px]">
             <AnimatePresence mode="popLayout">
               {[currentIndex, (currentIndex + 1) % featured.length].map((index) => {
@@ -79,7 +75,6 @@ export default function Testimonials() {
                   </motion.div>
                 );
               })}
-              {/* Mobile - single card */}
               {featured.length > 0 && (
                 <motion.div
                   key={`mobile-${currentIndex}-${featured[currentIndex].author}`}
@@ -95,9 +90,7 @@ export default function Testimonials() {
             </AnimatePresence>
           </div>
 
-          {/* Controls */}
           <div className="flex items-center justify-between mt-8">
-            {/* Dots */}
             <div className="flex gap-2">
               {featured.map((_, index) => (
                 <motion.button
@@ -114,13 +107,12 @@ export default function Testimonials() {
               ))}
             </div>
 
-            {/* Arrows */}
             <div className="flex gap-3">
               <motion.button
                 onClick={prevSlide}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                className="p-3 bg-primary/30 hover:bg-accent/20 border border-primary/50 hover:border-accent/50 rounded-lg transition-all text-accent"
+                className="p-3 bg-white/10 backdrop-blur-sm border border-white/20 hover:border-accent/50 rounded-lg transition-all text-accent"
               >
                 <FaChevronLeft size={20} />
               </motion.button>
@@ -128,7 +120,7 @@ export default function Testimonials() {
                 onClick={nextSlide}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                className="p-3 bg-accent/20 hover:bg-accent/30 border border-accent/50 rounded-lg transition-all text-accent"
+                className="p-3 bg-accent/20 backdrop-blur-sm border border-accent/50 rounded-lg transition-all text-accent"
               >
                 <FaChevronRight size={20} />
               </motion.button>
@@ -147,21 +139,18 @@ function TestimonialCard({ testimonial }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
     >
-      <div className="bg-gradient-to-br from-primary/50 to-primary/20 border border-primary/30 rounded-xl p-8 h-full flex flex-col hover:border-accent/50 transition-all duration-300">
-        {/* Rating */}
+      <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 h-full flex flex-col hover:border-accent/50 transition-all duration-300">
         <div className="flex gap-1 mb-4">
           {[...Array(5)].map((_, i) => (
             <FaStar key={i} className="text-accent" size={16} />
           ))}
         </div>
 
-        {/* Quote */}
         <p className="text-lg text-gray-200 mb-6 flex-grow leading-relaxed">
           "{testimonial.quote}"
         </p>
 
-        {/* Author */}
-        <div className="border-t border-primary/30 pt-4">
+        <div className="border-t border-white/10 pt-4">
           <div className="font-bold text-white">{testimonial.author}</div>
           <div className="text-sm text-gray-400">
             {testimonial.role} {testimonial.company && `• ${testimonial.company}`}

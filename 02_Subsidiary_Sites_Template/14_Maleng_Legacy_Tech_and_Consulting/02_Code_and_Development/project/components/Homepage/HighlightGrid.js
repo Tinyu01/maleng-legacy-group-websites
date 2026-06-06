@@ -29,28 +29,8 @@ export default function HighlightGrid() {
     },
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6 },
-    },
-  };
-
   return (
-    <section className="py-20 bg-gradient-to-b from-transparent to-primary/5">
+    <section className="py-20 bg-gradient-to-b from-transparent to-primary/10">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -59,7 +39,7 @@ export default function HighlightGrid() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <div className="inline-block px-4 py-2 bg-accent/10 border border-accent/30 rounded-full mb-6">
+          <div className="inline-block px-4 py-2 bg-accent/10 backdrop-blur-sm border border-accent/30 rounded-full mb-6">
             <span className="text-accent font-bold text-sm">WHY CHOOSE US</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
@@ -70,18 +50,19 @@ export default function HighlightGrid() {
           </p>
         </motion.div>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
-        >
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {highlights.map((item, index) => {
             const Icon = item.icon;
             return (
-              <motion.div key={index} variants={itemVariants} className="group">
-                <div className="h-full rounded-3xl border border-primary/30 bg-white/5 p-8 text-center transition hover:border-accent/50 hover:bg-white/10">
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1, duration: 0.6 }}
+                viewport={{ once: true }}
+                className="group"
+              >
+                <div className="h-full rounded-3xl bg-white/5 backdrop-blur-sm border border-white/10 p-8 text-center transition hover:border-accent/50 hover:bg-white/10">
                   <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-3xl bg-accent/10 text-accent transition group-hover:bg-accent/20">
                     <Icon className="text-3xl" />
                   </div>
@@ -94,7 +75,7 @@ export default function HighlightGrid() {
               </motion.div>
             );
           })}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
