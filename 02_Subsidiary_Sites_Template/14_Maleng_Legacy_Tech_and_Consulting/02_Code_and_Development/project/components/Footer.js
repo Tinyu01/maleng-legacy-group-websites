@@ -6,10 +6,13 @@ const Footer = ({ isSubsidiary = false }) => {
   const currentYear = new Date().getFullYear();
 
   const footerLinks = [
-    { label: 'About', href: '#about' },
-    { label: 'Solutions', href: '#solutions' },
-    { label: 'Careers', href: '#careers' },
-    { label: 'Privacy Policy', href: '/privacy' },
+    { label: 'About', href: '/about' },
+    { label: 'Services', href: '/services' },
+    { label: 'Pricing', href: '/pricing' },
+    { label: 'Case Studies', href: '/case-studies' },
+    { label: 'Contact', href: '/contact' },
+
+    
   ];
 
   const socialLinks = [
@@ -34,10 +37,8 @@ const Footer = ({ isSubsidiary = false }) => {
             <ul className="space-y-2">
               {footerLinks.map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href}>
-                    <span className="text-sm text-gray-400 hover:text-accent transition-colors cursor-pointer">
-                      {link.label}
-                    </span>
+                  <Link href={link.href} className="text-sm text-gray-400 hover:text-accent transition-colors cursor-pointer">
+                    {link.label}
                   </Link>
                 </li>
               ))}
@@ -63,8 +64,8 @@ const Footer = ({ isSubsidiary = false }) => {
                 </a>
               </li>
               <li>
-                <a href="mailto:investors@malenglegacy.co.za" className="hover:text-accent transition">
-                  investors@malenglegacy.co.za
+                <a href="tel:+27738847449" className="hover:text-accent transition">
+                  +27 73 884 7449
                 </a>
               </li>
               <li className="pt-2">Gauteng, South Africa</li>

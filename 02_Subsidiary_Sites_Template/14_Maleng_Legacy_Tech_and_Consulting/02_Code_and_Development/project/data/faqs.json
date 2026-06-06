@@ -1,0 +1,252 @@
+{
+  "general": [
+    {
+      "id": 1,
+      "question": "What makes your tech consulting different from competitors?",
+      "answer": "We focus on specialized B2B services across 5 core service lines with deep expertise in each. Our team has 15+ years of enterprise experience, and we prioritize ROI and measurable results for every engagement. We're not generalists – we specialize.",
+      "category": "General"
+    },
+    {
+      "id": 2,
+      "question": "Do you work with small businesses or only enterprises?",
+      "answer": "We work with companies of all sizes – startups, SMBs, and enterprises. Our service tiers (Starter, Professional, Enterprise) are designed to scale with your business and budget.",
+      "category": "General"
+    },
+    {
+      "id": 3,
+      "question": "What's your typical project timeline?",
+      "answer": "Timelines vary by service: Website projects are 2-4 weeks, custom software 4-16 weeks, consulting 2-12 weeks. We'll provide a detailed timeline after understanding your requirements.",
+      "category": "General"
+    },
+    {
+      "id": 4,
+      "question": "Do you provide support after project completion?",
+      "answer": "Yes, absolutely. All our service tiers include post-project support. Lengths vary from 30 days (Starter) to 24/7 ongoing (Enterprise). We stand behind our work.",
+      "category": "General"
+    }
+  ],
+  "software": [
+    {
+      "id": 1,
+      "question": "What technologies do you use for custom software development?",
+      "answer": "We work with modern stacks: React/Next.js for web frontend, Node.js/Python for backend, React Native for mobile. We choose the best technology for your specific needs.",
+      "category": "Software Development"
+    },
+    {
+      "id": 2,
+      "question": "Can you handle legacy system modernization?",
+      "answer": "Yes, legacy system modernization is one of our specialties. We can gradually migrate systems to modern architectures without disrupting operations.",
+      "category": "Software Development"
+    },
+    {
+      "id": 3,
+      "question": "Do you provide maintenance and updates after launch?",
+      "answer": "Yes, all custom software includes a maintenance period. Extended support packages are available (monthly or retainer-based).",
+      "category": "Software Development"
+    },
+    {
+      "id": 4,
+      "question": "What about security in custom applications?",
+      "answer": "Security is built into every application. We follow OWASP guidelines, implement encryption, secure authentication, and regular security audits.",
+      "category": "Software Development"
+    }
+  ],
+  "hosting": [
+    {
+      "id": 1,
+      "question": "What's your uptime guarantee?",
+      "answer": "We offer 99% (Starter), 99.5% (Professional), and 99.9% SLA (Enterprise). If we miss our SLA, we provide service credits.",
+      "category": "Hosting & Infrastructure"
+    },
+    {
+      "id": 2,
+      "question": "Can I scale my hosting as my traffic grows?",
+      "answer": "Absolutely. Our infrastructure is designed to scale. You can upgrade anytime, and we handle the scaling seamlessly without downtime.",
+      "category": "Hosting & Infrastructure"
+    },
+    {
+      "id": 3,
+      "question": "What about backups and disaster recovery?",
+      "answer": "Backups are included in all plans. Enterprise plans include full disaster recovery with multiple geographic redundancy.",
+      "category": "Hosting & Infrastructure"
+    },
+    {
+      "id": 4,
+      "question": "Do you support different technologies/frameworks?",
+      "answer": "Yes, we support Node.js, Python, PHP, Ruby, Java, and more. We can host any tech stack you're using.",
+      "category": "Hosting & Infrastructure"
+    },
+    {
+      "id": 5,
+      "question": "How quickly can you set up hosting?",
+      "answer": "Most hosting setups are live within 24 hours. Complex Enterprise setups may take 3-5 days.",
+      "category": "Hosting & Infrastructure"
+    }
+  ],
+  "consulting": [
+    {
+      "id": 1,
+      "question": "How do you determine if consulting is right for us?",
+      "answer": "We start with a free discovery call to understand your challenges and goals. We'll recommend the right service and level based on your needs.",
+      "category": "Consulting"
+    },
+    {
+      "id": 2,
+      "question": "What's the typical ROI from consulting engagements?",
+      "answer": "ROI varies, but typical clients see 25-40% cost savings, 30-50% efficiency improvements, or significant revenue increases through transformation projects.",
+      "category": "Consulting"
+    },
+    {
+      "id": 3,
+      "question": "Can consulting help with compliance (GDPR, HIPAA, SOC 2)?",
+      "answer": "Yes, compliance is one of our core consulting specialties. We help companies achieve and maintain GDPR, HIPAA, SOC 2, ISO 27001, and more.",
+      "category": "Consulting"
+    },
+    {
+      "id": 4,
+      "question": "How are consultant hours billed?",
+      "answer": "We offer flexible engagement models: hourly rates ($150-200/hr), fixed project fees, or retainer arrangements. We'll discuss the best fit for your situation.",
+      "category": "Consulting"
+    }
+  ],
+  "pricing": [
+    {
+      "id": 1,
+      "question": "Are there setup fees or hidden costs?",
+      "answer": "No hidden costs. Setup is typically free. All pricing is transparent – we'll show you exactly what you're paying for.",
+      "category": "Pricing"
+    },
+    {
+      "id": 2,
+      "question": "Can I start small and upgrade later?",
+      "answer": "Yes, all our services are designed to scale. Start with Starter tier and upgrade to Professional or Enterprise as you grow.",
+      "category": "Pricing"
+    },
+    {
+      "id": 3,
+      "question": "Do you offer volume discounts for large implementations?",
+      "answer": "Yes, volume discounts are available. Contact our sales team for custom quotes on large deployments.",
+      "category": "Pricing"
+    },
+    {
+      "id": 4,
+      "question": "What's your refund policy?",
+      "answer": "Monthly services: 30-day money-back guarantee if not satisfied. Project-based: cancellation available with prorated credits.",
+      "category": "Pricing"
+    },
+    {
+      "id": 5,
+      "question": "Can I lock in pricing for multiple years?",
+      "answer": "Yes, annual and multi-year commitments are available with discount (typically 10-20% savings).",
+      "category": "Pricing"
+    }
+  ],
+  "support": [
+    {
+      "id": 1,
+      "question": "What are your support hours?",
+      "answer": "Starter: Business hours (8am-5pm). Professional: 24/5 (24hrs weekdays). Enterprise: 24/7 around the clock.",
+      "category": "Support"
+    },
+    {
+      "id": 2,
+      "question": "How quickly do you respond to support tickets?",
+      "answer": "Starter: Within 24 hours. Professional: Within 4 hours. Enterprise: Within 1 hour. Critical incidents are responded to immediately.",
+      "category": "Support"
+    },
+    {
+      "id": 3,
+      "question": "Can I talk to a person or is support only via email/chat?",
+      "answer": "All support includes phone, email, and chat. Enterprise customers have a dedicated account manager.",
+      "category": "Support"
+    },
+    {
+      "id": 4,
+      "question": "What if I need help outside my service hours?",
+      "answer": "Enterprise customers: 24/7 support included. Professional: After-hours support available (additional fee). Starter: Emergency support available.",
+      "category": "Support"
+    }
+  ],
+  "security": [
+    {
+      "id": 1,
+      "question": "Is my data secure with you?",
+      "answer": "Yes. We're ISO 27001 certified, SOC 2 Type II compliant, and GDPR-ready. Encryption, regular audits, and strict access controls are standard.",
+      "category": "Security"
+    },
+    {
+      "id": 2,
+      "question": "Where is my data stored?",
+      "answer": "Data is stored in secure, redundant data centers. You can specify geographic location (US, EU, etc.) based on compliance requirements.",
+      "category": "Security"
+    },
+    {
+      "id": 3,
+      "question": "What about backup and disaster recovery?",
+      "answer": "All plans include automated backups. Enterprise includes geographic redundancy and rapid recovery (RTO < 1 hour).",
+      "category": "Security"
+    },
+    {
+      "id": 4,
+      "question": "Do you conduct security audits?",
+      "answer": "Yes, regular security audits are included in Professional and Enterprise plans. Penetration testing available on request.",
+      "category": "Security"
+    }
+  ],
+  "connectivity": [
+    {
+      "id": 1,
+      "question": "How fast is your internet service?",
+      "answer": "Starter: 50Mbps. Professional: 200Mbps. Enterprise: 1Gbps. Custom: Higher speeds available. All are dedicated, not shared.",
+      "category": "Connectivity"
+    },
+    {
+      "id": 2,
+      "question": "What about redundancy if your connection goes down?",
+      "answer": "We offer dual-redundant connections and automatic failover. Enterprise includes geographic diversity.",
+      "category": "Connectivity"
+    },
+    {
+      "id": 3,
+      "question": "Can you handle multi-location connectivity?",
+      "answer": "Yes, MPLS and SD-WAN networks can connect multiple locations securely and efficiently.",
+      "category": "Connectivity"
+    },
+    {
+      "id": 4,
+      "question": "How long does fiber deployment take?",
+      "answer": "Deployment timelines depend on location and distance. Small deployments: 1-3 weeks. Large projects: 2-8 weeks.",
+      "category": "Connectivity"
+    }
+  ],
+  "compliance": [
+    {
+      "id": 1,
+      "question": "Are you GDPR compliant?",
+      "answer": "Yes, fully GDPR compliant. We help customers implement GDPR-required controls and maintain compliance.",
+      "category": "Compliance"
+    },
+    {
+      "id": 2,
+      "question": "Do you support HIPAA compliance?",
+      "answer": "Yes, HIPAA-ready infrastructure and consulting available for healthcare organizations.",
+      "category": "Compliance"
+    },
+    {
+      "id": 3,
+      "question": "Can you help with SOC 2 certification?",
+      "answer": "Yes, SOC 2 Type II certified. We help customers prepare for audits and achieve their own certifications.",
+      "category": "Compliance"
+    },
+    {
+      "id": 4,
+      "question": "What about industry-specific compliance (PCI-DSS, etc.)?",
+      "answer": "We support compliance with major frameworks: PCI-DSS (payments), HIPAA (healthcare), FERPA (education), and more.",
+      "category": "Compliance"
+    }
+  ],
+  "meta": {
+    "version": "1.0.0",
+    "lastUpdated": "2026-06-04"
+  }
+}

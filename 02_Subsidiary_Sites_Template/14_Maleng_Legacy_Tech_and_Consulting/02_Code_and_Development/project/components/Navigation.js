@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
+import services from '../data/services.json';
 
 const Header = ({ isSubsidiary = false, subsidiaryName = '', subsidiaryUrl = '' }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [groupDropdownOpen, setGroupDropdownOpen] = useState(false);
+  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -28,11 +30,10 @@ const Header = ({ isSubsidiary = false, subsidiaryName = '', subsidiaryUrl = '' 
 
   const navLinks = [
     { label: 'About', href: '/about' },
-    { label: 'Solutions', href: '/solutions' },
     { label: 'Leadership', href: '/leadership' },
-    { label: 'Investor Relations', href: '/investor-relations' },
+    { label: 'Investor Relations', href: '/resources' },
     { label: 'Careers', href: '/careers' },
-    { label: 'Insights', href: '/insights' },
+    { label: 'Insights', href: '/blog' },
   ];
 
   return (
@@ -57,9 +58,9 @@ const Header = ({ isSubsidiary = false, subsidiaryName = '', subsidiaryUrl = '' 
             </div>
 
             <div className="flex items-center gap-6 ml-auto">
-              <a href="tel:+27123456789" className="text-gray-400 hover:text-accent transition hidden sm:flex items-center gap-2">
+              <a href="tel:+27738847449" className="text-gray-400 hover:text-accent transition hidden sm:flex items-center gap-2">
                 <span>📞</span>
-                <span>+27 (0)12 345 6789</span>
+                <span>+27 73 884 7449</span>
               </a>
               <a href="mailto:info@malenglegacy.co.za" className="text-gray-400 hover:text-accent transition flex items-center gap-2">
                 <span>✉️</span>
@@ -87,9 +88,9 @@ const Header = ({ isSubsidiary = false, subsidiaryName = '', subsidiaryUrl = '' 
       >
         <div className="mx-auto px-6">
           <div className="flex justify-between items-center h-20">
-            <Link href="/">
+            <Link href="/" className="flex items-center gap-3 cursor-pointer">
               <motion.div
-                className="flex items-center gap-3 cursor-pointer"
+                className="flex items-center gap-3"
                 whileHover={{ scale: 1.02 }}
               >
                 <div className={`w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-br from-accent to-gold transition-all shadow-lg ${isScrolled ? 'shadow-accent/30' : 'shadow-accent/50'}`}>
@@ -107,18 +108,77 @@ const Header = ({ isSubsidiary = false, subsidiaryName = '', subsidiaryUrl = '' 
             </Link>
 
             <nav className="hidden lg:flex items-center gap-1">
-              {navLinks.map((link) => (
-                <Link key={link.label} href={link.href}>
-                  <motion.div
-                    className="px-4 py-2 text-base font-medium text-gray-300 hover:text-white transition-colors cursor-pointer relative group rounded-lg hover:bg-white/5"
-                    whileHover={{ y: -1 }}
-                  >
-                    {link.label}
-                    <span className="absolute bottom-1 left-4 right-4 h-0.5 bg-accent scale-x-0 transition-transform group-hover:scale-x-100"></span>
-                  </motion.div>
+              {/* About link */}
+              <Link href="/about" className="px-4 py-2 text-base font-medium text-gray-300 hover:text-white transition-colors cursor-pointer relative group rounded-lg hover:bg-white/5">
+                <span>About</span>
+                <span className="absolute bottom-1 left-4 right-4 h-0.5 bg-accent scale-x-0 transition-transform group-hover:scale-x-100"></span>
+              </Link>
+
+              {/* Services Dropdown */}
+              <div
+                className="relative"
+                onMouseEnter={() => setServicesDropdownOpen(true)}
+                onMouseLeave={() => setServicesDropdownOpen(false)}
+              >
+                <button className="px-4 py-2 text-base font-medium text-gray-300 hover:text-white transition-colors flex items-center gap-2 rounded-lg hover:bg-white/5">
+                  Services
+                  <svg className={`w-4 h-4 transition-transform ${servicesDropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+
+                <AnimatePresence>
+                  {servicesDropdownOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 10 }}
+                      className="absolute top-full left-0 mt-2 w-80 bg-surface/98 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl overflow-hidden"
+                    >
+                      <div className="p-4">
+                        <div className="flex items-center justify-between mb-4">
+                          <h3 className="text-sm font-bold text-white">Our Services</h3>
+                          <span className="text-xs text-accent">{services.categories.length} Categories</span>
+                        </div>
+                        <div className="space-y-2">
+                          {services.categories.map((category) => (
+                            <Link 
+                              key={category.id} 
+                              href={`/services/${category.slug}`}
+                              className="block p-3 rounded-lg bg-white/5 hover:bg-accent/10 cursor-pointer transition border border-transparent hover:border-accent/30 group"
+                            >
+                              <p className="text-sm font-semibold text-white group-hover:text-accent transition">
+                                {category.name}
+                              </p>
+                              <p className="text-xs text-gray-400 mt-1">{category.services.length} services</p>
+                            </Link>
+                          ))}
+                        </div>
+                        <div className="mt-4 pt-4 border-t border-white/10">
+                          <Link href="/services" className="text-xs text-accent hover:text-accent/80 cursor-pointer flex items-center gap-2 font-medium">
+                            View All Services & Pricing
+                            <span>→</span>
+                          </Link>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* Remaining nav links */}
+              {navLinks.slice(1).map((link) => (
+                <Link 
+                  key={link.label} 
+                  href={link.href}
+                  className="px-4 py-2 text-base font-medium text-gray-300 hover:text-white transition-colors cursor-pointer relative group rounded-lg hover:bg-white/5"
+                >
+                  <span>{link.label}</span>
+                  <span className="absolute bottom-1 left-4 right-4 h-0.5 bg-accent scale-x-0 transition-transform group-hover:scale-x-100"></span>
                 </Link>
               ))}
 
+              {/* Our Group Dropdown */}
               <div
                 className="relative"
                 onMouseEnter={() => setGroupDropdownOpen(true)}
@@ -146,26 +206,23 @@ const Header = ({ isSubsidiary = false, subsidiaryName = '', subsidiaryUrl = '' 
                         </div>
                         <div className="grid grid-cols-2 gap-3">
                           {subsidiaries.map((sub) => (
-                            <Link key={sub.name} href={sub.url}>
-                              <motion.div
-                                whileHover={{ scale: 1.02 }}
-                                className="p-3 rounded-lg bg-white/5 hover:bg-accent/10 cursor-pointer transition border border-transparent hover:border-accent/30 group"
-                              >
-                                <div className="text-2xl mb-2">{sub.icon}</div>
-                                <p className="text-sm font-semibold text-white group-hover:text-accent transition">
-                                  {sub.name}
-                                </p>
-                                <p className="text-xs text-gray-400 mt-1">{sub.cluster}</p>
-                              </motion.div>
+                            <Link 
+                              key={sub.name} 
+                              href={sub.url}
+                              className="p-3 rounded-lg bg-white/5 hover:bg-accent/10 cursor-pointer transition border border-transparent hover:border-accent/30 group"
+                            >
+                              <div className="text-2xl mb-2">{sub.icon}</div>
+                              <p className="text-sm font-semibold text-white group-hover:text-accent transition">
+                                {sub.name}
+                              </p>
+                              <p className="text-xs text-gray-400 mt-1">{sub.cluster}</p>
                             </Link>
                           ))}
                         </div>
                         <div className="mt-4 pt-4 border-t border-white/10 flex justify-between items-center">
-                          <Link href="#subsidiaries">
-                            <p className="text-xs text-accent hover:text-accent/80 cursor-pointer flex items-center gap-2 font-medium">
-                              Explore All Subsidiaries
-                              <span>→</span>
-                            </p>
+                          <Link href="#subsidiaries" className="text-xs text-accent hover:text-accent/80 cursor-pointer flex items-center gap-2 font-medium">
+                            Explore All Subsidiaries
+                            <span>→</span>
                           </Link>
                           <span className="text-xs text-gray-500">4 Clusters</span>
                         </div>
@@ -187,14 +244,12 @@ const Header = ({ isSubsidiary = false, subsidiaryName = '', subsidiaryUrl = '' 
                 </svg>
               </motion.button>
 
-              <motion.a
+              <Link
                 href="/contact"
-                className="btn-primary text-base px-8 py-3"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                className="px-8 py-3 bg-accent text-white font-bold rounded-lg hover:shadow-lg transition-all duration-300"
               >
                 Contact Us
-              </motion.a>
+              </Link>
             </div>
 
             <button
@@ -238,32 +293,76 @@ const Header = ({ isSubsidiary = false, subsidiaryName = '', subsidiaryUrl = '' 
                 exit={{ opacity: 0, height: 0 }}
                 className="lg:hidden pb-4 space-y-1 border-t border-white/10 mt-2 pt-4"
               >
-                {navLinks.map((link) => (
-                  <Link key={link.label} href={link.href}>
-                    <p
-                      className="text-sm text-gray-300 hover:text-accent hover:bg-white/5 py-2 px-3 rounded cursor-pointer transition"
+                {/* About - first */}
+                <Link 
+                  href="/about"
+                  className="block text-sm text-gray-300 hover:text-accent hover:bg-white/5 py-2 px-3 rounded cursor-pointer transition"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  About
+                </Link>
+
+                {/* Services section */}
+                <div className="pt-2">
+                  <p className="text-xs text-gray-400 font-semibold mb-2 px-3">Services</p>
+                  <div className="space-y-1">
+                    {services.categories.map((category) => (
+                      <Link 
+                        key={category.id} 
+                        href={`/services/${category.slug}`}
+                        className="block text-sm text-gray-300 hover:text-accent hover:bg-white/5 py-2 px-3 rounded cursor-pointer transition"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {category.name}
+                      </Link>
+                    ))}
+                    <Link 
+                      href="/services"
+                      className="block text-sm text-accent font-semibold hover:text-accent/80 py-2 px-3 rounded cursor-pointer transition"
                       onClick={() => setMobileMenuOpen(false)}
                     >
-                      {link.label}
-                    </p>
+                      View All Services →
+                    </Link>
+                  </div>
+                </div>
+
+                {/* Remaining nav links */}
+                {navLinks.slice(1).map((link) => (
+                  <Link 
+                    key={link.label} 
+                    href={link.href}
+                    className="block text-sm text-gray-300 hover:text-accent hover:bg-white/5 py-2 px-3 rounded cursor-pointer transition"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {link.label}
                   </Link>
                 ))}
+
+                {/* Our Group section */}
                 <div className="pt-3 border-t border-white/10 mt-3">
                   <p className="text-xs text-gray-400 font-semibold mb-2 px-3">Our Subsidiaries</p>
                   <div className="grid grid-cols-2 gap-2">
                     {subsidiaries.map((sub) => (
-                      <Link key={sub.name} href={sub.url}>
-                        <div className="text-sm text-gray-300 hover:text-accent hover:bg-white/5 py-2 px-3 rounded cursor-pointer transition">
-                          <span className="mr-2">{sub.icon}</span>
-                          {sub.name.split(' ')[0]}
-                        </div>
+                      <Link 
+                        key={sub.name} 
+                        href={sub.url}
+                        className="text-sm text-gray-300 hover:text-accent hover:bg-white/5 py-2 px-3 rounded cursor-pointer transition"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        <span className="mr-2">{sub.icon}</span>
+                        {sub.name.split(' ')[0]}
                       </Link>
                     ))}
                   </div>
                 </div>
-                <button className="btn-primary w-full text-sm mt-4" onClick={() => setMobileMenuOpen(false)}>
+
+                <Link 
+                  href="/contact"
+                  className="block btn-primary w-full text-sm mt-4 text-center"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
                   Contact Us
-                </button>
+                </Link>
               </motion.nav>
             )}
           </AnimatePresence>
