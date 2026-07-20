@@ -2,18 +2,20 @@
   "site": {
     "name": "Maleng Legacy Tech & Consulting",
     "domain": "yourdomain.com",
-    "description": "Enterprise Tech Infrastructure & Security Solutions - Specialized B2B services for growth-focused enterprises",
-    "tagline": "Enterprise Tech Infrastructure & Security Solutions"
+    "description": "Software, cloud, connectivity, security, and consulting solutions for growth-focused enterprises",
+    "tagline": "Software, Cloud & Connectivity Solutions"
   },
   "seo": {
-    "title": "Enterprise Tech Infrastructure & Security Solutions | Maleng Legacy Tech & Consulting",
-    "description": "Expert B2B technology consulting, custom software development, managed hosting, and security solutions for enterprises",
+    "title": "Software, Cloud & Connectivity Solutions | Maleng Legacy Tech & Consulting",
+    "description": "Expert B2B software engineering, cloud infrastructure, telecommunications, security, and consulting services for enterprises",
     "keywords": [
-      "tech consulting",
       "software development",
-      "managed hosting",
+      "cloud infrastructure",
+      "telecommunications",
+      "tech consulting",
       "cybersecurity",
       "digital transformation",
+      "design systems",
       "enterprise solutions",
       "IT infrastructure"
     ]
@@ -157,11 +159,11 @@
         "href": "/services",
         "submenu": [
           {
-            "label": "Software & Digital Solutions",
+            "label": "Software & Digital Growth",
             "href": "/services/software-solutions"
           },
           {
-            "label": "Managed Hosting & Infrastructure",
+            "label": "Managed Infrastructure & Cloud",
             "href": "/services/hosting-infrastructure"
           },
           {
@@ -169,11 +171,11 @@
             "href": "/services/consulting"
           },
           {
-            "label": "Connectivity Services",
+            "label": "Connectivity & Telecoms",
             "href": "/services/connectivity"
           },
           {
-            "label": "Security & Surveillance",
+            "label": "Security & Telematics",
             "href": "/services/security-surveillance"
           }
         ]

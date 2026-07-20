@@ -17,6 +17,24 @@ export default function ServiceGrid({ services, categorySlug }) {
     return price;
   };
 
+  const getStartingPriceLabel = (service) => {
+    const startingTier = service.pricing?.starter;
+
+    if (!startingTier) {
+      return 'Request Quote';
+    }
+
+    if (typeof startingTier.price === 'string') {
+      return startingTier.price;
+    }
+
+    if (startingTier.billingModel === 'contact' || startingTier.price === null || startingTier.price === undefined) {
+      return startingTier.name || 'Request Quote';
+    }
+
+    return `$${formatPrice(startingTier.price)}`;
+  };
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {services?.map((service, index) => (
@@ -70,7 +88,7 @@ export default function ServiceGrid({ services, categorySlug }) {
                   >
                     <p className="text-xs text-gray-400 mb-1 uppercase font-semibold tracking-wider">Starting from</p>
                     <p className="text-xl font-bold text-highlight" suppressHydrationWarning>
-                      ${isClient ? formatPrice(service.pricing?.starter?.price) : service.pricing?.starter?.price}
+                      {isClient ? getStartingPriceLabel(service) : getStartingPriceLabel(service)}
                     </p>
                   </motion.div>
                 )}

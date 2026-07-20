@@ -43,6 +43,24 @@ export default function FeaturedServicesCarousel({ services }) {
     return price;
   };
 
+  const getStartingPriceLabel = (service) => {
+    const startingTier = service.pricing?.starter;
+
+    if (!startingTier) {
+      return 'Request Quote';
+    }
+
+    if (typeof startingTier.price === 'string') {
+      return startingTier.price;
+    }
+
+    if (startingTier.billingModel === 'contact' || startingTier.price === null || startingTier.price === undefined) {
+      return startingTier.name || 'Request Quote';
+    }
+
+    return `$${formatPrice(startingTier.price)}`;
+  };
+
   return (
     <div className="relative w-full">
       {/* Carousel container */}
@@ -131,8 +149,10 @@ export default function FeaturedServicesCarousel({ services }) {
                       >
                         <p className="text-xs text-gray-400 mb-2 uppercase font-semibold tracking-wider">Starting from</p>
                         <p className="text-3xl font-black text-highlight" suppressHydrationWarning>
-                          ${isClient ? formatPrice(service.pricing?.starter?.price) : service.pricing?.starter?.price}
-                          <span className="text-lg text-gray-400">/mo</span>
+                          {isClient ? getStartingPriceLabel(service) : getStartingPriceLabel(service)}
+                          {service.pricing?.starter?.billingModel !== 'contact' && service.pricing?.starter?.price !== null && service.pricing?.starter?.price !== undefined && (
+                            <span className="text-lg text-gray-400">/mo</span>
+                          )}
                         </p>
                       </motion.div>
 

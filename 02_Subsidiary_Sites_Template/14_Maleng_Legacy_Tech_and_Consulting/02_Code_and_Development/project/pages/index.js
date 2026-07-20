@@ -63,22 +63,22 @@ export default function HomePage() {
   return (
     <>
       <Head>
-        <title>Maleng Legacy Tech & Consulting | Enterprise Technology & IT Consulting</title>
+        <title>Maleng Legacy Tech & Consulting | Software, Cloud & Connectivity Solutions</title>
         <meta 
           name="description" 
-          content="Maleng Legacy Tech & Consulting delivers enterprise technology solutions, IT consulting, managed hosting, cybersecurity, and digital transformation for large organizations." 
+          content="Maleng Legacy Tech & Consulting delivers software, cloud, connectivity, cybersecurity, design, and consulting solutions for modern enterprises." 
         />
         <meta 
           name="keywords" 
-          content="enterprise technology, IT consulting, digital transformation, cybersecurity, cloud solutions, managed hosting, infrastructure, Maleng Legacy" 
+          content="software development, cloud infrastructure, telecommunications, cybersecurity, digital transformation, design systems, IT consulting, Maleng Legacy" 
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#003366" />
         <meta name="format-detection" content="telephone=no, date=no, email=no, address=no" />
         
         {/* Open Graph */}
-        <meta property="og:title" content="Maleng Legacy Tech & Consulting | Enterprise Infrastructure & Security Solutions" />
-        <meta property="og:description" content="Enterprise tech infrastructure, security solutions, and IT consulting. Trusted by 500+ enterprise clients." />
+        <meta property="og:title" content="Maleng Legacy Tech & Consulting | Software, Cloud & Connectivity Solutions" />
+        <meta property="og:description" content="Software engineering, cloud infrastructure, telecoms, security, and consulting for enterprise clients." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://tech.malenglegacy.co.za" />
       </Head>

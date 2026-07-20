@@ -2,312 +2,392 @@
   "categories": [
     {
       "id": "software-solutions",
-      "name": "Software & Digital Solutions",
+      "name": "Software & Digital Growth Solutions",
       "slug": "software-solutions",
-      "description": "Custom web, mobile, and enterprise applications with digital transformation expertise",
+      "description": "Decoupled software engineering assets, autonomous workflow systems, and digital traffic engines.",
       "icon": "💻",
       "color": "#003366",
-      "tagline": "Custom applications tailored to your business",
+      "tagline": "Software assets built for speed, scale, and conversion",
       "services": [
         {
           "id": 1,
-          "name": "Website Development",
+          "name": "Website Development Engine",
           "slug": "website-development",
-          "description": "Professional web applications from concept to deployment with responsive design and performance optimization",
+          "description": "High-performance headless websites built on Next.js and Remix for speed, security, and native search visibility.",
           "icon": "🌐",
           "pricing": {
-            "starter": { "name": "Starter", "price": 2999, "currency": "USD", "billingModel": "one-time", "description": "Basic business website" },
-            "professional": { "name": "Professional", "price": 5999, "currency": "USD", "billingModel": "one-time", "description": "Advanced features and integrations" },
-            "enterprise": { "name": "Enterprise", "price": 12999, "currency": "USD", "billingModel": "one-time", "description": "Full-featured with custom requirements" },
-            "custom": { "name": "Custom", "price": null, "currency": "USD", "billingModel": "contact", "description": "Tailored solution" }
+            "starter": { "name": "Starter", "price": "R29,999", "currency": "ZAR", "billingModel": "one-time", "description": "Landing page or small business site" },
+            "professional": { "name": "Professional", "price": "R59,999", "currency": "ZAR", "billingModel": "one-time", "description": "Corporate framework with CMS" },
+            "enterprise": { "name": "Enterprise", "price": "R129,999", "currency": "ZAR", "billingModel": "one-time", "description": "Multi-regional network build" },
+            "custom": { "name": "Custom", "price": "Request Quote", "currency": "ZAR", "billingModel": "contact", "description": "Tailored architecture and rollout" }
           },
           "features": {
-            "starter": ["Responsive Design", "5 Pages", "Basic SEO", "Contact Form", "Mobile Optimized", "SSL Certificate"],
-            "professional": ["Everything in Starter +", "10 Pages", "Advanced SEO", "E-commerce Ready", "Blog Integration", "Analytics Setup", "Performance Tuning"],
-            "enterprise": ["Everything in Professional +", "Unlimited Pages", "Custom Functionality", "API Integration", "Advanced Security", "Load Balancing", "24/7 Support"],
-            "custom": ["All features available", "Full customization", "Dedicated team", "Extended support"]
+            "starter": ["Headless architecture", "Up to 5 pages", "Mobile responsive", "Core SEO setup"],
+            "professional": ["Everything in Starter", "CMS integration", "Analytics setup", "Lead capture workflows"],
+            "enterprise": ["Everything in Professional", "Multi-region deployment", "Advanced performance tuning", "Governance-ready build"],
+            "custom": ["Dedicated discovery", "Bespoke modules", "Migration support", "Extended support"]
           },
-          "useCases": ["E-commerce Platforms", "Corporate Business Sites", "Portfolio & Agency Websites", "Service Directory Portals", "Content Management Systems"],
-          "industries": ["Retail", "Healthcare", "Finance", "Technology", "Professional Services"],
-          "testimonials": [
-            { "client": "TechCorp Inc", "role": "CEO", "quote": "The website transformed how we attract clients. Professional, fast, and mobile-optimized.", "rating": 5, "image": "👤" }
-          ],
-          "setupTime": "2-4 weeks",
-          "support": { "starter": "Email Support (Business Hours)", "professional": "24/5 Phone & Email", "enterprise": "24/7 Dedicated Support" },
+          "useCases": ["Corporate websites", "Landing pages", "Brand refreshes", "Client portals"],
+          "industries": ["Professional Services", "Finance", "Real Estate", "Education"],
+          "setupTime": "2-6 weeks",
+          "support": { "starter": "Business hours", "professional": "Priority support", "enterprise": "24/7 support" },
           "seo": true,
           "mobile": true,
-          "hosting": "included"
+          "hosting": "not-applicable"
         },
         {
           "id": 2,
-          "name": "Custom Software Development",
-          "slug": "custom-software-development",
-          "description": "Enterprise-grade custom applications built with your specific business logic and requirements",
-          "icon": "⚙️",
+          "name": "SEO & Digital Growth Retainers",
+          "slug": "seo-digital-growth-retainers",
+          "description": "Independent organic traffic pipelines, technical crawl optimization, and conversion rate improvements billed separately from web build work.",
+          "icon": "📈",
           "pricing": {
-            "starter": { "name": "Starter", "price": 5000, "currency": "USD", "billingModel": "project", "description": "Simple application (2-4 weeks)" },
-            "professional": { "name": "Professional", "price": 15000, "currency": "USD", "billingModel": "project", "description": "Mid-size application (6-8 weeks)" },
-            "enterprise": { "name": "Enterprise", "price": 50000, "currency": "USD", "billingModel": "project", "description": "Complex system (3+ months)" },
-            "custom": { "name": "Custom", "price": null, "currency": "USD", "billingModel": "contact", "description": "Enterprise solutions" }
+            "starter": { "name": "Starter", "price": "R4,500 / month", "currency": "ZAR", "billingModel": "monthly", "description": "Local essentials for up to 10 pages" },
+            "professional": { "name": "Professional", "price": "R9,500 / month", "currency": "ZAR", "billingModel": "monthly", "description": "National engine with content production" },
+            "enterprise": { "name": "Enterprise", "price": "R18,500 / month", "currency": "ZAR", "billingModel": "monthly", "description": "Omnichannel growth and conversion mapping" },
+            "custom": { "name": "Custom", "price": "Request Quote", "currency": "ZAR", "billingModel": "contact", "description": "Custom retention model" }
           },
           "features": {
-            "starter": ["Single Platform", "Basic Database", "User Authentication", "Minimal Integrations", "Testing Included"],
-            "professional": ["Multi-platform", "Advanced Database", "User Roles & Permissions", "3rd Party Integrations", "QA Testing", "API Documentation"],
-            "enterprise": ["Unlimited Platforms", "Enterprise Database", "Advanced Security", "Multiple Integrations", "Performance Optimization", "Scalability Built-in", "24/7 Support"],
-            "custom": ["All features available", "Dedicated development team", "Ongoing support"]
+            "starter": ["On-page optimization", "Google Business Profile", "Monthly visibility report", "Technical fixes"],
+            "professional": ["Everything in Starter", "4 articles per month", "Link outreach", "Competitive gap audits"],
+            "enterprise": ["Everything in Professional", "Multi-region indexing", "8 premium digital assets", "Full conversion mapping"],
+            "custom": ["Dedicated strategist", "Custom KPI roadmap", "Priority execution", "Quarterly reviews"]
           },
-          "useCases": ["Internal Management Systems", "Workflow Automation", "Data Analytics Platforms", "Custom Business Logic", "Legacy System Modernization"],
-          "industries": ["Finance", "Manufacturing", "Healthcare", "Government", "Enterprise"],
-          "testimonials": [
-            { "client": "FinanceFlow Systems", "role": "CTO", "quote": "Custom software solved problems we couldn't address with off-the-shelf solutions.", "rating": 5, "image": "👤" }
-          ],
-          "setupTime": "2-16 weeks",
-          "support": { "starter": "Email Support", "professional": "24/5 Support + Monthly Updates", "enterprise": "24/7 Dedicated Team" }
+          "useCases": ["Lead generation", "Local visibility", "Content growth", "Competitive market expansion"],
+          "industries": ["Professional Services", "Healthcare", "Property", "Technology"],
+          "setupTime": "2 weeks",
+          "support": { "starter": "Monthly reporting", "professional": "Ongoing optimization", "enterprise": "Strategic growth partnership" },
+          "seo": true,
+          "mobile": true,
+          "hosting": "not-applicable"
         },
         {
           "id": 3,
-          "name": "SaaS Application Development",
-          "slug": "saas-application-development",
-          "description": "Multi-tenant, scalable SaaS applications ready for market launch and growth",
-          "icon": "☁️",
+          "name": "Agentic AI Workflow Orchestration",
+          "slug": "agentic-ai-workflow-orchestration",
+          "description": "Autonomous multi-agent AI worker loops deployed into business platforms to eliminate manual back-office tasks and automate reconciliation.",
+          "icon": "🤖",
           "pricing": {
-            "starter": { "name": "Starter", "price": 10000, "currency": "USD", "billingModel": "project", "description": "MVP development" },
-            "professional": { "name": "Professional", "price": 25000, "currency": "USD", "billingModel": "project", "description": "Feature-complete SaaS" },
-            "enterprise": { "name": "Enterprise", "price": 75000, "currency": "USD", "billingModel": "project", "description": "Enterprise SaaS platform" },
-            "custom": { "name": "Custom", "price": null, "currency": "USD", "billingModel": "contact", "description": "Custom SaaS solution" }
+            "starter": { "name": "Starter", "price": "R35,000", "currency": "ZAR", "billingModel": "project", "description": "Document intake automation" },
+            "professional": { "name": "Professional", "price": "R85,000", "currency": "ZAR", "billingModel": "project", "description": "Autonomous data reconciliation" },
+            "enterprise": { "name": "Enterprise", "price": "R180,000", "currency": "ZAR", "billingModel": "project", "description": "Multi-agent production network" },
+            "custom": { "name": "Custom", "price": "Request Quote", "currency": "ZAR", "billingModel": "contact", "description": "Workflow-specific orchestration" }
           },
           "features": {
-            "starter": ["Multi-tenant Architecture", "Basic Feature Set", "User Management", "Cloud Hosting", "MVP Ready"],
-            "professional": ["Everything in Starter +", "Advanced Features", "Payment Gateway", "Analytics Dashboard", "API Access", "Mobile App Ready"],
-            "enterprise": ["Everything in Professional +", "Advanced Scalability", "Enterprise Security", "Custom Branding", "SSO Integration", "Advanced Reporting", "24/7 Support"],
-            "custom": ["All features available", "Full customization", "Dedicated support"]
+            "starter": ["Document intake", "Email triage", "AI summarization", "Basic approvals"],
+            "professional": ["Everything in Starter", "Data cross-referencing", "Workflow triggers", "Human-in-the-loop review"],
+            "enterprise": ["Everything in Professional", "Multi-agent coordination", "Role-based controls", "Audit logging"],
+            "custom": ["Custom model routing", "Dedicated prompt design", "Systems integration", "Retained optimization"]
           },
-          "useCases": ["Project Management Tools", "CRM Platforms", "Productivity Apps", "Vertical-Specific Platforms", "B2B Service Platforms"],
-          "industries": ["Technology", "Professional Services", "Education", "Human Resources", "Marketing"],
-          "testimonials": [
-            { "client": "ProTeam Software", "role": "Founder", "quote": "Our SaaS application was market-ready in 4 months with professional infrastructure.", "rating": 5, "image": "👤" }
-          ],
-          "setupTime": "4-12 weeks",
-          "support": { "starter": "Community Support", "professional": "Email Support + Updates", "enterprise": "24/7 Dedicated Support" }
+          "useCases": ["Operations automation", "Finance workflows", "Support triage", "Procurement routing"],
+          "industries": ["Finance", "Professional Services", "Logistics", "Corporate"],
+          "setupTime": "3-8 weeks",
+          "support": { "starter": "Implementation support", "professional": "Optimization support", "enterprise": "Ongoing orchestration" },
+          "seo": false,
+          "mobile": true,
+          "hosting": "not-applicable"
         },
         {
           "id": 4,
-          "name": "Mobile Application Development",
-          "slug": "mobile-application-development",
-          "description": "Native and cross-platform mobile applications for iOS, Android, and progressive web apps",
-          "icon": "📱",
+          "name": "Custom Software Development",
+          "slug": "custom-software-development",
+          "description": "Bespoke backend platforms and complex business logic engines tailored to resolve internal operational bottlenecks.",
+          "icon": "⚙️",
           "pricing": {
-            "starter": { "name": "Starter", "price": 8000, "currency": "USD", "billingModel": "project", "description": "Single platform MVP" },
-            "professional": { "name": "Professional", "price": 20000, "currency": "USD", "billingModel": "project", "description": "iOS & Android" },
-            "enterprise": { "name": "Enterprise", "price": 60000, "currency": "USD", "billingModel": "project", "description": "Advanced features + support" },
-            "custom": { "name": "Custom", "price": null, "currency": "USD", "billingModel": "contact", "description": "Custom solution" }
+            "starter": { "name": "Starter", "price": "R45,000", "currency": "ZAR", "billingModel": "project", "description": "Simple application build" },
+            "professional": { "name": "Professional", "price": "R125,000", "currency": "ZAR", "billingModel": "project", "description": "Mid-size business platform" },
+            "enterprise": { "name": "Enterprise", "price": "R350,000", "currency": "ZAR", "billingModel": "project", "description": "Complex enterprise system" },
+            "custom": { "name": "Custom", "price": "Request Quote", "currency": "ZAR", "billingModel": "contact", "description": "Dedicated engineering engagement" }
           },
           "features": {
-            "starter": ["Single Platform (iOS or Android)", "Core Features", "Basic Design", "API Integration", "App Store Submission"],
-            "professional": ["iOS & Android Apps", "Advanced Features", "Professional Design", "Backend API", "Push Notifications", "Offline Mode", "Analytics"],
-            "enterprise": ["Multi-platform (iOS/Android/PWA)", "All Professional Features +", "Enterprise Security", "Advanced Performance", "Custom Animations", "24/7 Maintenance"],
-            "custom": ["All platforms available", "Full customization", "Ongoing support"]
+            "starter": ["Single platform", "Basic database", "Authentication", "Testing included"],
+            "professional": ["Multi-module build", "Advanced data model", "API integrations", "QA testing"],
+            "enterprise": ["Enterprise security", "Scalable architecture", "Performance tuning", "Dedicated delivery team"],
+            "custom": ["Product discovery", "Sprint retainers", "Solution architecture", "Long-term support"]
           },
-          "useCases": ["Retail & E-commerce Apps", "Social Networking", "Fitness & Health Tracking", "Business Productivity", "IoT & Real-time Apps"],
-          "industries": ["Retail", "Healthcare", "Fitness", "Finance", "Transportation"],
-          "testimonials": [
-            { "client": "MobileFirst Inc", "role": "Product Manager", "quote": "Our iOS app reached #1 in category thanks to professional development and optimization.", "rating": 5, "image": "👤" }
-          ],
-          "setupTime": "3-16 weeks",
-          "support": { "starter": "30 Days Support", "professional": "90 Days Support + Updates", "enterprise": "Ongoing 24/7" }
+          "useCases": ["Internal systems", "Workflow automation", "Data platforms", "Legacy modernization"],
+          "industries": ["Finance", "Manufacturing", "Healthcare", "Government"],
+          "setupTime": "4-16 weeks",
+          "support": { "starter": "Project support", "professional": "Monthly updates", "enterprise": "24/7 support" },
+          "seo": false,
+          "mobile": true,
+          "hosting": "not-applicable"
         },
         {
           "id": 5,
-          "name": "Digital Transformation Solutions",
-          "slug": "digital-transformation-solutions",
-          "description": "Complete digital transformation of your business processes, systems, and operations",
-          "icon": "🚀",
+          "name": "SaaS Application Development",
+          "slug": "saas-application-development",
+          "description": "Production-grade multi-tenant software foundations with secure APIs and subscription billing rails.",
+          "icon": "☁️",
           "pricing": {
-            "starter": { "name": "Starter", "price": 3500, "currency": "USD", "billingModel": "project", "description": "Single department transformation" },
-            "professional": { "name": "Professional", "price": 10000, "currency": "USD", "billingModel": "project", "description": "Multi-department" },
-            "enterprise": { "name": "Enterprise", "price": 30000, "currency": "USD", "billingModel": "project", "description": "Enterprise-wide" },
-            "custom": { "name": "Custom", "price": null, "currency": "USD", "billingModel": "contact", "description": "Custom transformation" }
+            "starter": { "name": "Starter", "price": "R95,000", "currency": "ZAR", "billingModel": "project", "description": "MVP build phase" },
+            "professional": { "name": "Professional", "price": "R220,000", "currency": "ZAR", "billingModel": "project", "description": "Feature-complete SaaS" },
+            "enterprise": { "name": "Enterprise", "price": "R550,000", "currency": "ZAR", "billingModel": "project", "description": "Scaled cloud core" },
+            "custom": { "name": "Custom", "price": "Request Quote", "currency": "ZAR", "billingModel": "contact", "description": "Custom SaaS roadmap" }
           },
           "features": {
-            "starter": ["Process Audit", "Technology Assessment", "Basic Implementation", "Staff Training"],
-            "professional": ["Everything in Starter +", "Advanced Integration", "Change Management", "Documentation", "Ongoing Optimization"],
-            "enterprise": ["Everything in Professional +", "Enterprise Integration", "Advanced Training", "24/7 Support", "Performance Monitoring"],
-            "custom": ["All features available", "Dedicated team", "Ongoing support"]
+            "starter": ["Multi-tenant architecture", "User management", "Cloud hosting", "MVP readiness"],
+            "professional": ["Payments", "Analytics dashboard", "API access", "Mobile-ready frontend"],
+            "enterprise": ["SSO integration", "Advanced reporting", "Security hardening", "24/7 support"],
+            "custom": ["Dedicated product team", "Scaled infrastructure", "Roadmap support", "Continuous iteration"]
           },
-          "useCases": ["Legacy System Modernization", "Cloud Migration", "Process Automation", "Business Model Innovation", "Organizational Restructuring"],
-          "industries": ["Manufacturing", "Banking", "Insurance", "Government", "Retail"],
-          "testimonials": [
-            { "client": "Legacy Manufacturing Co", "role": "Director of Operations", "quote": "Digital transformation reduced costs by 40% and improved efficiency significantly.", "rating": 5, "image": "👤" }
-          ],
-          "setupTime": "2-12 weeks",
-          "support": { "starter": "30 Days", "professional": "90 Days", "enterprise": "6 Months Ongoing" }
+          "useCases": ["B2B platforms", "Subscription products", "Internal portals", "Market-ready MVPs"],
+          "industries": ["Technology", "Professional Services", "Education", "Marketing"],
+          "setupTime": "6-12 weeks",
+          "support": { "starter": "Community and email support", "professional": "Release support", "enterprise": "Ongoing dedicated support" },
+          "seo": false,
+          "mobile": true,
+          "hosting": "not-applicable"
         },
         {
           "id": 6,
-          "name": "Cybersecurity Solutions",
-          "slug": "cybersecurity-solutions",
-          "description": "Comprehensive security assessment, implementation, and ongoing monitoring to protect your assets",
-          "icon": "🔒",
+          "name": "Mobile Application Development",
+          "slug": "mobile-application-development",
+          "description": "Native and cross-platform mobile apps for iOS and Android with offline-first structures and seamless sync.",
+          "icon": "📱",
           "pricing": {
-            "starter": { "name": "Starter", "price": 2000, "currency": "USD", "billingModel": "monthly", "description": "Basic security monitoring" },
-            "professional": { "name": "Professional", "price": 5000, "currency": "USD", "billingModel": "monthly", "description": "Advanced protection" },
-            "enterprise": { "name": "Enterprise", "price": 15000, "currency": "USD", "billingModel": "monthly", "description": "Enterprise security" },
-            "custom": { "name": "Custom", "price": null, "currency": "USD", "billingModel": "contact", "description": "Custom security" }
+            "starter": { "name": "Starter", "price": "R65,000", "currency": "ZAR", "billingModel": "project", "description": "Single-platform MVP" },
+            "professional": { "name": "Professional", "price": "R155,000", "currency": "ZAR", "billingModel": "project", "description": "iOS and Android build" },
+            "enterprise": { "name": "Enterprise", "price": "R320,000", "currency": "ZAR", "billingModel": "project", "description": "Advanced multi-platform app" },
+            "custom": { "name": "Custom", "price": "Request Quote", "currency": "ZAR", "billingModel": "contact", "description": "Custom mobile program" }
           },
           "features": {
-            "starter": ["Firewall Configuration", "Malware Protection", "Basic Monitoring", "Monthly Reports"],
-            "professional": ["Everything in Starter +", "Intrusion Detection", "Vulnerability Scanning", "Patch Management", "Weekly Reports", "Incident Response"],
-            "enterprise": ["Everything in Professional +", "24/7 SOC Monitoring", "Advanced Threat Detection", "Penetration Testing", "Compliance Audit", "Dedicated Security Team"],
-            "custom": ["All features available", "Custom requirements", "Ongoing support"]
+            "starter": ["One platform", "Core features", "API integration", "Store submission"],
+            "professional": ["iOS and Android", "Push notifications", "Offline mode", "Analytics"],
+            "enterprise": ["PWA option", "Advanced performance", "Security hardening", "Maintenance plan"],
+            "custom": ["Multi-app portfolio", "Dedicated squad", "Device testing", "Ongoing releases"]
           },
-          "useCases": ["Financial Data Protection", "Healthcare HIPAA Compliance", "Government Compliance", "E-commerce Security", "Enterprise Risk Management"],
-          "industries": ["Finance", "Healthcare", "Government", "Retail", "Technology"],
-          "testimonials": [
-            { "client": "SecureBank Financial", "role": "Security Officer", "quote": "Their comprehensive security solution gave us peace of mind and full compliance.", "rating": 5, "image": "👤" }
-          ],
-          "setupTime": "1 week",
-          "support": { "starter": "Business Hours", "professional": "24/5", "enterprise": "24/7" }
+          "useCases": ["Field operations", "Customer engagement", "Service booking", "Asset tracking"],
+          "industries": ["Retail", "Transportation", "Healthcare", "Field Services"],
+          "setupTime": "4-16 weeks",
+          "support": { "starter": "30 days support", "professional": "90 days support", "enterprise": "Ongoing support" },
+          "seo": false,
+          "mobile": true,
+          "hosting": "not-applicable"
+        },
+        {
+          "id": 7,
+          "name": "Digital Transformation Solutions",
+          "slug": "digital-transformation-solutions",
+          "description": "Middle-tier API normalization bridges that connect disconnected legacy tools into one operating model.",
+          "icon": "🚀",
+          "pricing": {
+            "starter": { "name": "Starter", "price": "R38,000", "currency": "ZAR", "billingModel": "project", "description": "Single process bridge" },
+            "professional": { "name": "Professional", "price": "R95,000", "currency": "ZAR", "billingModel": "project", "description": "Multi-platform automation" },
+            "enterprise": { "name": "Enterprise", "price": "R260,000", "currency": "ZAR", "billingModel": "project", "description": "Enterprise transformation" },
+            "custom": { "name": "Custom", "price": "Request Quote", "currency": "ZAR", "billingModel": "contact", "description": "Programmatic roadmap" }
+          },
+          "features": {
+            "starter": ["Process audit", "Automation blueprint", "Quick-win mapping", "Training pack"],
+            "professional": ["System integration", "Change management", "Documentation", "Optimization plan"],
+            "enterprise": ["Enterprise-wide rollout", "Governance model", "Executive reporting", "Continuous improvement"],
+            "custom": ["Roadmap workshops", "Custom KPI design", "Retained advisory", "Implementation governance"]
+          },
+          "useCases": ["Legacy modernization", "Cloud migration", "Process automation", "Operating model redesign"],
+          "industries": ["Manufacturing", "Banking", "Insurance", "Government"],
+          "setupTime": "2-12 weeks",
+          "support": { "starter": "Project support", "professional": "Change support", "enterprise": "Ongoing program support" },
+          "seo": false,
+          "mobile": true,
+          "hosting": "not-applicable"
+        },
+        {
+          "id": 8,
+          "name": "Cybersecurity Solutions (Application Level)",
+          "slug": "cybersecurity-solutions",
+          "description": "Security guardrails embedded in application code with encryption loops, token validation, and vulnerability control.",
+          "icon": "🔒",
+          "pricing": {
+            "starter": { "name": "Starter", "price": "R28,000", "currency": "ZAR", "billingModel": "project", "description": "Code vulnerability audit" },
+            "professional": { "name": "Professional", "price": "R68,000", "currency": "ZAR", "billingModel": "project", "description": "Remediation and patching" },
+            "enterprise": { "name": "Enterprise", "price": "R180,000", "currency": "ZAR", "billingModel": "project", "description": "Secure application program" },
+            "custom": { "name": "Custom", "price": "Request Quote", "currency": "ZAR", "billingModel": "contact", "description": "Ongoing security retainer" }
+          },
+          "features": {
+            "starter": ["Source code audit", "Threat mapping", "Token review", "Remediation list"],
+            "professional": ["Encryption review", "Secure webhook validation", "Patch deployment", "Security documentation"],
+            "enterprise": ["Pen-test readiness", "Application hardening", "Monitoring hooks", "Dedicated security guidance"],
+            "custom": ["Continuous patching", "DevSecOps support", "Compliance alignment", "Executive reporting"]
+          },
+          "useCases": ["Application security", "Compliance preparation", "Platform hardening", "API protection"],
+          "industries": ["Finance", "Healthcare", "Technology", "Government"],
+          "setupTime": "1-4 weeks",
+          "support": { "starter": "Audit support", "professional": "Retainer support", "enterprise": "24/7 support" },
+          "seo": false,
+          "mobile": true,
+          "hosting": "not-applicable"
         }
       ]
     },
     {
       "id": "hosting-infrastructure",
-      "name": "Managed Hosting & Infrastructure",
+      "name": "Managed Infrastructure & Cloud Ecosystems",
       "slug": "hosting-infrastructure",
-      "description": "Enterprise-grade cloud hosting, managed infrastructure, email services, and 24/7 support",
+      "description": "Decoupled virtual processing layers, enterprise mail, smart AV procurement, and turnkey on-premise hardware deployments.",
       "icon": "🖥️",
       "color": "#00A896",
-      "tagline": "Reliable infrastructure with 99.9% uptime",
+      "tagline": "Compute, mail, and hardware layers separated by design",
       "services": [
         {
-          "id": 7,
-          "name": "Web Hosting",
-          "slug": "web-hosting",
-          "description": "Professional web hosting with dedicated, cloud, and private server options",
+          "id": 9,
+          "name": "Cloud IT Infrastructure",
+          "slug": "cloud-it-infrastructure",
+          "description": "Secure virtual datacenter layers with managed databases and serverless compute for software backends.",
           "icon": "☁️",
           "pricing": {
-            "starter": { "name": "Starter", "price": 299, "currency": "USD", "billingModel": "monthly", "description": "Shared hosting" },
-            "professional": { "name": "Professional", "price": 599, "currency": "USD", "billingModel": "monthly", "description": "Cloud hosting" },
-            "enterprise": { "name": "Enterprise", "price": 1299, "currency": "USD", "billingModel": "monthly", "description": "Dedicated server" },
-            "custom": { "name": "Custom", "price": null, "currency": "USD", "billingModel": "contact", "description": "Custom infrastructure" }
+            "starter": { "name": "Starter", "price": "Usage-based", "currency": "ZAR", "billingModel": "monthly", "description": "Small cloud footprint" },
+            "professional": { "name": "Professional", "price": "R12,500 / month", "currency": "ZAR", "billingModel": "monthly", "description": "Managed VPC and database" },
+            "enterprise": { "name": "Enterprise", "price": "R35,000 / month", "currency": "ZAR", "billingModel": "monthly", "description": "High-availability cloud core" },
+            "custom": { "name": "Custom", "price": "Request Quote", "currency": "ZAR", "billingModel": "contact", "description": "Elastic infrastructure design" }
           },
           "features": {
-            "starter": ["100GB Storage", "50Mbps Bandwidth", "99% Uptime SLA", "5 Email Accounts", "8/5 Support", "Free Setup"],
-            "professional": ["500GB Storage", "250Mbps Bandwidth", "99.5% Uptime SLA", "25 Email Accounts", "24/5 Support", "Free Setup"],
-            "enterprise": ["Unlimited Storage", "1Gbps Bandwidth", "99.9% SLA", "Unlimited Email", "24/7 Support", "Free Setup", "Dedicated Resources"],
-            "custom": ["All features available", "Custom configuration", "Guaranteed uptime"]
+            "starter": ["Small VPC", "Managed storage", "Backup snapshots", "Basic monitoring"],
+            "professional": ["High-availability databases", "Serverless compute", "Security hardening", "Scaling policy"],
+            "enterprise": ["Multi-zone architecture", "Load balancing", "Advanced observability", "24/7 support"],
+            "custom": ["Custom architecture", "Cloud migration", "Disaster recovery", "Dedicated ops"]
           },
-          "useCases": ["Small Business Websites", "Startup Applications", "E-commerce Sites", "Corporate Portals", "High-Traffic Platforms"],
-          "industries": ["Retail", "Technology", "Professional Services", "Media", "SaaS"],
-          "testimonials": [
-            { "client": "QuickStart E-commerce", "role": "Founder", "quote": "Affordable, reliable hosting that scales with our growth.", "rating": 5, "image": "👤" }
-          ],
-          "setupTime": "24 hours",
-          "support": { "starter": "Email Support (Business Hours)", "professional": "24/5 Phone & Email", "enterprise": "24/7 Dedicated" }
-        },
-        {
-          "id": 8,
-          "name": "Managed Infrastructure Services",
-          "slug": "managed-infrastructure-services",
-          "description": "Full infrastructure management, monitoring, optimization, and scaling services",
-          "icon": "⚙️",
-          "pricing": {
-            "starter": { "name": "Starter", "price": 799, "currency": "USD", "billingModel": "monthly", "description": "Small infrastructure" },
-            "professional": { "name": "Professional", "price": 1499, "currency": "USD", "billingModel": "monthly", "description": "Medium infrastructure" },
-            "enterprise": { "name": "Enterprise", "price": 2999, "currency": "USD", "billingModel": "monthly", "description": "Large infrastructure" },
-            "custom": { "name": "Custom", "price": null, "currency": "USD", "billingModel": "contact", "description": "Custom infrastructure" }
-          },
-          "features": {
-            "starter": ["5 Servers Managed", "24/7 Monitoring", "Basic Optimization", "Weekly Reports", "Patch Management"],
-            "professional": ["15 Servers Managed", "24/7 Advanced Monitoring", "Performance Tuning", "Weekly Reporting", "Security Patches", "Load Balancing"],
-            "enterprise": ["Unlimited Servers", "24/7 Dedicated Monitoring", "Advanced Optimization", "Real-time Analytics", "Proactive Management", "Auto-scaling", "Disaster Recovery"],
-            "custom": ["All features available", "Dedicated team", "Custom SLAs"]
-          },
-          "useCases": ["Multi-server Deployments", "Cloud Infrastructure", "Hybrid Cloud Setup", "High-availability Systems", "Enterprise Applications"],
-          "industries": ["Finance", "Healthcare", "E-commerce", "Technology", "Government"],
-          "testimonials": [
-            { "client": "DataCorp Systems", "role": "CIO", "quote": "Infrastructure management handled professionally, allowing us to focus on business.", "rating": 5, "image": "👤" }
-          ],
-          "setupTime": "1 week",
-          "support": { "starter": "24/5", "professional": "24/7", "enterprise": "24/7 Dedicated" }
-        },
-        {
-          "id": 9,
-          "name": "Enterprise Email Hosting",
-          "slug": "enterprise-email-hosting",
-          "description": "Secure, reliable email hosting with advanced security, collaboration, and compliance features",
-          "icon": "✉️",
-          "pricing": {
-            "starter": { "name": "Starter", "price": 49, "currency": "USD per user/month", "billingModel": "monthly", "description": "Basic email" },
-            "professional": { "name": "Professional", "price": 99, "currency": "USD per user/month", "billingModel": "monthly", "description": "Advanced features" },
-            "enterprise": { "name": "Enterprise", "price": 149, "currency": "USD per user/month", "billingModel": "monthly", "description": "Full suite" },
-            "custom": { "name": "Custom", "price": null, "currency": "USD per user/month", "billingModel": "contact", "description": "Custom solution" }
-          },
-          "features": {
-            "starter": ["50GB Mailbox", "SSL Encryption", "Mobile Sync", "Spam Filter"],
-            "professional": ["100GB Mailbox", "Advanced Security", "Mobile Sync", "Calendar & Contacts", "Team Collaboration", "Archiving"],
-            "enterprise": ["Unlimited Mailbox", "Enterprise Security", "Advanced Sync", "Full Collaboration Suite", "Advanced Archiving", "eDiscovery", "GDPR Compliance"],
-            "custom": ["All features available", "Custom quotas", "Compliance options"]
-          },
-          "useCases": ["Corporate Email Infrastructure", "Multi-team Collaboration", "Compliance-heavy Industries", "Remote Work Support", "Merger Integration"],
-          "industries": ["Finance", "Legal", "Healthcare", "Corporate", "Government"],
-          "testimonials": [
-            { "client": "Enterprise Corp", "role": "IT Manager", "quote": "Reliable email with enterprise security and compliance features.", "rating": 5, "image": "👤" }
-          ],
-          "setupTime": "24 hours",
-          "support": { "starter": "Email Support", "professional": "24/5 Support", "enterprise": "24/7 Support" }
+          "useCases": ["Application hosting", "Database platforms", "Hybrid cloud", "Private environments"],
+          "industries": ["Finance", "Healthcare", "SaaS", "Enterprise"],
+          "setupTime": "1-3 weeks",
+          "support": { "starter": "Business hours", "professional": "Priority support", "enterprise": "24/7 support" }
         },
         {
           "id": 10,
-          "name": "Backup & Disaster Recovery",
-          "slug": "backup-disaster-recovery",
-          "description": "Automated backups with disaster recovery, business continuity, and rapid restoration capabilities",
-          "icon": "💾",
+          "name": "Managed Web Hosting Platforms",
+          "slug": "managed-web-hosting-platforms",
+          "description": "Ultra-fast cloud VPS and dedicated bare-metal nodes tuned only for application compute and website delivery.",
+          "icon": "🗄️",
           "pricing": {
-            "starter": { "name": "Starter", "price": 199, "currency": "USD", "billingModel": "monthly", "description": "Basic backup" },
-            "professional": { "name": "Professional", "price": 499, "currency": "USD", "billingModel": "monthly", "description": "Advanced backup" },
-            "enterprise": { "name": "Enterprise", "price": 1299, "currency": "USD", "billingModel": "monthly", "description": "Full DR solution" },
-            "custom": { "name": "Custom", "price": null, "currency": "USD", "billingModel": "contact", "description": "Custom solution" }
+            "starter": { "name": "Starter", "price": "R2,999 / month", "currency": "ZAR", "billingModel": "monthly", "description": "Starter cloud VPS" },
+            "professional": { "name": "Professional", "price": "R5,999 / month", "currency": "ZAR", "billingModel": "monthly", "description": "Optimized cloud instance" },
+            "enterprise": { "name": "Enterprise", "price": "R12,999 / month", "currency": "ZAR", "billingModel": "monthly", "description": "Dedicated server" },
+            "custom": { "name": "Custom", "price": "Request Quote", "currency": "ZAR", "billingModel": "contact", "description": "Custom hosting stack" }
           },
           "features": {
-            "starter": ["Daily Backups", "1TB Storage", "30-day Retention", "Basic Restore"],
-            "professional": ["Continuous Backup", "10TB Storage", "90-day Retention", "Advanced Restore", "Replication", "RPO: 1 hour"],
-            "enterprise": ["Real-time Backup", "Unlimited Storage", "1-year Retention", "Instant Restore", "Multi-site Replication", "RPO: 15 minutes", "RTO: < 1 hour"],
-            "custom": ["All features available", "Custom retention", "Guaranteed RPO/RTO"]
+            "starter": ["Nginx tuning", "SSL setup", "Daily backups", "Basic support"],
+            "professional": ["Performance tuning", "Staging environment", "Monitoring", "Managed patches"],
+            "enterprise": ["Dedicated resources", "High availability", "Security hardening", "24/7 support"],
+            "custom": ["Migration support", "Bare-metal options", "Geo-redundancy", "Custom SLAs"]
           },
-          "useCases": ["Critical Data Protection", "Business Continuity", "Compliance Requirements", "Ransomware Protection", "Disaster Recovery Planning"],
-          "industries": ["Finance", "Healthcare", "Government", "Legal", "Corporate"],
-          "testimonials": [
-            { "client": "FinanceSecure Ltd", "role": "Risk Officer", "quote": "Comprehensive backup and DR solution saved our business from potential disaster.", "rating": 5, "image": "👤" }
-          ],
-          "setupTime": "3 days",
-          "support": { "starter": "Business Hours", "professional": "24/5", "enterprise": "24/7 Priority" }
+          "useCases": ["Corporate sites", "Apps", "Campaign pages", "High-traffic portals"],
+          "industries": ["Professional Services", "Retail", "Technology", "Media"],
+          "setupTime": "24-72 hours",
+          "support": { "starter": "Email support", "professional": "24/5 support", "enterprise": "24/7 support" }
         },
         {
           "id": 11,
-          "name": "IT Helpdesk & Support",
-          "slug": "it-helpdesk-support",
-          "description": "Managed IT helpdesk services with ticketing, remote support, and technical problem resolution",
-          "icon": "🎧",
+          "name": "Enterprise Email Hosting Arrays",
+          "slug": "enterprise-email-hosting-arrays",
+          "description": "Isolated, high-deliverability mail architecture with SPF, DKIM, DMARC, and AI threat sandboxing.",
+          "icon": "✉️",
           "pricing": {
-            "starter": { "name": "Starter", "price": 299, "currency": "USD for 5 users", "billingModel": "monthly", "description": "Small team" },
-            "professional": { "name": "Professional", "price": 599, "currency": "USD for 25 users", "billingModel": "monthly", "description": "Medium team" },
-            "enterprise": { "name": "Enterprise", "price": 1499, "currency": "USD for 100+ users", "billingModel": "monthly", "description": "Large organization" },
-            "custom": { "name": "Custom", "price": null, "currency": "USD", "billingModel": "contact", "description": "Custom solution" }
+            "starter": { "name": "Starter", "price": "R899 / month", "currency": "ZAR", "billingModel": "monthly", "description": "5-user starter mail pack" },
+            "professional": { "name": "Professional", "price": "R2,250 / month", "currency": "ZAR", "billingModel": "monthly", "description": "25-user core layer" },
+            "enterprise": { "name": "Enterprise", "price": "R4,900 / month", "currency": "ZAR", "billingModel": "monthly", "description": "Unlimited archiving" },
+            "custom": { "name": "Custom", "price": "Request Quote", "currency": "ZAR", "billingModel": "contact", "description": "Compliance mail architecture" }
           },
           "features": {
-            "starter": ["Ticket System", "Remote Support", "Business Hours (8-5)", "Software Installation", "Basic Troubleshooting"],
-            "professional": ["24/5 Ticket Support", "Remote & On-site", "Hardware Support", "Advanced Troubleshooting", "Patch Management", "Monthly Reports"],
-            "enterprise": ["24/7 Full Support", "On-site + Remote", "Comprehensive IT Support", "Proactive Maintenance", "Asset Management", "Advanced Reporting", "Dedicated Account Manager"],
-            "custom": ["All features available", "Flexible SLA", "Custom support hours"]
+            "starter": ["Mailbox setup", "Spam filtering", "Mobile sync", "DNS records"],
+            "professional": ["Shared calendars", "Archiving", "Advanced spam control", "Migration support"],
+            "enterprise": ["Threat sandboxing", "Unlimited archiving", "Audit logs", "Priority support"],
+            "custom": ["eDiscovery support", "Retention policy design", "SLA planning", "User onboarding"]
           },
-          "useCases": ["Small Business IT Support", "Growing Company Support", "Enterprise IT Operations", "Multi-office Support", "Technical Problem Resolution"],
-          "industries": ["Professional Services", "Corporate", "Retail", "Manufacturing", "Technology"],
-          "testimonials": [
-            { "client": "GrowthTech Corp", "role": "Operations Manager", "quote": "Professional IT support allowed our team to focus on core business operations.", "rating": 5, "image": "👤" }
-          ],
+          "useCases": ["Corporate email", "Compliance-heavy teams", "Remote work", "Merger migrations"],
+          "industries": ["Legal", "Finance", "Healthcare", "Corporate"],
+          "setupTime": "24-48 hours",
+          "support": { "starter": "Email support", "professional": "24/5 support", "enterprise": "24/7 support" }
+        },
+        {
+          "id": 12,
+          "name": "Smart AV Workspace Procurement",
+          "slug": "smart-av-workspace-procurement",
+          "description": "Once-off capital procurement for Returnstar Technology boardrooms, classrooms, and connected presentation spaces.",
+          "icon": "📺",
+          "pricing": {
+            "starter": { "name": "Plan 1", "price": "Request Quote", "currency": "ZAR", "billingModel": "contact", "description": "65-inch interactive display deployment" },
+            "professional": { "name": "Plan 2", "price": "Request Quote", "currency": "ZAR", "billingModel": "contact", "description": "75-inch or 86-inch room deployment" },
+            "enterprise": { "name": "Plan 3", "price": "Request Quote", "currency": "ZAR", "billingModel": "contact", "description": "98-inch or 110-inch executive array" },
+            "custom": { "name": "Plan 4", "price": "Request Quote", "currency": "ZAR", "billingModel": "contact", "description": "Multi-room rollout and support" }
+          },
+          "features": {
+            "starter": ["IQTouch 65-inch display", "Heavy-duty wall mount", "Wireless collaboration hub", "On-site onboarding"],
+            "professional": ["75-inch or 86-inch panels", "Lecture capture camera", "Enterprise soundbar", "Room calibration"],
+            "enterprise": ["98-inch or 110-inch panels", "Q-NEX podium", "NMP media processor", "AI PTZ camera"],
+            "custom": ["AV-over-IP design", "Campus rollout", "Custom rigging", "Optional SLA support"]
+          },
+          "useCases": ["Boardrooms", "Smart classrooms", "Training venues", "Executive presentation spaces"],
+          "industries": ["Education", "Corporate", "Government", "Healthcare"],
+          "setupTime": "1-4 weeks",
+          "support": { "starter": "Installation support", "professional": "Deployment support", "enterprise": "Managed rollout support" }
+        },
+        {
+          "id": 13,
+          "name": "On-Premise Server Engineering",
+          "slug": "on-premise-server-engineering",
+          "description": "Structural installation and configuration of on-site server rooms, hardware firewalls, physical switches, and protected power layers.",
+          "icon": "🗄️",
+          "pricing": {
+            "starter": { "name": "Starter", "price": "Request Quote", "currency": "ZAR", "billingModel": "contact", "description": "Small server room" },
+            "professional": { "name": "Professional", "price": "Request Quote", "currency": "ZAR", "billingModel": "contact", "description": "Medium server room" },
+            "enterprise": { "name": "Enterprise", "price": "Request Quote", "currency": "ZAR", "billingModel": "contact", "description": "Large secure facility" },
+            "custom": { "name": "Custom", "price": "Request Quote", "currency": "ZAR", "billingModel": "contact", "description": "Infrastructure-as-a-service assets" }
+          },
+          "features": {
+            "starter": ["Rack placement", "Cable management", "Basic security", "Power assessment"],
+            "professional": ["Hardware firewall", "UPS integration", "Network switch setup", "Room documentation"],
+            "enterprise": ["Structured cabling", "Redundancy planning", "Monitoring setup", "Asset governance"],
+            "custom": ["Full room design", "Expansion planning", "Compliance support", "Engineering supervision"]
+          },
+          "useCases": ["Server rooms", "Edge compute", "Backup facilities", "Hybrid deployments"],
+          "industries": ["Corporate", "Education", "Public Sector", "Logistics"],
+          "setupTime": "1-6 weeks",
+          "support": { "starter": "Project support", "professional": "Implementation support", "enterprise": "Ongoing support" }
+        },
+        {
+          "id": 14,
+          "name": "Omnichannel IT Helpdesk",
+          "slug": "omnichannel-it-helpdesk",
+          "description": "Outsourced remote and on-site desktop support with patching, workstation deployment, and local network troubleshooting.",
+          "icon": "🎧",
+          "pricing": {
+            "starter": { "name": "Starter", "price": "R1,250 / month", "currency": "ZAR", "billingModel": "monthly", "description": "Per-incident support" },
+            "professional": { "name": "Professional", "price": "R4,500 / month", "currency": "ZAR", "billingModel": "monthly", "description": "8/5 helpdesk retainer" },
+            "enterprise": { "name": "Enterprise", "price": "R14,500 / month", "currency": "ZAR", "billingModel": "monthly", "description": "24/7 priority SLA" },
+            "custom": { "name": "Custom", "price": "Request Quote", "currency": "ZAR", "billingModel": "contact", "description": "Tailored service desk model" }
+          },
+          "features": {
+            "starter": ["Ticketing", "Remote support", "Basic troubleshooting", "Patch guidance"],
+            "professional": ["Remote and on-site", "Hardware support", "Monthly reporting", "Patch management"],
+            "enterprise": ["24/7 service desk", "Dedicated account manager", "Asset control", "Priority escalation"],
+            "custom": ["Custom SLAs", "VIP support lanes", "Site visits", "Rollout governance"]
+          },
+          "useCases": ["User support", "Workstation rollouts", "Remote teams", "Branch office support"],
+          "industries": ["Corporate", "Retail", "Education", "Professional Services"],
           "setupTime": "1 week",
-          "support": { "starter": "Business Hours", "professional": "24/5", "enterprise": "24/7" }
+          "support": { "starter": "Business hours", "professional": "8/5 support", "enterprise": "24/7 support" }
+        },
+        {
+          "id": 15,
+          "name": "Automated Backup & Disaster Recovery",
+          "slug": "automated-backup-disaster-recovery",
+          "description": "Immutable off-site cloud snapshots using WORM storage to protect business data from failure and ransomware vectors.",
+          "icon": "💾",
+          "pricing": {
+            "starter": { "name": "Starter", "price": "From R1,500 / month", "currency": "ZAR", "billingModel": "monthly", "description": "Small backup footprint" },
+            "professional": { "name": "Professional", "price": "From R4,500 / month", "currency": "ZAR", "billingModel": "monthly", "description": "Scaled retention and restore" },
+            "enterprise": { "name": "Enterprise", "price": "From R12,500 / month", "currency": "ZAR", "billingModel": "monthly", "description": "Immutable recovery network" },
+            "custom": { "name": "Custom", "price": "Request Quote", "currency": "ZAR", "billingModel": "contact", "description": "Custom DR strategy" }
+          },
+          "features": {
+            "starter": ["Daily backups", "Cloud snapshots", "Basic restore", "Retention rules"],
+            "professional": ["Continuous protection", "Replication", "Restore testing", "Monitoring"],
+            "enterprise": ["WORM storage", "Multi-site redundancy", "Advanced recovery", "Priority support"],
+            "custom": ["RPO/RTO planning", "Tabletop exercises", "Compliance alignment", "Dedicated support"]
+          },
+          "useCases": ["Ransomware recovery", "Business continuity", "Critical archives", "Cloud failover"],
+          "industries": ["Finance", "Healthcare", "Government", "Legal"],
+          "setupTime": "3 days",
+          "support": { "starter": "Business hours", "professional": "24/5", "enterprise": "24/7 priority" }
         }
       ]
     },
@@ -315,138 +395,123 @@
       "id": "consulting",
       "name": "Consulting Services",
       "slug": "consulting",
-      "description": "Strategic IT consulting, digital transformation, cybersecurity advisory, and project management services",
+      "description": "High-level strategic advisory, governance, and organizational change management separated from execution.",
       "icon": "📊",
       "color": "#00D084",
-      "tagline": "Expert advice for technology strategy",
+      "tagline": "Strategic architecture and governance for enterprise change",
       "services": [
         {
-          "id": 12,
+          "id": 16,
           "name": "IT Consulting Advisory",
           "slug": "it-consulting-advisory",
-          "description": "Strategic technology roadmapping, infrastructure assessment, and optimization advisory",
+          "description": "Architecture health checks, licensing audits, tech debt valuation, and vendor procurement evaluation.",
           "icon": "🧭",
           "pricing": {
-            "starter": { "name": "Project", "price": 10000, "currency": "USD", "billingModel": "project", "description": "Basic assessment" },
-            "professional": { "name": "Project", "price": 25000, "currency": "USD", "billingModel": "project", "description": "Comprehensive strategy" },
-            "enterprise": { "name": "Hourly", "price": 150, "currency": "USD/hour", "billingModel": "hourly", "description": "Ongoing consulting" },
-            "custom": { "name": "Retainer", "price": null, "currency": "USD", "billingModel": "contact", "description": "Annual engagement" }
+            "starter": { "name": "Starter", "price": "R15,000", "currency": "ZAR", "billingModel": "project", "description": "Architecture assessment" },
+            "professional": { "name": "Professional", "price": "R35,000", "currency": "ZAR", "billingModel": "project", "description": "Deep strategy engagement" },
+            "enterprise": { "name": "Enterprise", "price": "R2,500 / hour", "currency": "ZAR", "billingModel": "hourly", "description": "Ongoing consulting" },
+            "custom": { "name": "Custom", "price": "Request Quote", "currency": "ZAR", "billingModel": "contact", "description": "Retainer engagement" }
           },
           "features": {
-            "starter": ["Technology Roadmap", "Infrastructure Audit", "Gap Analysis", "Recommendations"],
-            "professional": ["Comprehensive Assessment", "Detailed Roadmap", "Cost Analysis", "ROI Projections", "Implementation Plan", "Risk Assessment"],
-            "enterprise": ["Ongoing Advisory", "Quarterly Strategy Reviews", "Market Analysis", "Competitive Positioning", "Vendor Management", "Continuous Optimization"],
-            "custom": ["All features available", "Dedicated consultant", "Custom engagement terms"]
+            "starter": ["Technology roadmap", "Infrastructure audit", "Gap analysis"],
+            "professional": ["Cost analysis", "Risk review", "Implementation planning"],
+            "enterprise": ["Quarterly strategy reviews", "Vendor governance", "Continuous optimization"],
+            "custom": ["Dedicated consultant", "Executive workshops", "Roadmap governance"]
           },
-          "useCases": ["Technology Strategy Planning", "Infrastructure Optimization", "Cloud Migration Planning", "Legacy System Modernization", "Vendor Selection"],
-          "industries": ["Finance", "Healthcare", "Manufacturing", "Corporate", "Government"],
-          "testimonials": [
-            { "client": "Fortune 500 Corp", "role": "CIO", "quote": "Strategic consulting helped us save millions on infrastructure costs.", "rating": 5, "image": "👤" }
-          ],
-          "setupTime": "2-8 weeks",
+          "useCases": ["Strategy planning", "Vendor selection", "Architecture review", "Tech debt reduction"],
+          "industries": ["Finance", "Healthcare", "Government", "Enterprise"],
+          "setupTime": "1-4 weeks",
           "support": { "starter": "Project-based", "professional": "Included", "enterprise": "Ongoing" }
         },
         {
-          "id": 13,
+          "id": 17,
           "name": "Digital Transformation Consulting",
           "slug": "digital-transformation-consulting",
-          "description": "Business process digital transformation, change management, and technology adoption consulting",
-          "icon": "🚀",
+          "description": "Change management blueprints that map step-by-step transitions away from manual work into automated systems.",
+          "icon": "🔁",
           "pricing": {
-            "starter": { "name": "Project", "price": 15000, "currency": "USD", "billingModel": "project", "description": "Single department" },
-            "professional": { "name": "Project", "price": 40000, "currency": "USD", "billingModel": "project", "description": "Multi-department" },
-            "enterprise": { "name": "Hourly", "price": 200, "currency": "USD/hour", "billingModel": "hourly", "description": "Enterprise-wide" },
-            "custom": { "name": "Retainer", "price": null, "currency": "USD", "billingModel": "contact", "description": "Engagement" }
+            "starter": { "name": "Starter", "price": "R25,000", "currency": "ZAR", "billingModel": "project", "description": "Single department blueprint" },
+            "professional": { "name": "Professional", "price": "R65,000", "currency": "ZAR", "billingModel": "project", "description": "Multi-department program" },
+            "enterprise": { "name": "Enterprise", "price": "R3,500 / hour", "currency": "ZAR", "billingModel": "hourly", "description": "Enterprise-wide advisory" },
+            "custom": { "name": "Custom", "price": "Request Quote", "currency": "ZAR", "billingModel": "contact", "description": "Transformation retainer" }
           },
           "features": {
-            "starter": ["Process Audit", "Technology Gap Analysis", "Basic Transformation Plan", "Staff Training"],
-            "professional": ["Complete Process Audit", "Detailed Transformation Strategy", "Change Management Plan", "Advanced Training", "Implementation Support", "KPI Definition"],
-            "enterprise": ["Enterprise-wide Assessment", "Comprehensive Strategy", "Full Change Management", "Executive Coaching", "Ongoing Support", "Performance Tracking"],
-            "custom": ["All features available", "Dedicated team", "Custom timeline"]
+            "starter": ["Process audit", "Change roadmap", "Stakeholder map"],
+            "professional": ["Training plan", "Rollout sequencing", "Implementation governance"],
+            "enterprise": ["Executive coaching", "Performance tracking", "Program support"],
+            "custom": ["Transformation office", "Adoption metrics", "Ongoing advisory"]
           },
-          "useCases": ["Business Process Automation", "Organizational Restructuring", "Technology Adoption", "Cloud Migration Strategy", "Innovation Programs"],
-          "industries": ["Manufacturing", "Banking", "Insurance", "Retail", "Government"],
-          "testimonials": [
-            { "client": "Legacy Manufacturing", "role": "Chief Operating Officer", "quote": "Digital transformation consulting modernized our entire operation.", "rating": 5, "image": "👤" }
-          ],
-          "setupTime": "4-16 weeks",
-          "support": { "starter": "Project-based", "professional": "6-month support", "enterprise": "Ongoing" }
+          "useCases": ["Operational change", "Adoption programs", "Automation planning", "Process redesign"],
+          "industries": ["Manufacturing", "Banking", "Insurance", "Retail"],
+          "setupTime": "2-8 weeks",
+          "support": { "starter": "Project-based", "professional": "6 months", "enterprise": "Ongoing" }
         },
         {
-          "id": 14,
+          "id": 18,
           "name": "Cybersecurity Compliance Advisory",
           "slug": "cybersecurity-compliance-advisory",
-          "description": "Security compliance consulting for GDPR, HIPAA, SOC 2, ISO 27001, and industry-specific regulations",
-          "icon": "🔐",
+          "description": "Policy restructuring and compliance guidance for POPIA, GDPR, SOC 2, and ISO 27001 alignment.",
+          "icon": "🛡️",
           "pricing": {
-            "starter": { "name": "Project", "price": 8000, "currency": "USD", "billingModel": "project", "description": "Basic compliance" },
-            "professional": { "name": "Project", "price": 20000, "currency": "USD", "billingModel": "project", "description": "Multi-framework" },
-            "enterprise": { "name": "Hourly", "price": 175, "currency": "USD/hour", "billingModel": "hourly", "description": "Ongoing compliance" },
-            "custom": { "name": "Retainer", "price": null, "currency": "USD", "billingModel": "contact", "description": "Full compliance" }
+            "starter": { "name": "Starter", "price": "R18,500", "currency": "ZAR", "billingModel": "project", "description": "Basic compliance review" },
+            "professional": { "name": "Professional", "price": "R45,000", "currency": "ZAR", "billingModel": "project", "description": "Multi-framework advisory" },
+            "enterprise": { "name": "Enterprise", "price": "R3,000 / hour", "currency": "ZAR", "billingModel": "hourly", "description": "Ongoing compliance support" },
+            "custom": { "name": "Custom", "price": "Request Quote", "currency": "ZAR", "billingModel": "contact", "description": "Certification support" }
           },
           "features": {
-            "starter": ["Compliance Assessment", "Gap Analysis", "Basic Remediation Plan", "Documentation"],
-            "professional": ["Multi-framework Assessment", "Detailed Compliance Plan", "Policy Development", "Auditor Preparation", "Documentation Support"],
-            "enterprise": ["Continuous Compliance Monitoring", "Audit Preparation", "Policy Management", "Regulatory Updates", "Ongoing Advisory", "Certification Support"],
-            "custom": ["All features available", "Dedicated compliance team", "Certification guarantee"]
+            "starter": ["Compliance assessment", "Gap analysis", "Remediation plan"],
+            "professional": ["Policy development", "Audit prep", "Documentation support"],
+            "enterprise": ["Continuous monitoring", "Regulatory updates", "Certification support"],
+            "custom": ["Dedicated compliance team", "Executive briefings", "Long-term governance"]
           },
-          "useCases": ["GDPR Compliance", "HIPAA Compliance", "SOC 2 Certification", "ISO 27001 Certification", "Industry-specific Compliance"],
-          "industries": ["Healthcare", "Finance", "Data Centers", "SaaS", "Legal"],
-          "testimonials": [
-            { "client": "HealthCare Systems", "role": "Compliance Officer", "quote": "Expert guidance helped us achieve HIPAA compliance quickly and efficiently.", "rating": 5, "image": "👤" }
-          ],
+          "useCases": ["POPIA readiness", "GDPR audits", "SOC 2 projects", "ISO 27001 planning"],
+          "industries": ["Healthcare", "Finance", "Legal", "SaaS"],
           "setupTime": "2-12 weeks",
-          "support": { "starter": "Project-based", "professional": "Ongoing support", "enterprise": "24/7 Compliance" }
+          "support": { "starter": "Project-based", "professional": "Ongoing support", "enterprise": "24/7 compliance" }
         },
         {
-          "id": 15,
+          "id": 19,
           "name": "Project Management Office (PMO)",
           "slug": "project-management-office",
-          "description": "PMO services including project governance, portfolio management, and delivery excellence",
+          "description": "Lifecycle governance, dependency tracking, milestone management, and technical bid coordination.",
           "icon": "📈",
           "pricing": {
-            "starter": { "name": "Hourly", "price": 150, "currency": "USD/hour", "billingModel": "hourly", "description": "Project support" },
-            "professional": { "name": "Hourly", "price": 175, "currency": "USD/hour", "billingModel": "hourly", "description": "Program management" },
-            "enterprise": { "name": "Monthly", "price": 8000, "currency": "USD", "billingModel": "monthly", "description": "Full PMO" },
-            "custom": { "name": "Retainer", "price": null, "currency": "USD", "billingModel": "contact", "description": "Custom arrangement" }
+            "starter": { "name": "Starter", "price": "R12,500 / month", "currency": "ZAR", "billingModel": "monthly", "description": "Project support" },
+            "professional": { "name": "Professional", "price": "R25,000 / month", "currency": "ZAR", "billingModel": "monthly", "description": "Program management" },
+            "enterprise": { "name": "Enterprise", "price": "R45,000 / month", "currency": "ZAR", "billingModel": "monthly", "description": "Full PMO" },
+            "custom": { "name": "Custom", "price": "Request Quote", "currency": "ZAR", "billingModel": "contact", "description": "Tailored governance model" }
           },
           "features": {
-            "starter": ["Project Planning", "Status Reporting", "Risk Management", "Basic Governance"],
-            "professional": ["Program Management", "Portfolio Oversight", "Advanced Reporting", "Stakeholder Management", "Resource Planning"],
-            "enterprise": ["Full PMO Services", "Portfolio Governance", "Strategic Alignment", "Continuous Improvement", "Executive Dashboards", "Capacity Planning"],
-            "custom": ["All features available", "Dedicated PMO team", "Custom governance"]
+            "starter": ["Project planning", "Status reporting", "Risk management"],
+            "professional": ["Portfolio oversight", "Resource planning", "Stakeholder management"],
+            "enterprise": ["Executive dashboards", "Capacity planning", "Continuous improvement"],
+            "custom": ["Dedicated PMO lead", "Governance templates", "Portfolio orchestration"]
           },
-          "useCases": ["Project Portfolio Management", "Enterprise Program Delivery", "Transformation Program Management", "Multi-project Coordination", "Delivery Excellence"],
-          "industries": ["Corporate", "Finance", "Government", "Healthcare", "Manufacturing"],
-          "testimonials": [
-            { "client": "Enterprise Conglomerate", "role": "PMO Director", "quote": "Professional PMO services improved project delivery by 35%.", "rating": 5, "image": "👤" }
-          ],
+          "useCases": ["Program delivery", "Tender coordination", "Portfolio oversight", "Transformation governance"],
+          "industries": ["Corporate", "Finance", "Government", "Healthcare"],
           "setupTime": "1-2 weeks",
           "support": { "starter": "Project-based", "professional": "Program-based", "enterprise": "Ongoing 24/5" }
         },
         {
-          "id": 16,
+          "id": 20,
           "name": "Training & Capacity Building",
           "slug": "training-capacity-building",
-          "description": "Technical training programs, staff development, and capability building services",
+          "description": "Hands-on upskilling workshops covering Smart AV adoption, internal AI utility, and security hygiene.",
           "icon": "🎓",
           "pricing": {
-            "starter": { "name": "Program", "price": 3000, "currency": "USD", "billingModel": "project", "description": "Single course" },
-            "professional": { "name": "Program", "price": 8000, "currency": "USD", "billingModel": "project", "description": "Multiple courses" },
-            "enterprise": { "name": "Hourly", "price": 125, "currency": "USD/hour", "billingModel": "hourly", "description": "Custom training" },
-            "custom": { "name": "Retainer", "price": null, "currency": "USD", "billingModel": "contact", "description": "Annual program" }
+            "starter": { "name": "Starter", "price": "R6,000", "currency": "ZAR", "billingModel": "project", "description": "Single course" },
+            "professional": { "name": "Professional", "price": "R14,500", "currency": "ZAR", "billingModel": "project", "description": "Workshop program" },
+            "enterprise": { "name": "Enterprise", "price": "R2,500 / hour", "currency": "ZAR", "billingModel": "hourly", "description": "Custom training" },
+            "custom": { "name": "Custom", "price": "Request Quote", "currency": "ZAR", "billingModel": "contact", "description": "Annual learning program" }
           },
           "features": {
-            "starter": ["Custom Curriculum", "In-person Training", "Training Materials", "Certification"],
-            "professional": ["Multiple Courses", "On-site + Online", "Advanced Materials", "Certification Programs", "Post-training Support"],
-            "enterprise": ["Comprehensive Curriculum", "Flexible Delivery", "Advanced Certification", "Coaching", "Ongoing Support", "Knowledge Transfer"],
-            "custom": ["All features available", "Customized curriculum", "Annual engagement"]
+            "starter": ["Custom curriculum", "On-site training", "Training materials"],
+            "professional": ["Multiple courses", "Certification support", "Post-training Q&A"],
+            "enterprise": ["Comprehensive curriculum", "Knowledge transfer", "Leadership coaching"],
+            "custom": ["Annual program design", "Bespoke workshops", "Capability roadmap"]
           },
-          "useCases": ["Staff Technical Upskilling", "New Technology Adoption", "Compliance Training", "Leadership Development", "Knowledge Transfer"],
-          "industries": ["Corporate", "Professional Services", "Education", "Government", "Finance"],
-          "testimonials": [
-            { "client": "Tech Startup", "role": "HR Director", "quote": "Training program dramatically improved team capabilities and morale.", "rating": 5, "image": "👤" }
-          ],
+          "useCases": ["Upskilling", "Technology adoption", "Compliance training", "Internal enablement"],
+          "industries": ["Corporate", "Education", "Government", "Professional Services"],
           "setupTime": "1-4 weeks",
           "support": { "starter": "Program-based", "professional": "Post-training", "enterprise": "Ongoing support" }
         }
@@ -454,384 +519,368 @@
     },
     {
       "id": "connectivity",
-      "name": "Future Connectivity Services",
+      "name": "Network Connectivity & Telecommunications Solutions",
       "slug": "connectivity",
-      "description": "Internet service provisioning, fiber broadband deployment, and enterprise connectivity solutions",
+      "description": "Voice, cellular data pipelines, and synchronous business internet structures owned and routed directly by our infrastructure network.",
       "icon": "🌐",
       "color": "#E74C3C",
-      "tagline": "High-speed connectivity for the future",
+      "tagline": "Owned mobile and network connectivity layers",
       "services": [
         {
-          "id": 17,
-          "name": "Internet Service Provisioning (ISP)",
-          "slug": "internet-service-provisioning",
-          "description": "Business-grade internet services with guaranteed bandwidth, uptime, and support",
+          "id": 21,
+          "name": "Corporate Mobile Telecommunications (Maleng MVNO SIMs)",
+          "slug": "corporate-mobile-telecommunications",
+          "description": "Dedicated corporate SIM cards with custom data profiles, private APN routing, and secure field device connectivity.",
+          "icon": "📶",
+          "pricing": {
+            "starter": { "name": "Starter", "price": "R175 / SIM / month", "currency": "ZAR", "billingModel": "monthly", "description": "M2M telematics bundle" },
+            "professional": { "name": "Professional", "price": "R395 / SIM / month", "currency": "ZAR", "billingModel": "monthly", "description": "Corporate voice and data" },
+            "enterprise": { "name": "Enterprise", "price": "R850 / SIM / month", "currency": "ZAR", "billingModel": "monthly", "description": "Unlimited voice and data layer" },
+            "custom": { "name": "Custom", "price": "Request Quote", "currency": "ZAR", "billingModel": "contact", "description": "Fleet-scale MVNO model" }
+          },
+          "features": {
+            "starter": ["SIM provisioning", "Private APN", "Usage controls"],
+            "professional": ["Fleet-ready routing", "Dashboard control", "Roaming options"],
+            "enterprise": ["Centralized governance", "Priority support", "Large-scale rollout"],
+            "custom": ["Telematics integration", "Bulk activation", "Custom SLAs"]
+          },
+          "useCases": ["Fleet tracking", "Remote workforce", "IoT devices", "Field operations"],
+          "industries": ["Logistics", "Security", "Agriculture", "Construction"],
+          "setupTime": "3-10 days",
+          "support": { "starter": "Business hours", "professional": "Priority support", "enterprise": "24/7 support" }
+        },
+        {
+          "id": 22,
+          "name": "Commercial Synchronous Internet Provisioning (ISP)",
+          "slug": "commercial-synchronous-internet-provisioning",
+          "description": "Premium business internet lines delivering identical upload and download speeds for mission-critical environments.",
           "icon": "📡",
           "pricing": {
-            "starter": { "name": "Starter", "price": 199, "currency": "USD", "billingModel": "monthly", "description": "Small office" },
-            "professional": { "name": "Professional", "price": 499, "currency": "USD", "billingModel": "monthly", "description": "Medium office" },
-            "enterprise": { "name": "Enterprise", "price": 1299, "currency": "USD", "billingModel": "monthly", "description": "Large enterprise" },
-            "custom": { "name": "Custom", "price": null, "currency": "USD", "billingModel": "contact", "description": "Custom bandwidth" }
+            "starter": { "name": "Starter", "price": "R5,900 / month", "currency": "ZAR", "billingModel": "monthly", "description": "100Mbps dedicated line" },
+            "professional": { "name": "Professional", "price": "R12,500 / month", "currency": "ZAR", "billingModel": "monthly", "description": "500Mbps business line" },
+            "enterprise": { "name": "Enterprise", "price": "R35,000 / month", "currency": "ZAR", "billingModel": "monthly", "description": "1Gbps to 10Gbps allocations" },
+            "custom": { "name": "Custom", "price": "Request Quote", "currency": "ZAR", "billingModel": "contact", "description": "Carrier-grade design" }
           },
           "features": {
-            "starter": ["50Mbps Bandwidth", "99% Uptime SLA", "Dedicated Line", "24/5 Support", "No Data Cap"],
-            "professional": ["200Mbps Bandwidth", "99.5% Uptime SLA", "Dedicated Line", "24/7 Support", "No Data Cap", "Traffic Prioritization"],
-            "enterprise": ["1Gbps Bandwidth", "99.9% Uptime SLA", "Dedicated Line", "24/7 Priority Support", "No Data Cap", "Advanced Routing", "Redundancy Options"],
-            "custom": ["Custom bandwidth", "Custom SLA", "Dedicated support", "Advanced services"]
+            "starter": ["Dedicated bandwidth", "Business SLA", "Basic failover"],
+            "professional": ["Symmetric speeds", "Traffic prioritization", "Monitoring"],
+            "enterprise": ["High availability", "Redundancy options", "Priority routing"],
+            "custom": ["Multi-site design", "Carrier management", "Advanced QoS"]
           },
-          "useCases": ["Office Internet", "Data Center Connectivity", "Branch Office Connection", "Backup Internet", "Cloud Access"],
-          "industries": ["Corporate", "Finance", "Healthcare", "Retail", "Manufacturing"],
-          "testimonials": [
-            { "client": "Multi-office Corp", "role": "Network Manager", "quote": "Reliable internet service keeps all our offices connected seamlessly.", "rating": 5, "image": "👤" }
-          ],
+          "useCases": ["Head office connectivity", "Call centers", "Cloud access", "Data-heavy operations"],
+          "industries": ["Corporate", "Finance", "Education", "Healthcare"],
           "setupTime": "5-10 business days",
-          "support": { "starter": "24/5", "professional": "24/7", "enterprise": "24/7 Priority" }
+          "support": { "starter": "24/5", "professional": "24/7", "enterprise": "24/7 priority" }
         },
         {
-          "id": 18,
-          "name": "Fiber Broadband Deployment",
-          "slug": "fiber-broadband-deployment",
-          "description": "Fiber optic infrastructure deployment, installation, and network optimization",
+          "id": 23,
+          "name": "Open Fiber Broadband Deployment",
+          "slug": "open-fiber-broadband-deployment",
+          "description": "Civil path design, trenching approvals, fiber trunk installation, fusion splicing, and commercial termination.",
           "icon": "🔌",
           "pricing": {
-            "starter": { "name": "Installation", "price": 2000, "currency": "USD", "billingModel": "one-time", "description": "Single location" },
-            "professional": { "name": "Installation", "price": 8000, "currency": "USD", "billingModel": "one-time", "description": "Multi-location" },
-            "enterprise": { "name": "Project", "price": 50000, "currency": "USD", "billingModel": "project", "description": "Campus/Enterprise" },
-            "custom": { "name": "Custom", "price": null, "currency": "USD", "billingModel": "contact", "description": "Infrastructure project" }
+            "starter": { "name": "Starter", "price": "Request Quote", "currency": "ZAR", "billingModel": "contact", "description": "Single site deployment" },
+            "professional": { "name": "Professional", "price": "Request Quote", "currency": "ZAR", "billingModel": "contact", "description": "Multi-site rollout" },
+            "enterprise": { "name": "Enterprise", "price": "Request Quote", "currency": "ZAR", "billingModel": "contact", "description": "Campus-scale path build" },
+            "custom": { "name": "Custom", "price": "Request Quote", "currency": "ZAR", "billingModel": "contact", "description": "Full fiber project" }
           },
           "features": {
-            "starter": ["Fiber Assessment", "Installation", "Testing & Validation", "Documentation"],
-            "professional": ["Multi-site Assessment", "Installation & Configuration", "Network Redundancy", "Performance Optimization", "Training"],
-            "enterprise": ["Campus Deployment", "Advanced Design", "Full Installation", "Network Optimization", "Ongoing Management", "Support"],
-            "custom": ["All features available", "Custom design", "Turnkey solution"]
+            "starter": ["Site survey", "Path planning", "Single splice route"],
+            "professional": ["Trenching coordination", "Fiber trunk install", "Testing and handover"],
+            "enterprise": ["Multi-building rollout", "Redundancy planning", "Network documentation"],
+            "custom": ["Municipal approvals", "Civil works coordination", "End-to-end project delivery"]
           },
-          "useCases": ["High-speed Office Networks", "Campus Connectivity", "Data Center Access", "Smart Building Infrastructure", "Future-proofing Networks"],
-          "industries": ["Corporate", "Education", "Healthcare", "Data Centers", "Smart Cities"],
-          "testimonials": [
-            { "client": "Enterprise Campus", "role": "Infrastructure Manager", "quote": "Fiber deployment future-proofed our network for years to come.", "rating": 5, "image": "👤" }
-          ],
+          "useCases": ["New builds", "Campus networks", "Retail estates", "Industrial parks"],
+          "industries": ["Property", "Education", "Corporate", "Industrial"],
           "setupTime": "2-8 weeks",
-          "support": { "starter": "Project-based", "professional": "Maintenance", "enterprise": "Ongoing support" }
+          "support": { "starter": "Project-based", "professional": "Commissioning support", "enterprise": "Ongoing support" }
         },
         {
-          "id": 19,
-          "name": "Enterprise Connectivity & Network",
-          "slug": "enterprise-connectivity-network",
-          "description": "Enterprise-grade network solutions with MPLS, SD-WAN, and advanced routing",
+          "id": 24,
+          "name": "Enterprise Connectivity & SD-WAN Orchestration",
+          "slug": "enterprise-connectivity-sdwan-orchestration",
+          "description": "Multi-location SD-WAN, secure private tunnels, and QoS policies prioritizing telematics and Smart AV traffic.",
           "icon": "🕸️",
           "pricing": {
-            "starter": { "name": "Starter", "price": 499, "currency": "USD", "billingModel": "monthly", "description": "Small network" },
-            "professional": { "name": "Professional", "price": 1199, "currency": "USD", "billingModel": "monthly", "description": "Medium network" },
-            "enterprise": { "name": "Enterprise", "price": 3299, "currency": "USD", "billingModel": "monthly", "description": "Large network" },
-            "custom": { "name": "Custom", "price": null, "currency": "USD", "billingModel": "contact", "description": "Global network" }
+            "starter": { "name": "Starter", "price": "R9,500 / month", "currency": "ZAR", "billingModel": "monthly", "description": "Small branch network" },
+            "professional": { "name": "Professional", "price": "R22,500 / month", "currency": "ZAR", "billingModel": "monthly", "description": "Multi-site SD-WAN" },
+            "enterprise": { "name": "Enterprise", "price": "R55,000 / month", "currency": "ZAR", "billingModel": "monthly", "description": "Large-scale orchestration" },
+            "custom": { "name": "Custom", "price": "Request Quote", "currency": "ZAR", "billingModel": "contact", "description": "Global network fabric" }
           },
           "features": {
-            "starter": ["2-5 Site Connectivity", "MPLS Network", "Basic Monitoring", "99.5% Uptime SLA"],
-            "professional": ["5-20 Site Connectivity", "SD-WAN + MPLS", "Advanced Monitoring", "99.9% Uptime SLA", "Traffic Management", "24/7 Support"],
-            "enterprise": ["20+ Site Connectivity", "Advanced SD-WAN", "Real-time Analytics", "99.99% Uptime SLA", "Advanced Routing", "Dedicated Support Team"],
-            "custom": ["Global connectivity", "Custom SLA", "Advanced services", "Managed operations"]
+            "starter": ["2-5 site connectivity", "Basic monitoring", "Tunnel setup"],
+            "professional": ["SD-WAN policy controls", "Traffic management", "24/7 support"],
+            "enterprise": ["Real-time analytics", "Advanced routing", "Dedicated support team"],
+            "custom": ["MPLS integration", "Custom QoS rules", "Network governance"]
           },
-          "useCases": ["Multi-site Connectivity", "Global Enterprise Networks", "Branch Office Networks", "Hybrid Cloud Networks", "Mission-critical Operations"],
-          "industries": ["Finance", "Corporate", "Manufacturing", "Retail", "Government"],
-          "testimonials": [
-            { "client": "Global Enterprise", "role": "Network Director", "quote": "Enterprise connectivity solution unified our global operations seamlessly.", "rating": 5, "image": "👤" }
-          ],
+          "useCases": ["Branch offices", "Retail chains", "Distributed teams", "Mission-critical networks"],
+          "industries": ["Corporate", "Logistics", "Retail", "Government"],
           "setupTime": "2-4 weeks",
-          "support": { "starter": "24/5", "professional": "24/7", "enterprise": "24/7 Dedicated" }
+          "support": { "starter": "24/5", "professional": "24/7", "enterprise": "24/7 dedicated" }
         }
       ]
     },
     {
       "id": "security-surveillance",
-      "name": "Security & Surveillance Services",
+      "name": "Security & Surveillance Services (Physical Operations & Telematics)",
       "slug": "security-surveillance",
-      "description": "CCTV systems, video monitoring, access control, and 24/7 security operations center services",
+      "description": "Physical perimeter asset protection linked directly to modern, decoupled software visualization platforms.",
       "icon": "🔒",
       "color": "#9B59B6",
-      "tagline": "Professional security solutions",
+      "tagline": "Physical security linked to live operational telemetry",
       "services": [
         {
-          "id": 20,
+          "id": 25,
           "name": "CCTV System Design & Installation",
-          "slug": "cctv-design-installation",
-          "description": "Professional CCTV system design, installation, and configuration for complete site coverage",
+          "slug": "cctv-system-design-installation",
+          "description": "Commercial IP camera topologies, secure NVR storage vaults, and AI boundary geofencing setups.",
           "icon": "📷",
           "pricing": {
-            "starter": { "name": "Starter", "price": 3000, "currency": "USD", "billingModel": "one-time", "description": "Small site (5-10 cameras)" },
-            "professional": { "name": "Professional", "price": 8000, "currency": "USD", "billingModel": "one-time", "description": "Medium site (10-25 cameras)" },
-            "enterprise": { "name": "Enterprise", "price": 20000, "currency": "USD", "billingModel": "one-time", "description": "Large site (25+ cameras)" },
-            "custom": { "name": "Custom", "price": null, "currency": "USD", "billingModel": "contact", "description": "Complex project" }
+            "starter": { "name": "Starter", "price": "R18,500", "currency": "ZAR", "billingModel": "one-time", "description": "Small site deployment" },
+            "professional": { "name": "Professional", "price": "R42,500", "currency": "ZAR", "billingModel": "one-time", "description": "Medium site deployment" },
+            "enterprise": { "name": "Enterprise", "price": "R95,000", "currency": "ZAR", "billingModel": "one-time", "description": "Large site deployment" },
+            "custom": { "name": "Custom", "price": "Request Quote", "currency": "ZAR", "billingModel": "contact", "description": "Complex security estate" }
           },
           "features": {
-            "starter": ["5-10 HD Cameras", "DVR/NVR System", "Local Storage", "Basic Installation", "User Training"],
-            "professional": ["10-25 4K Cameras", "Advanced Recording", "Cloud Storage", "Professional Installation", "Advanced Training", "Maintenance Plan"],
-            "enterprise": ["25+ 8MP+ Cameras", "Enterprise System", "Hybrid Storage", "Full Installation", "Advanced Features", "Annual Maintenance"],
-            "custom": ["Custom camera count", "Custom configuration", "Specialized equipment", "Full support"]
+            "starter": ["Camera layout", "NVR setup", "Basic installation"],
+            "professional": ["4K cameras", "Cloud storage", "Maintenance plan"],
+            "enterprise": ["Enterprise storage", "Advanced analytics", "Annual maintenance"],
+            "custom": ["Specialized design", "Expanded coverage", "Dedicated install crew"]
           },
-          "useCases": ["Office Building Security", "Retail Store Monitoring", "Warehouse Surveillance", "Campus Coverage", "Critical Infrastructure"],
-          "industries": ["Retail", "Corporate", "Warehouse", "Banking", "Government"],
-          "testimonials": [
-            { "client": "RetailCorp Ltd", "role": "Security Manager", "quote": "Professional CCTV system reduced theft by 60% within first month.", "rating": 5, "image": "👤" }
-          ],
+          "useCases": ["Office security", "Retail monitoring", "Warehouse coverage", "Campus protection"],
+          "industries": ["Retail", "Corporate", "Warehousing", "Banking"],
           "setupTime": "1-3 weeks",
           "support": { "starter": "30 days", "professional": "1 year", "enterprise": "Ongoing" }
         },
         {
-          "id": 21,
-          "name": "Video Monitoring & Surveillance",
-          "slug": "video-monitoring-surveillance",
-          "description": "24/7 professional video monitoring, recording, and incident response services",
+          "id": 26,
+          "name": "Video Monitoring & Surveillance (24/7 SOC)",
+          "slug": "video-monitoring-surveillance-soc",
+          "description": "Continuous live camera and alert validation handled from our central Security Operations Center.",
           "icon": "👁️",
           "pricing": {
-            "starter": { "name": "Starter", "price": 199, "currency": "USD", "billingModel": "monthly", "description": "5 cameras" },
-            "professional": { "name": "Professional", "price": 499, "currency": "USD", "billingModel": "monthly", "description": "15 cameras" },
-            "enterprise": { "name": "Enterprise", "price": 999, "currency": "USD", "billingModel": "monthly", "description": "50+ cameras" },
-            "custom": { "name": "Custom", "price": null, "currency": "USD", "billingModel": "contact", "description": "Custom cameras" }
+            "starter": { "name": "Starter", "price": "R4,500 / month", "currency": "ZAR", "billingModel": "monthly", "description": "Small camera count" },
+            "professional": { "name": "Professional", "price": "R9,500 / month", "currency": "ZAR", "billingModel": "monthly", "description": "Medium camera count" },
+            "enterprise": { "name": "Enterprise", "price": "R19,500 / month", "currency": "ZAR", "billingModel": "monthly", "description": "Large monitoring estate" },
+            "custom": { "name": "Custom", "price": "Request Quote", "currency": "ZAR", "billingModel": "contact", "description": "Standalone SOC coverage" }
           },
           "features": {
-            "starter": ["24/7 Monitoring", "5 Cameras Monitored", "Alert Response", "Monthly Reports", "Video Archive (30 days)"],
-            "professional": ["24/7 Professional Monitoring", "15 Cameras Monitored", "Real-time Alerts", "Incident Response", "Video Archive (90 days)", "Monthly Detailed Reports"],
-            "enterprise": ["24/7 SOC Monitoring", "50+ Cameras", "Real-time Alerts", "Rapid Response", "Video Archive (1 year)", "Advanced Analytics", "Dedicated Account Manager"],
-            "custom": ["Custom camera count", "Custom monitoring level", "Custom storage", "SLA available"]
+            "starter": ["24/7 monitoring", "Alert response", "Video archive"],
+            "professional": ["Real-time alerts", "Incident response", "Detailed reports"],
+            "enterprise": ["SOC coverage", "Advanced analytics", "Dedicated account manager"],
+            "custom": ["Custom camera count", "Custom reporting", "SLA design"]
           },
-          "useCases": ["Retail Store Monitoring", "Corporate Office Surveillance", "Warehouse Monitoring", "Bank Security", "Critical Infrastructure"],
-          "industries": ["Retail", "Banking", "Corporate", "Warehouse", "Government"],
-          "testimonials": [
-            { "client": "SecureRetail Inc", "role": "Director of Operations", "quote": "Professional 24/7 monitoring provides peace of mind and reduced losses.", "rating": 5, "image": "👤" }
-          ],
+          "useCases": ["Loss prevention", "After-hours security", "Remote monitoring", "Multi-site coverage"],
+          "industries": ["Retail", "Banking", "Corporate", "Government"],
           "setupTime": "1 week",
-          "support": { "starter": "24/5", "professional": "24/7", "enterprise": "24/7 Priority" }
+          "support": { "starter": "24/5", "professional": "24/7", "enterprise": "24/7 priority" }
         },
         {
-          "id": 22,
+          "id": 27,
           "name": "Access Control Systems",
           "slug": "access-control-systems",
-          "description": "Smart access control with card readers, biometric systems, and permission management",
+          "description": "Biometric readers, proximity card networks, and real-time internal access tracking databases.",
           "icon": "🔑",
           "pricing": {
-            "starter": { "name": "Starter", "price": 99, "currency": "USD", "billingModel": "monthly", "description": "Basic access (up to 5 doors)" },
-            "professional": { "name": "Professional", "price": 299, "currency": "USD", "billingModel": "monthly", "description": "Advanced (up to 20 doors)" },
-            "enterprise": { "name": "Enterprise", "price": 999, "currency": "USD", "billingModel": "monthly", "description": "Enterprise (50+ doors)" },
-            "custom": { "name": "Custom", "price": null, "currency": "USD", "billingModel": "contact", "description": "Custom solution" }
+            "starter": { "name": "Starter", "price": "R7,500", "currency": "ZAR", "billingModel": "one-time", "description": "Small access system" },
+            "professional": { "name": "Professional", "price": "R19,500", "currency": "ZAR", "billingModel": "one-time", "description": "Advanced access control" },
+            "enterprise": { "name": "Enterprise", "price": "R45,000", "currency": "ZAR", "billingModel": "one-time", "description": "Large secure facility" },
+            "custom": { "name": "Custom", "price": "Request Quote", "currency": "ZAR", "billingModel": "contact", "description": "Enterprise access design" }
           },
           "features": {
-            "starter": ["Card Reader System", "Up to 5 Doors", "Basic Reports", "User Management (50 users)"],
-            "professional": ["Card + Biometric", "Up to 20 Doors", "Advanced Reports", "User Management (500 users)", "Access Logs", "Integration Ready"],
-            "enterprise": ["Multi-modal Authentication", "50+ Doors", "Real-time Analytics", "Unlimited Users", "Mobile Integration", "API Access", "Advanced Security"],
-            "custom": ["All authentication types", "Custom doors", "Custom integrations", "Unlimited features"]
+            "starter": ["Card readers", "Door logs", "User enrollment"],
+            "professional": ["Biometric options", "Access rules", "Audit trails"],
+            "enterprise": ["Multi-door governance", "API integration", "Central dashboards"],
+            "custom": ["Visitor management", "Custom hardware", "Central policy design"]
           },
-          "useCases": ["Office Building Access", "Secure Facility Access", "Data Center Access", "Visitor Management", "Employee Verification"],
-          "industries": ["Corporate", "Government", "Finance", "Healthcare", "Data Centers"],
-          "testimonials": [
-            { "client": "SecureBank", "role": "Security Officer", "quote": "Access control system strengthened security with minimal operational overhead.", "rating": 5, "image": "👤" }
-          ],
+          "useCases": ["Office entry", "Restricted rooms", "Data centers", "Visitor control"],
+          "industries": ["Corporate", "Finance", "Healthcare", "Data Centers"],
           "setupTime": "1-2 weeks",
-          "support": { "starter": "Email Support", "professional": "24/5 Support", "enterprise": "24/7 Support" }
+          "support": { "starter": "Email support", "professional": "24/5 support", "enterprise": "24/7 support" }
         },
         {
-          "id": 23,
+          "id": 28,
           "name": "Incident Response & Support",
           "slug": "incident-response-support",
-          "description": "Rapid response incident management, investigation, and support services",
+          "description": "Emergency workspace lockouts, network overrides, and rapid tactical coordination during security anomalies.",
           "icon": "🚨",
           "pricing": {
-            "starter": { "name": "Included", "price": 0, "currency": "USD", "billingModel": "included", "description": "With monitoring" },
-            "professional": { "name": "Included", "price": 0, "currency": "USD", "billingModel": "included", "description": "With monitoring" },
-            "enterprise": { "name": "Included", "price": 0, "currency": "USD", "billingModel": "included", "description": "With monitoring" },
-            "custom": { "name": "Add-on", "price": 199, "currency": "USD/month", "billingModel": "monthly", "description": "Standalone service" }
+            "starter": { "name": "Starter", "price": "Included", "currency": "ZAR", "billingModel": "included", "description": "With monitoring" },
+            "professional": { "name": "Professional", "price": "Included", "currency": "ZAR", "billingModel": "included", "description": "With monitoring" },
+            "enterprise": { "name": "Enterprise", "price": "Included", "currency": "ZAR", "billingModel": "included", "description": "With monitoring" },
+            "custom": { "name": "Custom", "price": "R7,500 / incident", "currency": "ZAR", "billingModel": "project", "description": "Standalone response service" }
           },
           "features": {
-            "starter": ["Incident Alerts", "Basic Response", "Documentation", "Police Liaison"],
-            "professional": ["Real-time Alerts", "Professional Response", "Investigation Support", "Evidence Preservation", "Police Coordination"],
-            "enterprise": ["24/7 Priority Response", "Rapid Investigation", "Evidence Management", "Legal Support", "Comprehensive Reports", "Executive Briefing"],
-            "custom": ["Custom response time", "Custom investigation level", "Premium support", "SLA guaranteed"]
+            "starter": ["Incident alerts", "Basic response", "Documentation"],
+            "professional": ["Investigation support", "Evidence preservation", "Police coordination"],
+            "enterprise": ["Priority response", "Executive briefing", "Legal support"],
+            "custom": ["Custom response time", "Custom escalation", "Premium support"]
           },
-          "useCases": ["Security Breach Response", "Theft Investigation", "Vandalism Response", "Trespassing Management", "Emergency Response"],
-          "industries": ["Retail", "Corporate", "Banking", "Warehouse", "Government"],
-          "testimonials": [
-            { "client": "RetailChain", "role": "Loss Prevention", "quote": "Professional incident response prevented major losses and resolved issues quickly.", "rating": 5, "image": "👤" }
-          ],
+          "useCases": ["Theft response", "Unauthorized access", "Site incidents", "Field coordination"],
+          "industries": ["Retail", "Warehousing", "Corporate", "Government"],
           "setupTime": "Immediate",
-          "support": { "starter": "24/5", "professional": "24/7", "enterprise": "24/7 Priority" }
+          "support": { "starter": "24/5", "professional": "24/7", "enterprise": "24/7 priority" }
         },
         {
-          "id": 24,
-          "name": "24/7 SOC Monitoring Services",
-          "slug": "24-7-soc-monitoring",
-          "description": "24/7 Security Operations Center monitoring with real-time threat detection and response",
-          "icon": "🛡️",
+          "id": 29,
+          "name": "Live Telematics Engines",
+          "slug": "live-telematics-engines",
+          "description": "Specialized tracking subscriptions that display live coordinates, asset metrics, and telemetry reports.",
+          "icon": "📍",
           "pricing": {
-            "starter": { "name": "Starter", "price": 299, "currency": "USD", "billingModel": "monthly", "description": "Basic SOC" },
-            "professional": { "name": "Professional", "price": 699, "currency": "USD", "billingModel": "monthly", "description": "Advanced SOC" },
-            "enterprise": { "name": "Enterprise", "price": 1499, "currency": "USD", "billingModel": "monthly", "description": "Premium SOC" },
-            "custom": { "name": "Custom", "price": null, "currency": "USD", "billingModel": "contact", "description": "Custom SOC" }
+            "starter": { "name": "Car Trace Fleet Engine", "price": "R175 / asset / month", "currency": "ZAR", "billingModel": "monthly", "description": "Starter fleet tracking" },
+            "professional": { "name": "Car Trace Fleet Engine", "price": "R395 / asset / month", "currency": "ZAR", "billingModel": "monthly", "description": "Professional fleet intelligence" },
+            "enterprise": { "name": "Car Trace Fleet Engine", "price": "R850 / asset / month", "currency": "ZAR", "billingModel": "monthly", "description": "Enterprise AI Cam tracking" },
+            "custom": { "name": "Custom", "price": "Request Quote", "currency": "ZAR", "billingModel": "contact", "description": "Specialized tracking architecture" }
           },
           "features": {
-            "starter": ["24/7 Monitoring", "Basic Threat Detection", "Alert Notifications", "Monthly Reports", "Log Management (30 days)"],
-            "professional": ["24/7 Advanced Monitoring", "Real-time Threat Detection", "Incident Investigation", "Detailed Reporting", "Log Management (90 days)", "Threat Intelligence"],
-            "enterprise": ["24/7 Premium SOC", "Advanced Threat Detection", "Rapid Incident Response", "Forensic Investigation", "Log Management (1 year)", "Advanced Intelligence", "Dedicated SOC Team"],
-            "custom": ["All features available", "Custom monitoring level", "Custom SLA", "Custom reporting"]
+            "starter": ["Live tracking", "Trip history", "Basic alerts"],
+            "professional": ["Route analytics", "Geofencing", "Driver oversight"],
+            "enterprise": ["AI-enabled monitoring", "Telemetry dashboards", "Advanced reporting"],
+            "custom": ["Livestock telemetry", "Asset tags", "Custom visualization"]
           },
-          "useCases": ["Enterprise Security Monitoring", "Threat Intelligence Tracking", "Compliance Monitoring", "Infrastructure Protection", "Critical Systems Monitoring"],
-          "industries": ["Finance", "Government", "Healthcare", "Technology", "Corporate"],
-          "testimonials": [
-            { "client": "FinanceCorp", "role": "Chief Information Security Officer", "quote": "24/7 SOC monitoring provides comprehensive threat detection and rapid response.", "rating": 5, "image": "👤" }
-          ],
-          "setupTime": "1-2 weeks",
-          "support": { "starter": "24/7 Monitoring", "professional": "24/7 Monitoring + Investigation", "enterprise": "24/7 Premium" }
+          "useCases": ["Fleet tracking", "Livestock tracing", "Asset visibility", "Route compliance"],
+          "industries": ["Logistics", "Agriculture", "Security", "Transport"],
+          "setupTime": "3-10 days",
+          "support": { "starter": "Business hours", "professional": "Priority support", "enterprise": "24/7 support" }
         }
       ]
     },
     {
       "id": "design-creative",
-      "name": "Design & Creative Services",
+      "name": "Design & Creative Services (Human Experience Layouts)",
       "slug": "design-creative",
-      "description": "User-centered design, UI/UX strategy, prototyping, and creative direction for digital products",
+      "description": "User psychology mapping, screen visual styling, and brand design assets separated from programming teams.",
       "icon": "🎨",
       "color": "#FF6B6B",
-      "tagline": "Beautiful experiences that drive business results",
+      "tagline": "Human-centered design assets for digital products",
       "services": [
         {
-          "id": 25,
+          "id": 30,
           "name": "Product Design (UI/UX)",
           "slug": "product-design-ux",
-          "description": "End-to-end user interface and experience design for web and mobile applications that delight users and drive engagement",
+          "description": "Visual application blueprints, mobile wireframes, and dashboard systems that make navigation intuitive.",
           "icon": "🎯",
           "pricing": {
-            "starter": { "name": "Starter", "price": 3000, "currency": "USD", "billingModel": "project", "description": "Single platform design (web or mobile)" },
-            "professional": { "name": "Professional", "price": 8000, "currency": "USD", "billingModel": "project", "description": "Multi-platform design (web + mobile)" },
-            "enterprise": { "name": "Enterprise", "price": 15000, "currency": "USD", "billingModel": "project", "description": "Complete product design suite" },
-            "custom": { "name": "Custom", "price": null, "currency": "USD", "billingModel": "contact", "description": "Enterprise design engagement" }
+            "starter": { "name": "Starter", "price": "R6,000 one-time", "currency": "ZAR", "billingModel": "one-time", "description": "Core brand kit alignment" },
+            "professional": { "name": "Professional", "price": "R14,500 per project", "currency": "ZAR", "billingModel": "project", "description": "Clickable prototype architecture" },
+            "enterprise": { "name": "Enterprise", "price": "R25,000+ / month", "currency": "ZAR", "billingModel": "monthly", "description": "Continuous product UI retainer" },
+            "custom": { "name": "Custom", "price": "Request Quote", "currency": "ZAR", "billingModel": "contact", "description": "Design system partnership" }
           },
           "features": {
-            "starter": ["User Personas", "User Journey Maps", "Wireframes (Low-fi)", "UI Kit", "Clickable Prototype (Basic)", "Design Handoff (Figma)"],
-            "professional": ["Everything in Starter +", "User Research (10 interviews)", "Information Architecture", "High-fidelity Mockups", "Interactive Prototype", "Usability Testing (5 users)", "Design System Components"],
-            "enterprise": ["Everything in Professional +", "Comprehensive User Research (25+ interviews)", "A/B Testing", "Analytics Integration", "Accessibility (WCAG 2.1 AA)", "Developer Handoff + Documentation", "Post-launch Design Support (3 months)"],
-            "custom": ["All features available", "Dedicated design team", "Ongoing design partnership"]
+            "starter": ["Brand kit alignment", "Style guide", "Landing page design"],
+            "professional": ["Figma prototype", "User mapping", "Dev-ready handoff"],
+            "enterprise": ["Dedicated design team", "Feature mockups", "A/B assets"],
+            "custom": ["Ongoing product support", "Multi-platform design", "Design governance"]
           },
-          "useCases": ["SaaS Platform Design", "E-commerce UX Optimization", "Mobile App Design", "Enterprise Dashboard Design", "Healthcare/Fintech UX"],
-          "industries": ["SaaS", "E-commerce", "Fintech", "Healthcare", "Enterprise Software"],
-          "testimonials": [
-            { "client": "FinTech Startup", "role": "Product Lead", "quote": "The UX redesign increased user engagement by 150%. Our investors were impressed with the prototype.", "rating": 5, "image": "👤" }
-          ],
-          "setupTime": "4-8 weeks",
-          "support": { "starter": "30 days design support", "professional": "90 days + iteration round", "enterprise": "6 months ongoing support" },
+          "useCases": ["SaaS dashboards", "Mobile apps", "Internal tools", "Brand launches"],
+          "industries": ["SaaS", "Corporate", "Fintech", "Healthcare"],
+          "setupTime": "2-8 weeks",
+          "support": { "starter": "Design support", "professional": "Review support", "enterprise": "Ongoing UI support" },
           "seo": false,
           "mobile": true,
           "hosting": "not-applicable"
         },
         {
-          "id": 26,
+          "id": 31,
           "name": "User Research & Testing",
           "slug": "user-research-testing",
-          "description": "User interviews, usability testing, heatmaps, analytics, and data-driven design insights",
+          "description": "Live user sessions that uncover friction, validate assumptions, and support data-driven design decisions.",
           "icon": "🔍",
           "pricing": {
-            "starter": { "name": "Starter", "price": 2000, "currency": "USD", "billingModel": "project", "description": "Basic research (10 users)" },
-            "professional": { "name": "Professional", "price": 5000, "currency": "USD", "billingModel": "project", "description": "Comprehensive research (25 users)" },
-            "enterprise": { "name": "Enterprise", "price": 10000, "currency": "USD", "billingModel": "project", "description": "Full research program (50+ users)" },
-            "custom": { "name": "Custom", "price": null, "currency": "USD", "billingModel": "contact", "description": "Ongoing research retainer" }
+            "starter": { "name": "Starter", "price": "R8,500 / study", "currency": "ZAR", "billingModel": "project", "description": "Basic research session" },
+            "professional": { "name": "Professional", "price": "R16,500 / study", "currency": "ZAR", "billingModel": "project", "description": "Comprehensive research round" },
+            "enterprise": { "name": "Enterprise", "price": "R35,000 / program", "currency": "ZAR", "billingModel": "project", "description": "Ongoing research program" },
+            "custom": { "name": "Custom", "price": "Request Quote", "currency": "ZAR", "billingModel": "contact", "description": "Retained research engagement" }
           },
           "features": {
-            "starter": ["User Interviews (5-10 participants)", "Usability Testing (Basic)", "Survey Design & Analysis", "Research Report", "Key Insights & Recommendations"],
-            "professional": ["Everything in Starter +", "Heatmap Analysis", "A/B Testing Setup", "Analytics Review", "Competitive Analysis", "Persona Development", "Journey Mapping"],
-            "enterprise": ["Everything in Professional +", "Longitudinal Studies", "Card Sorting", "Tree Testing", "Eye-tracking (select locations)", "Full Research Repository", "Quarterly Research Retainer"],
-            "custom": ["All features available", "Custom research methodology", "Dedicated UX researcher"]
+            "starter": ["User interviews", "Usability testing", "Research report"],
+            "professional": ["Heatmaps", "Competitive analysis", "Persona development"],
+            "enterprise": ["Longitudinal studies", "Tree testing", "Research repository"],
+            "custom": ["Dedicated researcher", "Continuous insights", "Tailored methodology"]
           },
-          "useCases": ["Product Validation", "Conversion Optimization", "Feature Prioritization", "User Behavior Analysis", "Accessibility Audits"],
-          "industries": ["SaaS", "E-commerce", "Finance", "Healthcare", "Government"],
-          "testimonials": [
-            { "client": "E-commerce Platform", "role": "Product Manager", "quote": "User research revealed insights that increased checkout conversion by 35%.", "rating": 5, "image": "👤" }
-          ],
+          "useCases": ["Product validation", "Conversion optimization", "Accessibility audits", "Feature prioritization"],
+          "industries": ["SaaS", "E-commerce", "Finance", "Healthcare"],
           "setupTime": "2-6 weeks",
-          "support": { "starter": "Report delivery", "professional": "Presentation + Q&A", "enterprise": "Ongoing insights" },
+          "support": { "starter": "Report delivery", "professional": "Presentation and Q&A", "enterprise": "Ongoing insights" },
           "seo": false,
           "mobile": true,
           "hosting": "not-applicable"
         },
         {
-          "id": 27,
+          "id": 32,
           "name": "Design Systems",
           "slug": "design-systems",
-          "description": "Reusable component libraries, style guides, documentation, and design tokens for scalable products",
-          "icon": "📦",
+          "description": "Atomic styling token libraries and reusable components for consistent experiences across all products.",
+          "icon": "🧩",
           "pricing": {
-            "starter": { "name": "Starter", "price": 5000, "currency": "USD", "billingModel": "project", "description": "Basic component library" },
-            "professional": { "name": "Professional", "price": 12000, "currency": "USD", "billingModel": "project", "description": "Complete design system" },
-            "enterprise": { "name": "Enterprise", "price": 25000, "currency": "USD", "billingModel": "project", "description": "Enterprise design system + governance" },
-            "custom": { "name": "Custom", "price": null, "currency": "USD", "billingModel": "contact", "description": "Multi-product design system" }
+            "starter": { "name": "Starter", "price": "R12,500", "currency": "ZAR", "billingModel": "project", "description": "Basic component library" },
+            "professional": { "name": "Professional", "price": "R28,500", "currency": "ZAR", "billingModel": "project", "description": "Complete design system" },
+            "enterprise": { "name": "Enterprise", "price": "R55,000", "currency": "ZAR", "billingModel": "project", "description": "Governed multi-product system" },
+            "custom": { "name": "Custom", "price": "Request Quote", "currency": "ZAR", "billingModel": "contact", "description": "Design system partnership" }
           },
           "features": {
-            "starter": ["Color System", "Typography Scale", "Basic Component Library (20+ components)", "Usage Guidelines", "Figma Library"],
-            "professional": ["Everything in Starter +", "Advanced Component Library (50+ components)", "Dark Mode Support", "Accessibility Guidelines", "Developer Documentation", "Design Tokens", "Version Control"],
-            "enterprise": ["Everything in Professional +", "Theme Builder", "Plugin Development", "Design System Governance", "Team Training", "Ongoing Maintenance (6 months)", "Multi-brand Support"],
-            "custom": ["All features available", "Custom component development", "Code component library"]
+            "starter": ["Color system", "Typography scale", "Core components"],
+            "professional": ["Design tokens", "Accessibility rules", "Documentation"],
+            "enterprise": ["Governance model", "Multi-brand support", "Training support"],
+            "custom": ["Code library", "Custom components", "Long-term maintenance"]
           },
-          "useCases": ["Enterprise Product Suite", "Multi-brand Organizations", "Startup Scaling", "Agency Client Work", "White-label Products"],
-          "industries": ["Enterprise Software", "SaaS", "Agencies", "Finance", "Healthcare"],
-          "testimonials": [
-            { "client": "Enterprise SaaS Co", "role": "Head of Product", "quote": "The design system reduced our development time by 40% across 5 products.", "rating": 5, "image": "👤" }
-          ],
+          "useCases": ["Product teams", "Multi-brand organizations", "Scaled startups", "Agency systems"],
+          "industries": ["SaaS", "Agencies", "Finance", "Healthcare"],
           "setupTime": "4-12 weeks",
-          "support": { "starter": "30 days", "professional": "90 days", "enterprise": "6 months + training" },
+          "support": { "starter": "30 days", "professional": "90 days", "enterprise": "6 months" },
           "seo": false,
           "mobile": true,
           "hosting": "not-applicable"
         },
         {
-          "id": 28,
+          "id": 33,
           "name": "Prototyping & MVP Design",
           "slug": "prototyping-mvp-design",
-          "description": "Interactive prototypes for fundraising, user testing, or development handoff",
+          "description": "Rapid visual workflow generation for fundraising, user testing, and pre-development validation.",
           "icon": "⚡",
           "pricing": {
-            "starter": { "name": "Starter", "price": 2000, "currency": "USD", "billingModel": "project", "description": "Low-fidelity prototype" },
-            "professional": { "name": "Professional", "price": 5000, "currency": "USD", "billingModel": "project", "description": "High-fidelity interactive prototype" },
-            "enterprise": { "name": "Enterprise", "price": 8000, "currency": "USD", "billingModel": "project", "description": "Full MVP design + assets" },
-            "custom": { "name": "Custom", "price": null, "currency": "USD", "billingModel": "contact", "description": "Complex prototype" }
+            "starter": { "name": "Starter", "price": "R9,500", "currency": "ZAR", "billingModel": "project", "description": "Low-fidelity prototype" },
+            "professional": { "name": "Professional", "price": "R18,500", "currency": "ZAR", "billingModel": "project", "description": "Interactive prototype" },
+            "enterprise": { "name": "Enterprise", "price": "R35,000", "currency": "ZAR", "billingModel": "project", "description": "MVP design package" },
+            "custom": { "name": "Custom", "price": "Request Quote", "currency": "ZAR", "billingModel": "contact", "description": "Complex prototype build" }
           },
           "features": {
-            "starter": ["Low-fidelity Wireframes", "Basic User Flow", "Click-through Prototype", "Figma/Miro Export"],
-            "professional": ["High-fidelity Mockups", "Interactive Prototype (Figma)", "Micro-interactions", "User Testing Ready", "Developer Handoff", "Asset Export"],
-            "enterprise": ["Everything in Professional +", "Full MVP Feature Set", "Design Documentation", "Development-ready Specs", "User Testing (10 users)", "Iteration Round", "Presentation Deck"],
-            "custom": ["All features available", "Custom interactions", "Extended support"]
+            "starter": ["Wireframes", "User flow", "Basic click-through prototype"],
+            "professional": ["High-fidelity mockups", "Micro-interactions", "Developer handoff"],
+            "enterprise": ["MVP specs", "Testing support", "Presentation deck"],
+            "custom": ["Custom interactions", "Workshop sessions", "Extended iteration"]
           },
-          "useCases": ["Investor Pitch Demos", "User Validation Testing", "Development Handoff", "Product Strategy Alignment", "Internal Stakeholder Buy-in"],
-          "industries": ["Startups", "Enterprise Innovation", "Agencies", "Product Teams", "Venture Studios"],
-          "testimonials": [
-            { "client": "Startup Founder", "role": "CEO", "quote": "The prototype helped us raise $2M in seed funding. Investors loved the interactive demo.", "rating": 5, "image": "👤" }
-          ],
+          "useCases": ["Investor pitches", "Stakeholder alignment", "Product testing", "Feature validation"],
+          "industries": ["Startups", "Product Teams", "Venture Studios", "Agencies"],
           "setupTime": "2-4 weeks",
-          "support": { "starter": "30 days", "professional": "60 days + iteration", "enterprise": "90 days + user testing" },
+          "support": { "starter": "30 days", "professional": "60 days", "enterprise": "90 days" },
           "seo": false,
           "mobile": true,
           "hosting": "not-applicable"
         },
         {
-          "id": 29,
+          "id": 34,
           "name": "Creative Direction & Branding",
           "slug": "creative-direction-branding",
-          "description": "Visual identity, brand guidelines, asset creation, and creative strategy for digital products",
+          "description": "Vector identity creation, brand rule assets, and marketing design collateral systems for digital products.",
           "icon": "🎨",
           "pricing": {
-            "starter": { "name": "Starter", "price": 3000, "currency": "USD", "billingModel": "project", "description": "Basic brand identity" },
-            "professional": { "name": "Professional", "price": 7000, "currency": "USD", "billingModel": "project", "description": "Complete brand system" },
-            "enterprise": { "name": "Enterprise", "price": 12000, "currency": "USD", "billingModel": "project", "description": "Enterprise brand + rollout" },
-            "custom": { "name": "Custom", "price": null, "currency": "USD", "billingModel": "contact", "description": "Full creative agency" }
+            "starter": { "name": "Starter", "price": "R8,500", "currency": "ZAR", "billingModel": "project", "description": "Basic identity system" },
+            "professional": { "name": "Professional", "price": "R19,500", "currency": "ZAR", "billingModel": "project", "description": "Complete brand system" },
+            "enterprise": { "name": "Enterprise", "price": "R45,000", "currency": "ZAR", "billingModel": "project", "description": "Brand rollout and governance" },
+            "custom": { "name": "Custom", "price": "Request Quote", "currency": "ZAR", "billingModel": "contact", "description": "Creative partnership" }
           },
           "features": {
-            "starter": ["Logo Design", "Color Palette", "Typography Selection", "Basic Brand Guidelines", "Social Media Kit"],
-            "professional": ["Everything in Starter +", "Full Brand Identity System", "Iconography Library", "Illustration Style", "Photo Direction", "Motion Guidelines", "Brand Voice Guidelines", "Marketing Collateral Templates"],
-            "enterprise": ["Everything in Professional +", "Brand Strategy Workshop", "Competitive Audit", "Brand Architecture", "Sub-brand Guidelines", "Employee Brand Training", "Brand Asset Management", "Launch Support"],
-            "custom": ["All features available", "Dedicated creative director", "Ongoing brand partnership"]
+            "starter": ["Logo direction", "Color palette", "Typography selection"],
+            "professional": ["Brand guidelines", "Iconography", "Marketing templates"],
+            "enterprise": ["Brand strategy", "Sub-brand rules", "Training support"],
+            "custom": ["Creative director", "Asset management", "Ongoing brand support"]
           },
-          "useCases": ["Startup Launch", "Rebranding", "Product Launch", "Merger Integration", "Investor Decks"],
-          "industries": ["Startups", "Corporate", "SaaS", "Agencies", "Consumer Brands"],
-          "testimonials": [
-            { "client": "Tech Startup", "role": "Marketing Director", "quote": "The brand identity elevated our market position. Our enterprise clients take us seriously now.", "rating": 5, "image": "👤" }
-          ],
+          "useCases": ["Brand launches", "Rebrands", "Marketing rollouts", "Investor decks"],
+          "industries": ["Startups", "Corporate", "SaaS", "Consumer Brands"],
           "setupTime": "3-8 weeks",
-          "support": { "starter": "30 days", "professional": "90 days", "enterprise": "6 months + ongoing" },
+          "support": { "starter": "30 days", "professional": "90 days", "enterprise": "6 months" },
           "seo": false,
           "mobile": false,
           "hosting": "not-applicable"
@@ -841,10 +890,10 @@
   ],
   "meta": {
     "totalCategories": 6,
-    "totalServices": 29,
-    "currencies": ["USD"],
+    "totalServices": 34,
+    "currencies": ["ZAR"],
     "billingModels": ["monthly", "yearly", "one-time", "hourly", "project", "contact", "included"],
-    "lastUpdated": "2026-06-06",
-    "version": "2.0.0"
+    "lastUpdated": "2026-07-20",
+    "version": "3.0.0"
   }
 }

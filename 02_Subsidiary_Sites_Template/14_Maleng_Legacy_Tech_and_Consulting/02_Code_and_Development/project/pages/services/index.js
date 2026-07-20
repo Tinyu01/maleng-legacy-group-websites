@@ -37,7 +37,7 @@ export default function ServicesHub() {
           badge="OUR SERVICES"
           title="Enterprise Tech"
           highlight="Infrastructure & Security Solutions"
-          description="Specialized Infrastructure, Consulting, Security & Connectivity Services for Growth-Focused Enterprises. Choose from 6 core service lines and 29 specialized services."
+          description="Specialized software, cloud, connectivity, security, and creative services for growth-focused enterprises. Choose from 6 core service lines and 34 specialized services."
           breadcrumb={[{ label: 'Services', href: '#' }]}
           bg="default"
           cta={{ text: 'Explore All Services', link: '#categories' }}
