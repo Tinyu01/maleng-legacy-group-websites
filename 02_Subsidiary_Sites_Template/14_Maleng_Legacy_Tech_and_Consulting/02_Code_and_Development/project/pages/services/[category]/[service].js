@@ -52,6 +52,438 @@ export default function IndividualService({ category, service }) {
     { icon: FaHeadset, label: 'Support', value: '24/7 Available' },
   ];
 
+  const isLiveTelematics = service.slug === 'live-telematics-engines';
+
+  const liveTelematicsPlans = {
+    carTrace: [
+      {
+        name: 'Starter Fleet Tracking',
+        price: 'R175',
+        cadence: '/ asset / month',
+        description: 'Real-time GPS coordinates, trip playback history, and basic speed or stationary alerts.',
+        idealFor: 'Small localized delivery or service vehicles.',
+        features: ['Real-time GPS coordinates', 'Trip playback history', 'Basic speed and stationary alerts'],
+      },
+      {
+        name: 'Professional Fleet Intelligence',
+        price: 'R395',
+        cadence: '/ asset / month',
+        description: 'Advanced route analytics, precise geofencing, and driver oversight metrics.',
+        idealFor: 'Regional distribution fleets and commercial haulers.',
+        features: ['Advanced route analytics', 'Precise boundary geofencing', 'Driver behavior oversight metrics'],
+      },
+      {
+        name: 'Enterprise AI Cam Tracking',
+        price: 'R850',
+        cadence: '/ asset / month',
+        description: 'AI-enabled multi-camera telemetry, live engine dashboards, and automated incident reporting.',
+        idealFor: 'High-value logistics and secure transit operations.',
+        features: ['AI-enabled multi-cam video streams', 'Live engine telemetry dashboards', 'Automated incident reporting'],
+      },
+    ],
+    smartAgri: [
+      {
+        name: 'Herd Starter Tracking',
+        price: 'R45',
+        cadence: '/ head / month',
+        description: 'Active location pings, perimeter geofence maps, and automated missing-asset alerts.',
+        idealFor: 'Commercial herds needing simple, reliable tracing.',
+        features: ['Active location ping schedules', 'Main perimeter geofence maps', 'Missing asset automated pings'],
+      },
+      {
+        name: 'Herd Professional Tracing',
+        price: 'R120',
+        cadence: '/ head / month',
+        description: 'Continuous spatial tracking, grazing pattern maps, and proactive containment break alerts.',
+        idealFor: 'Livestock operations that need operational visibility.',
+        features: ['Continuous spatial tracking', 'Grazing pattern and velocity maps', 'Proactive containment break alerts'],
+      },
+      {
+        name: 'Herd Enterprise Biosecurity',
+        price: 'R220',
+        cadence: '/ head / month',
+        description: 'Biometric body-vital monitoring, estrus and health telemetry, and 24/7 SOC stock-theft alert integration.',
+        idealFor: 'High-value stud animals and commercial breeding herds.',
+        features: ['Biometric body vital monitoring', 'Estrus and health shift telemetry', 'Direct 24/7 SOC stock-theft alert link'],
+      },
+    ],
+    custom: {
+      name: 'Custom Enterprise Telematics',
+      price: 'Request Quote',
+      description: 'Hybrid fleets, unified rural and urban tracking, custom API webhooks, multi-country private APN profiles, and dedicated project management.',
+      features: ['Hybrid fleets on one screen', 'Tailored API webhooks to ERP tools', 'Multi-country roaming via private APN', 'Dedicated project management'],
+    },
+  };
+
+  const liveTelematicsComparison = [
+    ['Live Location Tracking', '✓', '✓', '✓', '✓', '✓', '✓'],
+    ['Historical Route Data', '✓', '✓', '✓', '—', '✓', '✓'],
+    ['Custom Geofencing', 'Basic', 'Advanced', 'Multi-Layer', 'Static Perimeter', 'Dynamic Zones', 'Automated Corrals'],
+    ['Hardware Pairing Options', 'Wired Box', 'OBD-II / CANbus', 'AI Dashcam Array', 'Smart Ear Tag', 'Solar Neck Collar', 'Biometric Sensor Tag'],
+    ['Telemetry Insights', 'Speed / Idle', 'Fuel / Braking', 'AI Driver Fatigue', '—', 'Grazing Speed', 'Vitals / Temperature'],
+    ['24/7 SOC Integration', 'Optional', 'Optional', '✓', '—', 'Optional', '✓'],
+  ];
+
+  if (isLiveTelematics) {
+    return (
+      <>
+        <Head>
+          <title>Live Telematics Engines | Security & Surveillance Services | Maleng Legacy Tech & Consulting</title>
+          <meta
+            name="description"
+            content="Specialized tracking subscriptions for fleets and livestock with live coordinates, private APN telemetry, geofencing, and 24/7 SOC integration."
+          />
+        </Head>
+
+        <div className="min-h-screen bg-primary text-white">
+          <Navigation isSubsidiary={true} subsidiaryName="Tech & Consulting" />
+
+          <section className="relative pt-6 pb-12 md:pt-8 md:pb-16 px-6 overflow-hidden">
+            <ServiceBackground category={category} variant="hero" />
+            <div className="mx-auto max-w-6xl relative z-10">
+              <Breadcrumb
+                items={[
+                  { label: 'Home', href: '/' },
+                  { label: 'Services', href: '/services' },
+                  { label: 'Security & Surveillance Services (Physical Operations & Telematics)', href: '/services/security-surveillance' },
+                  { label: 'Live Telematics Engines', href: '#' },
+                ]}
+              />
+
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mt-6">
+                <div className="flex items-center gap-5">
+                  <motion.div
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 0.5 }}
+                    className="w-20 h-20 rounded-2xl bg-gradient-to-br from-highlight/20 to-accent/20 border border-highlight/30 flex items-center justify-center"
+                  >
+                    <span className="text-5xl">📍</span>
+                  </motion.div>
+                  <div>
+                    <motion.h1
+                      initial={{ x: -20, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      transition={{ duration: 0.5, delay: 0.1 }}
+                      className="text-3xl md:text-4xl lg:text-5xl font-bold"
+                    >
+                      Live Telematics Engines
+                    </motion.h1>
+                    <motion.p
+                      initial={{ x: -20, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      transition={{ duration: 0.5, delay: 0.2 }}
+                      className="text-highlight text-base md:text-lg mt-2 max-w-3xl"
+                    >
+                      Specialized tracking subscriptions displaying live coordinates, advanced spatial geofencing, and real-time telemetry reports. Link our software platforms seamlessly to rugged, field-deployed vehicle black boxes, heavy-duty GPS cattle collars, and smart biometric ear tags.
+                    </motion.p>
+                  </div>
+                </div>
+
+                <motion.div
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                  className="flex gap-3"
+                >
+                  <Link href="/contact" className="px-5 py-2.5 bg-gradient-to-r from-highlight to-accent text-white font-semibold rounded-lg hover:shadow-lg transition-all text-sm">
+                    Request Custom Quote
+                  </Link>
+                  <Link href="/contact" className="px-5 py-2.5 border border-highlight text-highlight font-semibold rounded-lg hover:bg-highlight/10 transition-all text-sm">
+                    Chat with Expert
+                  </Link>
+                </motion.div>
+              </div>
+
+              <motion.div
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8"
+              >
+                <div className="p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm">
+                  <p className="text-sm text-gray-400 mb-1">Setup Time</p>
+                  <p className="text-xl font-bold text-white">3-10 Days</p>
+                  <p className="text-xs text-gray-500 mt-1">Hardware dependent</p>
+                </div>
+                <div className="p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm">
+                  <p className="text-sm text-gray-400 mb-1">Network Layer</p>
+                  <p className="text-xl font-bold text-white">Managed Private APN</p>
+                  <p className="text-xs text-gray-500 mt-1">Maleng MVNO SIM compatible</p>
+                </div>
+                <div className="p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm">
+                  <p className="text-sm text-gray-400 mb-1">Monitoring Availability</p>
+                  <p className="text-xl font-bold text-white">24/7 SOC Integrated</p>
+                  <p className="text-xs text-gray-500 mt-1">Live incident escalation</p>
+                </div>
+              </motion.div>
+            </div>
+          </section>
+
+          <section className="py-16 md:py-24 px-6 bg-gradient-to-b from-primary to-soft">
+            <div className="mx-auto max-w-6xl">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+                className="text-center mb-12"
+              >
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">Choose Your Specialized Tracking Subscription</h2>
+                <p className="text-gray-400 text-lg max-w-3xl mx-auto">
+                  Select the asset tier that matches your operational requirements. All subscriptions pair natively with purchased or leased telemetry hardware.
+                </p>
+              </motion.div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  viewport={{ once: true }}
+                  className="rounded-3xl border border-white/10 bg-gradient-to-br from-soft via-surface to-surface p-8"
+                >
+                  <div className="flex items-center justify-between gap-4 mb-6">
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-widest text-highlight mb-2">Vehicle Modules</p>
+                      <h3 className="text-2xl font-bold">Car Trace Fleet Engine</h3>
+                    </div>
+                    <div className="text-4xl">🚗</div>
+                  </div>
+                  <p className="text-gray-300 mb-6">Our premium vehicle telematics software layers engineered for complete fleet visibility.</p>
+
+                  <div className="grid gap-4">
+                    {liveTelematicsPlans.carTrace.map((plan) => (
+                      <div key={plan.name} className="rounded-2xl border border-white/10 bg-white/5 p-5">
+                        <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+                          <div>
+                            <p className="text-xs uppercase tracking-widest text-gray-400 mb-2">{plan.name}</p>
+                            <h4 className="text-xl font-bold text-white mb-2">{plan.price} <span className="text-base text-gray-400 font-medium">{plan.cadence}</span></h4>
+                            <p className="text-sm text-gray-300 mb-3">{plan.description}</p>
+                            <p className="text-xs text-gray-400">{plan.idealFor}</p>
+                          </div>
+                          <Link href="/contact" className="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-gradient-to-r from-highlight to-accent text-sm font-semibold text-white">
+                            Get Started
+                          </Link>
+                        </div>
+                        <div className="mt-4 grid gap-2">
+                          {plan.features.map((feature) => (
+                            <div key={feature} className="flex items-start gap-2 text-sm text-gray-300">
+                              <span className="text-accent">◆</span>
+                              <span>{feature}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  viewport={{ once: true }}
+                  className="rounded-3xl border border-white/10 bg-gradient-to-br from-soft via-surface to-surface p-8"
+                >
+                  <div className="flex items-center justify-between gap-4 mb-6">
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-widest text-highlight mb-2">Herd & Livestock Tracing</p>
+                      <h3 className="text-2xl font-bold">SmartAgri Livestock Engine</h3>
+                    </div>
+                    <div className="text-4xl">🐄</div>
+                  </div>
+                  <p className="text-gray-300 mb-6">Specialized agricultural software telemetry built to secure and track your biological assets.</p>
+
+                  <div className="grid gap-4">
+                    {liveTelematicsPlans.smartAgri.map((plan) => (
+                      <div key={plan.name} className="rounded-2xl border border-white/10 bg-white/5 p-5">
+                        <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+                          <div>
+                            <p className="text-xs uppercase tracking-widest text-gray-400 mb-2">{plan.name}</p>
+                            <h4 className="text-xl font-bold text-white mb-2">{plan.price} <span className="text-base text-gray-400 font-medium">{plan.cadence}</span></h4>
+                            <p className="text-sm text-gray-300 mb-3">{plan.description}</p>
+                            <p className="text-xs text-gray-400">{plan.idealFor}</p>
+                          </div>
+                          <Link href="/contact" className="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-gradient-to-r from-highlight to-accent text-sm font-semibold text-white">
+                            Get Started
+                          </Link>
+                        </div>
+                        <div className="mt-4 grid gap-2">
+                          {plan.features.map((feature) => (
+                            <div key={feature} className="flex items-start gap-2 text-sm text-gray-300">
+                              <span className="text-accent">◆</span>
+                              <span>{feature}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              </div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="mt-8 rounded-3xl border border-highlight/20 bg-gradient-to-r from-highlight/10 to-accent/10 p-8"
+              >
+                <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-widest text-highlight mb-2">Custom Architecture Layer</p>
+                    <h3 className="text-2xl font-bold mb-3">Custom Enterprise Telematics</h3>
+                    <p className="text-gray-300 max-w-3xl">Hybrid fleets (hooves and wheels unified on one screen), tailored API webhooks to internal ERP tools, multi-country roaming profiles via private APN, and dedicated project management.</p>
+                  </div>
+                  <Link href="/contact" className="inline-flex items-center justify-center px-5 py-3 rounded-lg bg-gradient-to-r from-highlight to-accent text-white font-semibold">
+                    Request Quote
+                  </Link>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-6">
+                  {liveTelematicsPlans.custom.features.map((feature) => (
+                    <div key={feature} className="rounded-2xl bg-white/5 border border-white/10 p-4 text-sm text-gray-300">{feature}</div>
+                  ))}
+                </div>
+              </motion.div>
+            </div>
+          </section>
+
+          <section className="py-16 md:py-20 px-6 bg-primary">
+            <div className="mx-auto max-w-6xl">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+                className="text-center mb-10"
+              >
+                <h2 className="text-3xl md:text-4xl font-bold mb-3">Advanced Spatial Software Combined with Rugged Field Hardware</h2>
+                <p className="text-gray-400 text-lg max-w-4xl mx-auto">We solve asset vulnerability by mapping physical telemetry straight to private cloud dashboards for logistics fleets and rural livestock operations alike.</p>
+              </motion.div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {[
+                  { title: 'Uncompromised Field Hardware', text: 'Software layers link to shock-resistant enclosures, long-life lithium battery configurations, and solar power.' },
+                  { title: 'Private Network Tunneling', text: 'Maleng MVNO SIM cards with private APN configurations keep telemetry data off the vulnerable public internet.' },
+                  { title: 'Automated Threat Isolation', text: 'Real-time boundary breach notifications, tracking irregularities, and biometric distress triggers are handled instantly.' },
+                ].map((item) => (
+                  <div key={item.title} className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                    <h3 className="text-xl font-bold mb-3">{item.title}</h3>
+                    <p className="text-gray-300 leading-relaxed">{item.text}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <section className="py-16 md:py-20 px-6 bg-soft">
+            <div className="mx-auto max-w-6xl">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+                className="text-center mb-10"
+              >
+                <h2 className="text-3xl md:text-4xl font-bold mb-3">Detailed Features Breakdown</h2>
+                <p className="text-gray-400 text-lg">Compare capabilities across the vehicle and livestock ecosystems.</p>
+              </motion.div>
+
+              <div className="overflow-x-auto rounded-3xl border border-white/10 bg-surface">
+                <table className="min-w-full text-left">
+                  <thead className="bg-white/5">
+                    <tr>
+                      <th className="px-5 py-4 text-sm font-semibold text-gray-300">Feature</th>
+                      <th className="px-5 py-4 text-sm font-semibold text-gray-300">Car Trace Starter</th>
+                      <th className="px-5 py-4 text-sm font-semibold text-gray-300">Car Trace Pro</th>
+                      <th className="px-5 py-4 text-sm font-semibold text-gray-300">Car Trace Enterprise</th>
+                      <th className="px-5 py-4 text-sm font-semibold text-gray-300">SmartAgri Starter</th>
+                      <th className="px-5 py-4 text-sm font-semibold text-gray-300">SmartAgri Pro</th>
+                      <th className="px-5 py-4 text-sm font-semibold text-gray-300">SmartAgri Enterprise</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {liveTelematicsComparison.map((row, index) => (
+                      <tr key={row[0]} className={index % 2 === 0 ? 'bg-white/0' : 'bg-white/5'}>
+                        <td className="px-5 py-4 text-sm font-medium text-white">{row[0]}</td>
+                        {row.slice(1).map((value) => (
+                          <td key={value} className="px-5 py-4 text-sm text-gray-300">{value}</td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+          <section className="py-16 md:py-20 px-6 bg-primary">
+            <div className="mx-auto max-w-3xl">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+                className="text-center mb-10"
+              >
+                <h2 className="text-3xl md:text-4xl font-bold mb-3">Frequently Asked Questions</h2>
+              </motion.div>
+
+              <div className="space-y-4">
+                {[
+                  {
+                    q: 'Do the subscription prices include the physical tracking hardware?',
+                    a: 'No. Subscription pricing covers the cloud tracking platform access, data mapping, and cellular network telemetry routing. Physical hardware assets are purchased once-off or configured under custom deployment procurement.',
+                  },
+                  {
+                    q: 'How long do hardware batteries last in the field for livestock tracing?',
+                    a: 'SmartAgri hardware is designed for rugged environments. Lightweight biometric ear tags use optimized low-power configurations extending up to 3-5 years, while heavy-duty cattle collars can use solar-assisted power for continuous field operation.',
+                  },
+                  {
+                    q: 'Can I monitor my vehicle fleet and my livestock on the same website interface?',
+                    a: 'Yes. The custom enterprise architecture tier can deploy a unified geospatial master map so assets, vehicles, and personnel can be traced under a single corporate credential.',
+                  },
+                ].map((faq, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    className="p-5 rounded-lg border border-white/10 bg-white/5 hover:border-highlight/30 transition-all"
+                  >
+                    <h3 className="text-base font-bold text-white mb-2">Q: {faq.q}</h3>
+                    <p className="text-gray-400 text-sm">A: {faq.a}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <section className="py-16 px-6 bg-gradient-to-r from-highlight/20 to-accent/20">
+            <div className="mx-auto max-w-4xl text-center">
+              <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+                <h2 className="text-2xl md:text-3xl font-bold mb-4">Ready to unify your fleet and livestock telemetry?</h2>
+                <p className="text-gray-300 mb-6">Build a single operational view for vehicles, assets, and biological stock with private APN routing and 24/7 SOC visibility.</p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Link href="/contact" className="px-8 py-3 bg-gradient-to-r from-highlight to-accent text-white font-bold rounded-lg hover:shadow-lg transition-all">
+                    Request Custom Quote
+                  </Link>
+                  <Link href="/contact" className="px-8 py-3 border border-highlight text-highlight font-bold rounded-lg hover:bg-highlight/10 transition-all">
+                    Chat with Expert
+                  </Link>
+                </div>
+              </motion.div>
+            </div>
+          </section>
+
+          <Footer />
+        </div>
+      </>
+    );
+  }
+
   return (
     <>
       <Head>

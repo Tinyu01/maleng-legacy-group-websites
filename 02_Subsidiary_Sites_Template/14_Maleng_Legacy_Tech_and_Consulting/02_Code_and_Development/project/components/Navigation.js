@@ -3,6 +3,156 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import services from '../data/services.json';
 
+// ---------------------------------------------------------------------------
+// GROUP STRUCTURE DATA
+// Based on the 4-Cluster Model. Edit names / urls / prices here — everything
+// in the "Our Group" mega menu is generated from this single source.
+// ---------------------------------------------------------------------------
+const clusters = [
+  {
+    id: 'infrastructure',
+    name: 'Infrastructure & Built Environment',
+    icon: '🏗️',
+    subsidiaries: [
+      {
+        name: 'Construction & Infrastructure',
+        url: '/subsidiaries/construction',
+        focus: 'Building projects, civil works, renovations, NHBRC compliance',
+        clients: 'Government, commercial, residential',
+        price: 'R2-8M',
+      },
+      {
+        name: 'Property Development',
+        url: '/subsidiaries/property',
+        focus: 'Land acquisition, development, property management',
+        clients: 'Investors, corporates, government',
+        price: 'R1-5M',
+      },
+      {
+        name: 'Energy Solutions',
+        url: '/subsidiaries/energy',
+        focus: 'Solar, renewable energy consulting, energy audits',
+        clients: 'Industrial, commercial, residential',
+        price: 'R500K-2M',
+      },
+    ],
+  },
+  {
+    id: 'professional',
+    name: 'Professional & Capital Services',
+    icon: '💼',
+    subsidiaries: [
+      {
+        name: 'Tech & Consulting',
+        url: '/subsidiaries/tech',
+        focus: 'IT consulting, software dev, digital transformation, cybersecurity',
+        clients: 'SMEs, corporates, government',
+        price: 'R2-5M',
+      },
+      {
+        name: 'Media & Signage',
+        url: '/subsidiaries/media',
+        focus: 'Branding, design, printing, signage, digital media',
+        clients: 'All clusters + external clients',
+        price: 'R1-3M',
+      },
+      {
+        name: 'Corporate Services',
+        url: '/subsidiaries/corporate',
+        focus: 'CIPC registration, compliance, secretarial, shelf companies',
+        clients: 'Entrepreneurs, startups, investors',
+        price: 'R500K-1.5M',
+      },
+      {
+        name: 'Training Institute',
+        url: '/subsidiaries/training',
+        focus: 'SETA-accredited skills training (security, hospitality, construction)',
+        clients: 'Internal + external trainees',
+        price: 'R300K-1M',
+      },
+      {
+        name: 'Capital & Investments',
+        url: '/subsidiaries/capital',
+        focus: 'Investment arm, acquisitions, equity stakes in startups',
+        clients: 'Portfolio companies, strategic partners',
+        price: 'R1-10M',
+      },
+    ],
+  },
+  {
+    id: 'protection',
+    name: 'Protection & Operations',
+    icon: '🛡️',
+    subsidiaries: [
+      {
+        name: 'Security Services',
+        url: '/subsidiaries/security',
+        focus: 'Site security, armed response, access control, surveillance',
+        clients: 'Corporates, estates, construction sites',
+        price: 'R2-6M',
+      },
+      {
+        name: 'Logistics & Transport',
+        url: '/subsidiaries/logistics',
+        focus: 'Fleet management, goods transport, warehousing',
+        clients: 'SMEs, construction, retail, internal',
+        price: 'R1.5-4M',
+      },
+      {
+        name: 'Facility Management',
+        url: '/subsidiaries/facility',
+        focus: 'Commercial cleaning, hygiene, maintenance',
+        clients: 'Corporates, government, schools, hospitals',
+        price: 'R1-3M',
+      },
+      {
+        name: 'Carwash & Grill',
+        url: '/subsidiaries/carwash',
+        focus: 'Premium carwash, grill/food, fleet contracts',
+        clients: 'Private, commercial fleets',
+        price: 'R500K-1.5M',
+      },
+    ],
+  },
+  {
+    id: 'agri',
+    name: 'Agri-Consumer & Lifestyle',
+    icon: '🌾',
+    subsidiaries: [
+      {
+        name: 'Agri (Mopani Farms + Poultry)',
+        url: '/subsidiaries/agri',
+        focus: 'Mopani worm farming, poultry production, agri-tourism',
+        clients: 'Catering (internal), retail, export',
+        price: 'R1-4M',
+      },
+      {
+        name: 'Catering & Supplies (Mopani Protein™)',
+        url: '/subsidiaries/catering',
+        focus: 'Catering services, Signature Mopani Protein brand, equipment rental',
+        clients: 'Events, corporates, private, retail',
+        price: 'R2-6M',
+      },
+      {
+        name: 'Event Management',
+        url: '/subsidiaries/events',
+        focus: 'Corporate events, conferences, weddings, coordination',
+        clients: 'Corporates, private clients',
+        price: 'R800K-2M',
+      },
+      {
+        name: 'Retail & Distribution',
+        url: '/subsidiaries/retail',
+        focus: 'FMCG distribution, retail partnerships, brand licensing',
+        clients: 'Retailers, wholesalers, consumers',
+        price: 'R500K-3M',
+      },
+    ],
+  },
+];
+
+const totalSubsidiaries = clusters.reduce((sum, c) => sum + c.subsidiaries.length, 0);
+
 const Header = ({ isSubsidiary = false, subsidiaryName = '', subsidiaryUrl = '' }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -19,22 +169,17 @@ const Header = ({ isSubsidiary = false, subsidiaryName = '', subsidiaryUrl = '' 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const subsidiaries = [
-    { name: 'Property Development', url: '/subsidiaries/property', cluster: 'Infrastructure', icon: '🏢' },
-    { name: 'Tech & Consulting', url: '/subsidiaries/tech', cluster: 'Professional Services', icon: '💻' },
-    { name: 'Events & Experiences', url: '/subsidiaries/events', cluster: 'Lifestyle', icon: '🎯' },
-    { name: 'Catering Services', url: '/subsidiaries/catering', cluster: 'Lifestyle', icon: '🍽️' },
-    { name: 'Security & Logistics', url: '/subsidiaries/security', cluster: 'Protection', icon: '🔒' },
-    { name: 'Corporate Services', url: '/subsidiaries/corporate', cluster: 'Professional Services', icon: '📋' },
-  ];
-
+  // "Leadership" / "Investor Relations" replaced with Pricing (per-service
+  // pricing page) and Portfolio (parent-company portfolio page).
   const navLinks = [
     { label: 'About', href: '/about' },
-    { label: 'Leadership', href: '/leadership' },
-    { label: 'Investor Relations', href: '/resources' },
+    { label: 'Pricing', href: '/pricing' },
+    { label: 'Portfolio', href: '/portfolio' },
     { label: 'Careers', href: '/careers' },
     { label: 'Insights', href: '/blog' },
   ];
+
+  const categoryCount = services?.categories?.length || 0;
 
   return (
     <>
@@ -56,7 +201,6 @@ const Header = ({ isSubsidiary = false, subsidiaryName = '', subsidiaryUrl = '' 
                 <span>Partner Login</span>
               </a>
             </div>
-
             <div className="flex items-center gap-6 ml-auto">
               <a href="tel:+27738847449" className="text-gray-400 hover:text-accent transition hidden sm:flex items-center gap-2">
                 <span>📞</span>
@@ -89,11 +233,12 @@ const Header = ({ isSubsidiary = false, subsidiaryName = '', subsidiaryUrl = '' 
         <div className="mx-auto px-6">
           <div className="flex justify-between items-center h-20">
             <Link href="/" className="flex items-center gap-3 cursor-pointer">
-              <motion.div
-                className="flex items-center gap-3"
-                whileHover={{ scale: 1.02 }}
-              >
-                <div className={`w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-br from-accent to-gold transition-all shadow-lg ${isScrolled ? 'shadow-accent/30' : 'shadow-accent/50'}`}>
+              <motion.div className="flex items-center gap-3" whileHover={{ scale: 1.02 }}>
+                <div
+                  className={`w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-br from-accent to-gold transition-all shadow-lg ${
+                    isScrolled ? 'shadow-accent/30' : 'shadow-accent/50'
+                  }`}
+                >
                   <span className="text-white font-bold text-xl">ML</span>
                 </div>
                 <div className="flex flex-col">
@@ -109,12 +254,15 @@ const Header = ({ isSubsidiary = false, subsidiaryName = '', subsidiaryUrl = '' 
 
             <nav className="hidden lg:flex items-center gap-1">
               {/* About link */}
-              <Link href="/about" className="px-4 py-2 text-base font-medium text-gray-300 hover:text-white transition-colors cursor-pointer relative group rounded-lg hover:bg-white/5">
+              <Link
+                href="/about"
+                className="px-4 py-2 text-base font-medium text-gray-300 hover:text-white transition-colors cursor-pointer relative group rounded-lg hover:bg-white/5"
+              >
                 <span>About</span>
                 <span className="absolute bottom-1 left-4 right-4 h-0.5 bg-accent scale-x-0 transition-transform group-hover:scale-x-100"></span>
               </Link>
 
-              {/* Services Dropdown */}
+              {/* Services — mega menu trigger */}
               <div
                 className="relative"
                 onMouseEnter={() => setServicesDropdownOpen(true)}
@@ -122,54 +270,21 @@ const Header = ({ isSubsidiary = false, subsidiaryName = '', subsidiaryUrl = '' 
               >
                 <button className="px-4 py-2 text-base font-medium text-gray-300 hover:text-white transition-colors flex items-center gap-2 rounded-lg hover:bg-white/5">
                   Services
-                  <svg className={`w-4 h-4 transition-transform ${servicesDropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg
+                    className={`w-4 h-4 transition-transform ${servicesDropdownOpen ? 'rotate-180' : ''}`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </button>
-
-                <AnimatePresence>
-                  {servicesDropdownOpen && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 10 }}
-                      className="absolute top-full left-0 mt-2 w-80 bg-surface/98 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl overflow-hidden"
-                    >
-                      <div className="p-4">
-                        <div className="flex items-center justify-between mb-4">
-                          <h3 className="text-sm font-bold text-white">Our Services</h3>
-                          <span className="text-xs text-accent">{services.categories.length} Categories</span>
-                        </div>
-                        <div className="space-y-2">
-                          {services.categories.map((category) => (
-                            <Link 
-                              key={category.id} 
-                              href={`/services/${category.slug}`}
-                              className="block p-3 rounded-lg bg-white/5 hover:bg-accent/10 cursor-pointer transition border border-transparent hover:border-accent/30 group"
-                            >
-                              <p className="text-sm font-semibold text-white group-hover:text-accent transition">
-                                {category.name}
-                              </p>
-                              <p className="text-xs text-gray-400 mt-1">{category.services.length} services</p>
-                            </Link>
-                          ))}
-                        </div>
-                        <div className="mt-4 pt-4 border-t border-white/10">
-                          <Link href="/services" className="text-xs text-accent hover:text-accent/80 cursor-pointer flex items-center gap-2 font-medium">
-                            View All Services & Pricing
-                            <span>→</span>
-                          </Link>
-                        </div>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
               </div>
 
-              {/* Remaining nav links */}
+              {/* Remaining nav links (Pricing, Portfolio, Careers, Insights) */}
               {navLinks.slice(1).map((link) => (
-                <Link 
-                  key={link.label} 
+                <Link
+                  key={link.label}
                   href={link.href}
                   className="px-4 py-2 text-base font-medium text-gray-300 hover:text-white transition-colors cursor-pointer relative group rounded-lg hover:bg-white/5"
                 >
@@ -178,7 +293,7 @@ const Header = ({ isSubsidiary = false, subsidiaryName = '', subsidiaryUrl = '' 
                 </Link>
               ))}
 
-              {/* Our Group Dropdown */}
+              {/* Our Group — mega menu trigger */}
               <div
                 className="relative"
                 onMouseEnter={() => setGroupDropdownOpen(true)}
@@ -186,50 +301,15 @@ const Header = ({ isSubsidiary = false, subsidiaryName = '', subsidiaryUrl = '' 
               >
                 <button className="px-4 py-2 text-base font-medium text-gray-300 hover:text-white transition-colors flex items-center gap-2 rounded-lg hover:bg-white/5">
                   Our Group
-                  <svg className={`w-4 h-4 transition-transform ${groupDropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg
+                    className={`w-4 h-4 transition-transform ${groupDropdownOpen ? 'rotate-180' : ''}`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </button>
-
-                <AnimatePresence>
-                  {groupDropdownOpen && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 10 }}
-                      className="absolute top-full right-0 mt-2 w-96 bg-surface/98 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl overflow-hidden"
-                    >
-                      <div className="p-4">
-                        <div className="flex items-center justify-between mb-4">
-                          <h3 className="text-sm font-bold text-white">Our Subsidiaries</h3>
-                          <span className="text-xs text-accent">{subsidiaries.length} Companies</span>
-                        </div>
-                        <div className="grid grid-cols-2 gap-3">
-                          {subsidiaries.map((sub) => (
-                            <Link 
-                              key={sub.name} 
-                              href={sub.url}
-                              className="p-3 rounded-lg bg-white/5 hover:bg-accent/10 cursor-pointer transition border border-transparent hover:border-accent/30 group"
-                            >
-                              <div className="text-2xl mb-2">{sub.icon}</div>
-                              <p className="text-sm font-semibold text-white group-hover:text-accent transition">
-                                {sub.name}
-                              </p>
-                              <p className="text-xs text-gray-400 mt-1">{sub.cluster}</p>
-                            </Link>
-                          ))}
-                        </div>
-                        <div className="mt-4 pt-4 border-t border-white/10 flex justify-between items-center">
-                          <Link href="#subsidiaries" className="text-xs text-accent hover:text-accent/80 cursor-pointer flex items-center gap-2 font-medium">
-                            Explore All Subsidiaries
-                            <span>→</span>
-                          </Link>
-                          <span className="text-xs text-gray-500">4 Clusters</span>
-                        </div>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
               </div>
             </nav>
 
@@ -243,19 +323,12 @@ const Header = ({ isSubsidiary = false, subsidiaryName = '', subsidiaryUrl = '' 
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
               </motion.button>
-
-              <Link
-                href="/contact"
-                className="px-8 py-3 bg-accent text-white font-bold rounded-lg hover:shadow-lg transition-all duration-300"
-              >
+              <Link href="/contact" className="px-8 py-3 bg-accent text-white font-bold rounded-lg hover:shadow-lg transition-all duration-300">
                 Contact Us
               </Link>
             </div>
 
-            <button
-              className="lg:hidden text-white text-2xl p-2"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            >
+            <button className="lg:hidden text-white text-2xl p-2" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
               {mobileMenuOpen ? '✕' : '☰'}
             </button>
           </div>
@@ -268,6 +341,8 @@ const Header = ({ isSubsidiary = false, subsidiaryName = '', subsidiaryUrl = '' 
                 exit={{ opacity: 0, height: 0 }}
                 className="hidden lg:block pb-4"
               >
+                {/* This px-6 edge is the alignment reference: both mega menus
+                    below start at this same left edge. */}
                 <div className="relative">
                   <input
                     type="text"
@@ -293,8 +368,7 @@ const Header = ({ isSubsidiary = false, subsidiaryName = '', subsidiaryUrl = '' 
                 exit={{ opacity: 0, height: 0 }}
                 className="lg:hidden pb-4 space-y-1 border-t border-white/10 mt-2 pt-4"
               >
-                {/* About - first */}
-                <Link 
+                <Link
                   href="/about"
                   className="block text-sm text-gray-300 hover:text-accent hover:bg-white/5 py-2 px-3 rounded cursor-pointer transition"
                   onClick={() => setMobileMenuOpen(false)}
@@ -302,21 +376,41 @@ const Header = ({ isSubsidiary = false, subsidiaryName = '', subsidiaryUrl = '' 
                   About
                 </Link>
 
-                {/* Services section */}
+                {/* Services — accordion of categories, each with its services listed */}
                 <div className="pt-2">
                   <p className="text-xs text-gray-400 font-semibold mb-2 px-3">Services</p>
-                  <div className="space-y-1">
-                    {services.categories.map((category) => (
-                      <Link 
-                        key={category.id} 
-                        href={`/services/${category.slug}`}
-                        className="block text-sm text-gray-300 hover:text-accent hover:bg-white/5 py-2 px-3 rounded cursor-pointer transition"
-                        onClick={() => setMobileMenuOpen(false)}
-                      >
-                        {category.name}
-                      </Link>
+                  <div className="space-y-3">
+                    {services?.categories?.map((category) => (
+                      <div key={category.id}>
+                        <Link
+                          href={`/services/${category.slug}`}
+                          className="block text-sm font-semibold text-white hover:text-accent py-1 px-3 rounded cursor-pointer transition"
+                          onClick={() => setMobileMenuOpen(false)}
+                        >
+                          {category.name}
+                        </Link>
+                        <div className="pl-3 space-y-1">
+                          {category.services?.slice(0, 4).map((svc, i) => {
+                            const label = typeof svc === 'string' ? svc : svc.name;
+                            return (
+                              <Link
+                                key={i}
+                                href={
+                                  typeof svc === 'object' && svc.slug
+                                    ? `/services/${category.slug}/${svc.slug}`
+                                    : `/services/${category.slug}`
+                                }
+                                className="block text-xs text-gray-400 hover:text-accent py-1 px-3 rounded cursor-pointer transition"
+                                onClick={() => setMobileMenuOpen(false)}
+                              >
+                                {label}
+                              </Link>
+                            );
+                          })}
+                        </div>
+                      </div>
                     ))}
-                    <Link 
+                    <Link
                       href="/services"
                       className="block text-sm text-accent font-semibold hover:text-accent/80 py-2 px-3 rounded cursor-pointer transition"
                       onClick={() => setMobileMenuOpen(false)}
@@ -326,10 +420,9 @@ const Header = ({ isSubsidiary = false, subsidiaryName = '', subsidiaryUrl = '' 
                   </div>
                 </div>
 
-                {/* Remaining nav links */}
                 {navLinks.slice(1).map((link) => (
-                  <Link 
-                    key={link.label} 
+                  <Link
+                    key={link.label}
                     href={link.href}
                     className="block text-sm text-gray-300 hover:text-accent hover:bg-white/5 py-2 px-3 rounded cursor-pointer transition"
                     onClick={() => setMobileMenuOpen(false)}
@@ -338,35 +431,187 @@ const Header = ({ isSubsidiary = false, subsidiaryName = '', subsidiaryUrl = '' 
                   </Link>
                 ))}
 
-                {/* Our Group section */}
+                {/* Our Group — accordion of clusters, each with its subsidiaries + price */}
                 <div className="pt-3 border-t border-white/10 mt-3">
                   <p className="text-xs text-gray-400 font-semibold mb-2 px-3">Our Subsidiaries</p>
-                  <div className="grid grid-cols-2 gap-2">
-                    {subsidiaries.map((sub) => (
-                      <Link 
-                        key={sub.name} 
-                        href={sub.url}
-                        className="text-sm text-gray-300 hover:text-accent hover:bg-white/5 py-2 px-3 rounded cursor-pointer transition"
-                        onClick={() => setMobileMenuOpen(false)}
-                      >
-                        <span className="mr-2">{sub.icon}</span>
-                        {sub.name.split(' ')[0]}
-                      </Link>
+                  <div className="space-y-3">
+                    {clusters.map((cluster) => (
+                      <div key={cluster.id}>
+                        <p className="text-sm font-semibold text-white py-1 px-3 flex items-center gap-2">
+                          <span>{cluster.icon}</span>
+                          {cluster.name}
+                        </p>
+                        <div className="pl-3 space-y-1">
+                          {cluster.subsidiaries.map((sub) => (
+                            <Link
+                              key={sub.name}
+                              href={sub.url}
+                              className="flex items-center justify-between text-xs text-gray-400 hover:text-accent py-1 px-3 rounded cursor-pointer transition"
+                              onClick={() => setMobileMenuOpen(false)}
+                            >
+                              <span>{sub.name}</span>
+                              <span className="text-[10px] text-accent/80">{sub.price}</span>
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
                     ))}
                   </div>
                 </div>
 
-                <Link 
-                  href="/contact"
-                  className="block btn-primary w-full text-sm mt-4 text-center"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
+                <Link href="/contact" className="block btn-primary w-full text-sm mt-4 text-center" onClick={() => setMobileMenuOpen(false)}>
                   Contact Us
                 </Link>
               </motion.nav>
             )}
           </AnimatePresence>
         </div>
+
+        {/* -----------------------------------------------------------------
+            MEGA MENUS
+            Rendered as direct children of <header>, positioned absolute
+            top-full left-0 right-0 so they span the full viewport width.
+            The inner wrapper reuses the same "px-6" gutter as the logo and
+            search bar above, so column 1 always starts at that exact
+            x-position — never floating under the trigger button.
+        ----------------------------------------------------------------- */}
+        <AnimatePresence>
+          {servicesDropdownOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.18 }}
+              className="hidden lg:block absolute top-full left-0 right-0 bg-surface/98 backdrop-blur-xl border-b border-white/10 shadow-2xl"
+              onMouseEnter={() => setServicesDropdownOpen(true)}
+              onMouseLeave={() => setServicesDropdownOpen(false)}
+            >
+              <div className="mx-auto px-6 py-8">
+                <div className="flex items-center justify-between mb-6">
+                  <h3 className="text-sm font-bold text-white">Our Services</h3>
+                  <span className="text-xs text-accent">{categoryCount} Categories</span>
+                </div>
+
+                <div
+                  className="grid gap-8"
+                  style={{ gridTemplateColumns: `repeat(${Math.max(categoryCount, 1)}, minmax(0, 1fr))` }}
+                >
+                  {services?.categories?.map((category) => (
+                    <div key={category.id}>
+                      <Link
+                        href={`/services/${category.slug}`}
+                        className="block text-sm font-semibold text-white hover:text-accent transition mb-3 pb-2 border-b border-white/10"
+                      >
+                        {category.name}
+                      </Link>
+                      <div className="space-y-2">
+                        {category.services?.map((svc, i) => {
+                          const label = typeof svc === 'string' ? svc : svc.name;
+                          const subItems = typeof svc === 'object' ? svc.subServices || svc.items : null;
+                          const href =
+                            typeof svc === 'object' && svc.slug
+                              ? `/services/${category.slug}/${svc.slug}`
+                              : `/services/${category.slug}`;
+                          return (
+                            <div key={i}>
+                              <Link href={href} className="block text-xs text-gray-400 hover:text-accent transition">
+                                {label}
+                              </Link>
+                              {subItems && subItems.length > 0 && (
+                                <div className="pl-3 mt-1 space-y-1">
+                                  {subItems.map((sub, j) => (
+                                    <Link
+                                      key={j}
+                                      href={`${href}#${typeof sub === 'string' ? sub : sub.slug || ''}`}
+                                      className="block text-[11px] text-gray-500 hover:text-accent transition"
+                                    >
+                                      {typeof sub === 'string' ? sub : sub.name}
+                                    </Link>
+                                  ))}
+                                </div>
+                              )}
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-8 pt-4 border-t border-white/10 flex justify-between items-center">
+                  <Link href="/services" className="text-xs text-accent hover:text-accent/80 cursor-pointer flex items-center gap-2 font-medium">
+                    View All Services
+                    <span>→</span>
+                  </Link>
+                  <Link href="/pricing" className="text-xs text-accent hover:text-accent/80 cursor-pointer flex items-center gap-2 font-medium">
+                    See Pricing Per Service
+                    <span>→</span>
+                  </Link>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        <AnimatePresence>
+          {groupDropdownOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.18 }}
+              className="hidden lg:block absolute top-full left-0 right-0 bg-surface/98 backdrop-blur-xl border-b border-white/10 shadow-2xl"
+              onMouseEnter={() => setGroupDropdownOpen(true)}
+              onMouseLeave={() => setGroupDropdownOpen(false)}
+            >
+              <div className="mx-auto px-6 py-8">
+                <div className="flex items-center justify-between mb-6">
+                  <h3 className="text-sm font-bold text-white">The 4-Cluster Model</h3>
+                  <span className="text-xs text-accent">{totalSubsidiaries}+ Subsidiaries · 4 Clusters</span>
+                </div>
+
+                <div className="grid grid-cols-4 gap-8">
+                  {clusters.map((cluster) => (
+                    <div key={cluster.id}>
+                      <p className="flex items-center gap-2 text-sm font-semibold text-white mb-3 pb-2 border-b border-white/10">
+                        <span>{cluster.icon}</span>
+                        {cluster.name}
+                      </p>
+                      <div className="space-y-3">
+                        {cluster.subsidiaries.map((sub) => (
+                          <Link
+                            key={sub.name}
+                            href={sub.url}
+                            className="block group"
+                          >
+                            <p className="text-xs font-semibold text-gray-300 group-hover:text-accent transition">
+                              {sub.name}
+                            </p>
+                            <p className="text-[11px] text-gray-500 mt-0.5 leading-snug">{sub.focus}</p>
+                            <span className="inline-block mt-1 text-[10px] text-accent bg-accent/10 rounded px-1.5 py-0.5">
+                              {sub.price}
+                            </span>
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-8 pt-4 border-t border-white/10 flex justify-between items-center">
+                  <Link href="/about#group-structure" className="text-xs text-accent hover:text-accent/80 cursor-pointer flex items-center gap-2 font-medium">
+                    Explore The Full Group Structure
+                    <span>→</span>
+                  </Link>
+                  <Link href="/portfolio" className="text-xs text-accent hover:text-accent/80 cursor-pointer flex items-center gap-2 font-medium">
+                    View Our Portfolio
+                    <span>→</span>
+                  </Link>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </header>
     </>
   );
