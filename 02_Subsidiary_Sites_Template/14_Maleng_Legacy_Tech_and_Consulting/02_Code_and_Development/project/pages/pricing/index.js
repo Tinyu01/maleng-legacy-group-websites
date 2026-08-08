@@ -1,385 +1,250 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
 import Head from 'next/head';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Navigation from '../../components/Navigation';
 import Footer from '../../components/Footer';
-import PricingCard from '../../components/Services/PricingCard';
-import TrustIndicators from '../../components/Services/TrustIndicators';
 import PageHeader from '../../components/PageHeader';
 import services from '../../data/services.json';
+import faqs from '../../data/faqs.json';
+import { FaCheck, FaRocket, FaArrowRight } from 'react-icons/fa';
 
-export default function PricingPage() {
-  const [selectedCategory, setSelectedCategory] = useState('all');
-  const [isClient, setIsClient] = useState(false);
+// ---------------------------------------------------------------------------
+// Engagement models — mirrors the tiers surfaced in the Pricing mega-menu in
+// Navigation.js so the story is consistent whether a visitor hovers the nav
+// or lands directly on this page.
+// ---------------------------------------------------------------------------
+const engagementTiers = [
+  {
+    name: 'Advisory',
+    summary: 'Fast-start strategy, discovery, and roadmap design',
+    price: 'From R18k',
+    tag: 'Best for pilots',
+    outcome: 'Clear priorities, delivery blueprints, and executive alignment',
+    includes: ['Discovery workshop', 'Scope framing', 'Execution roadmap'],
+  },
+  {
+    name: 'Growth',
+    summary: 'Ongoing delivery, automation, and operating leverage',
+    price: 'From R45k',
+    tag: 'Most popular',
+    isPopular: true,
+    outcome: 'Measurable delivery momentum with stronger internal systems',
+    includes: ['Implementation support', 'Performance tracking', 'Retained optimisation'],
+  },
+  {
+    name: 'Enterprise',
+    summary: 'Complex programs, governance, and dedicated squads',
+    price: 'Custom',
+    tag: 'Scale-ready',
+    outcome: 'Multi-site transformation with disciplined execution and control',
+    includes: ['Program governance', 'Cross-functional delivery', 'Executive reporting'],
+  },
+];
 
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
-  // Flatten all services with their category info
-  const allServices = [];
-  services.categories.forEach(category => {
-    category.services.forEach(service => {
-      allServices.push({
-        ...service,
-        categorySlug: category.slug,
-        categoryName: category.name,
-      });
-    });
-  });
-
-  // Filter services based on selected category
-  const filteredServices = selectedCategory === 'all'
-    ? allServices
-    : allServices.filter(s => s.categorySlug === selectedCategory);
+export default function PricingHub() {
+  const categories = services.categories;
+  const totalServices = categories.reduce((sum, c) => sum + c.services.length, 0);
+  const pricingFaqs = faqs.pricing || [];
 
   return (
     <>
       <Head>
-        <title>Pricing | Tech & Consulting Services</title>
+        <title>Pricing | Maleng Legacy Tech & Consulting</title>
         <meta
           name="description"
-          content="Transparent, competitive pricing for all our enterprise tech services. Choose from starter, professional, enterprise, or custom tiers."
+          content="Transparent pricing across every service line — 34 specialized services and three flexible engagement models, from fast-start advisory to enterprise transformation."
         />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
       <div className="min-h-screen bg-primary text-white">
         <Navigation isSubsidiary={true} subsidiaryName="Tech & Consulting" />
 
-        {/* Hero Section */}
-       <PageHeader
-  badge="TRANSPARENT PRICING"
-  title="Enterprise"
-  highlight="Solutions for Every Budget"
-  description="Choose the perfect plan for your business. All tiers include 24/7 support and expert access."
-  breadcrumb={[{ label: 'Pricing', href: '#' }]}
-  bg="pricing"
-/>
+        <PageHeader
+          badge="TRANSPARENT PRICING"
+          title="Pricing Built Around"
+          highlight="Your Ambition"
+          description="Choose an engagement model for how we work together, or browse detailed pricing comparisons by service category. No hidden fees — every number is a real starting point."
+          breadcrumb={[{ label: 'Pricing', href: '#' }]}
+          bg="pricing"
+          cta={{ text: 'Browse by Category', link: '#categories' }}
+          ctaSecondary={{ text: 'Talk to Sales', link: '/contact' }}
+        />
 
-        {/* Category Filter */}
-        <section className="py-8 px-6 bg-soft">
-          <div className="mx-auto max-w-6xl">
-            <div className="text-center mb-8">
-              <p className="text-gray-400 mb-4">Filter by Service Category</p>
-              <div className="flex flex-wrap justify-center gap-3">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => setSelectedCategory('all')}
-                  className={`px-6 py-2 rounded-full font-semibold transition-all duration-300 ${
-                    selectedCategory === 'all'
-                      ? 'bg-highlight text-white shadow-lg shadow-highlight/30'
-                      : 'bg-white/10 border border-white/20 text-gray-300 hover:border-highlight/50'
-                  }`}
-                >
-                  All Services
-                </motion.button>
-
-                {services.categories.map(category => (
-                  <motion.button
-                    key={category.slug}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={() => setSelectedCategory(category.slug)}
-                    className={`px-6 py-2 rounded-full font-semibold transition-all duration-300 ${
-                      selectedCategory === category.slug
-                        ? 'bg-highlight text-white shadow-lg shadow-highlight/30'
-                        : 'bg-white/10 border border-white/20 text-gray-300 hover:border-highlight/50'
-                    }`}
-                  >
-                    {category.name}
-                  </motion.button>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Pricing Cards Grid */}
-        <section className="py-16 md:py-24 px-6 bg-primary">
+        {/* Engagement Models */}
+        <section className="py-16 md:py-20 px-6">
           <div className="mx-auto max-w-6xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
               viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
               className="text-center mb-12"
             >
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Our Service Offerings
-              </h2>
-              <p className="text-gray-400 text-lg">
-                {filteredServices.length} {filteredServices.length === 1 ? 'service' : 'services'} available
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-accent mb-3">How we engage</p>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Three Ways to Work With Us</h2>
+              <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+                Every engagement is structured to balance speed, governance, and measurable outcomes.
               </p>
             </motion.div>
 
-            <div className="space-y-12">
-              {filteredServices.map((service, serviceIndex) => (
+            <div className="grid md:grid-cols-3 gap-6">
+              {engagementTiers.map((tier, index) => (
                 <motion.div
-                  key={service.id}
-                  initial={{ opacity: 0, y: 20 }}
+                  key={tier.name}
+                  initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: serviceIndex * 0.05, duration: 0.5 }}
+                  transition={{ delay: index * 0.1, duration: 0.5 }}
                   viewport={{ once: true }}
+                  className={`relative rounded-2xl border p-8 flex flex-col transition-all duration-300 ${
+                    tier.isPopular
+                      ? 'border-highlight shadow-2xl shadow-highlight/20 bg-gradient-to-br from-soft to-surface md:scale-105'
+                      : 'border-white/10 bg-gradient-to-br from-soft to-surface hover:border-highlight/40'
+                  }`}
                 >
-                  {/* Service header */}
-                  <div className="mb-6">
-                    <Link 
-                      href={`/services/${service.categorySlug}/${service.slug}`}
-                      className="group inline-flex items-center gap-3 mb-2 hover:text-highlight transition-colors duration-300"
-                    >
-                      <span className="text-3xl">{service.icon}</span>
-                      <div>
-                        <h3 className="text-2xl font-bold text-white group-hover:text-highlight transition-colors">
-                          {service.name}
-                        </h3>
-                        <p className="text-sm text-gray-400">{service.categoryName}</p>
-                      </div>
-                    </Link>
-                  </div>
-
-                  {/* Pricing tiers for this service */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {Object.entries(service.pricing || {}).map(([tierKey, tierData], tierIndex) => (
-                      <PricingCard
-                        key={tierKey}
-                        tier={tierData.name}
-                        price={
-                          tierData.price !== null
-                            ? `$${typeof tierData.price === 'number' ? tierData.price.toLocaleString() : tierData.price}`
-                            : 'Custom'
-                        }
-                        description={tierData.description}
-                        features={service.features?.[tierKey]?.slice(0, 4) || []}
-                        isPopular={tierKey === 'professional'}
-                        cta={tierData.billingModel === 'contact' ? 'Get Quote' : 'Get Started'}
-                        index={tierIndex}
-                      />
-                    ))}
-                  </div>
-
-                  {/* Service link */}
-                  <div className="mt-6 text-center">
-                    <Link 
-                      href={`/services/${service.categorySlug}/${service.slug}`}
-                      className="inline-flex items-center gap-2 text-highlight font-semibold hover:gap-3 transition-all duration-300"
-                    >
-                      View Full Details →
-                    </Link>
-                  </div>
-
-                  {/* Divider */}
-                  {serviceIndex < filteredServices.length - 1 && (
-                    <div className="mt-12 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+                  {tier.isPopular && (
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-highlight to-accent text-white text-xs font-bold">
+                      <FaRocket className="w-3 h-3" /> MOST POPULAR
+                    </div>
                   )}
+                  <span className="inline-block self-start rounded-full border border-accent/20 bg-accent/10 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-accent mb-4">
+                    {tier.tag}
+                  </span>
+                  <h3 className="text-2xl font-bold text-white mb-2">{tier.name}</h3>
+                  <p className="text-sm text-gray-400 mb-6">{tier.summary}</p>
+                  <p className="text-4xl font-black text-highlight mb-6">{tier.price}</p>
+
+                  <div className="mb-6 p-4 rounded-xl bg-white/5 border border-white/10">
+                    <p className="text-[11px] uppercase tracking-[0.2em] text-gray-500 mb-1">Outcome</p>
+                    <p className="text-sm text-gray-300">{tier.outcome}</p>
+                  </div>
+
+                  <ul className="space-y-3 mb-8 flex-grow">
+                    {tier.includes.map((item) => (
+                      <li key={item} className="flex items-start gap-3">
+                        <FaCheck className="w-3.5 h-3.5 text-accent mt-1 flex-shrink-0" />
+                        <span className="text-sm text-gray-300">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <Link
+                    href="/contact"
+                    className={`text-center py-3 px-4 rounded-lg font-semibold transition-all ${
+                      tier.isPopular
+                        ? 'bg-gradient-to-r from-highlight to-accent text-white hover:shadow-lg'
+                        : 'bg-white/10 border border-white/20 text-white hover:bg-white/20'
+                    }`}
+                  >
+                    Explore {tier.name} →
+                  </Link>
                 </motion.div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Pricing Comparison */}
-        <section className="py-16 md:py-24 px-6 bg-soft">
+        {/* Browse Pricing by Category — mirrors the /services hub's category grid */}
+        <section id="categories" className="py-16 md:py-20 px-6 bg-soft scroll-mt-20">
           <div className="mx-auto max-w-6xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
               viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
               className="text-center mb-12"
             >
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                What's Included in Each Tier
-              </h2>
-              <p className="text-gray-400 text-lg">
-                Compare our standard tier inclusions across all service categories
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-accent mb-3">Full breakdown</p>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Browse Pricing by Category</h2>
+              <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+                {totalServices} services across {categories.length} categories. Pick a category for a full
+                Starter / Professional / Enterprise / Custom comparison.
               </p>
             </motion.div>
 
-            <div className="overflow-x-auto rounded-xl border border-white/10 bg-gradient-to-br from-soft to-surface">
-              <table className="w-full">
-                <thead>
-                  <tr className="border-b border-white/10 bg-white/5">
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-gray-300 w-48">
-                      Feature
-                    </th>
-                    <th className="px-6 py-4 text-center text-sm font-semibold text-gray-300">
-                      Starter
-                    </th>
-                    <th className="px-6 py-4 text-center text-sm font-semibold text-white bg-highlight/5">
-                      Professional
-                    </th>
-                    <th className="px-6 py-4 text-center text-sm font-semibold text-gray-300">
-                      Enterprise
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {[
-                    { feature: 'Setup & Deployment', starter: true, professional: true, enterprise: true },
-                    { feature: 'Training & Documentation', starter: true, professional: true, enterprise: true },
-                    { feature: 'Email Support', starter: true, professional: true, enterprise: true },
-                    { feature: 'Phone Support (Business Hours)', starter: false, professional: true, enterprise: true },
-                    { feature: '24/7 Phone Support', starter: false, professional: false, enterprise: true },
-                    { feature: 'Dedicated Account Manager', starter: false, professional: false, enterprise: true },
-                    { feature: 'Performance Optimization', starter: false, professional: true, enterprise: true },
-                    { feature: 'Advanced Security Features', starter: false, professional: true, enterprise: true },
-                    { feature: 'Quarterly Business Reviews', starter: false, professional: false, enterprise: true },
-                    { feature: 'Custom Integrations', starter: false, professional: true, enterprise: true },
-                  ].map((row, index) => (
-                    <tr
-                      key={index}
-                      className={`border-b border-white/5 transition-colors duration-300 hover:bg-white/5 ${
-                        index % 2 === 0 ? 'bg-white/2' : ''
-                      }`}
-                    >
-                      <td className="px-6 py-4 text-sm font-medium text-gray-300">
-                        {row.feature}
-                      </td>
-                      <td className="px-6 py-4 text-center">
-                        {row.starter ? (
-                          <span className="text-accent font-bold">✓</span>
-                        ) : (
-                          <span className="text-gray-600">—</span>
-                        )}
-                      </td>
-                      <td className="px-6 py-4 text-center bg-highlight/5">
-                        {row.professional ? (
-                          <span className="text-accent font-bold">✓</span>
-                        ) : (
-                          <span className="text-gray-600">—</span>
-                        )}
-                      </td>
-                      <td className="px-6 py-4 text-center">
-                        {row.enterprise ? (
-                          <span className="text-accent font-bold">✓</span>
-                        ) : (
-                          <span className="text-gray-600">—</span>
-                        )}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </section>
-
-        {/* Trust Indicators */}
-        <section className="py-16 md:py-24 px-6 bg-primary">
-          <div className="mx-auto max-w-6xl">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-              className="text-center mb-12"
-            >
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Enterprise Trust
-              </h2>
-            </motion.div>
-
-            <TrustIndicators />
-          </div>
-        </section>
-
-        {/* FAQ */}
-        <section className="py-16 md:py-24 px-6 bg-soft">
-          <div className="mx-auto max-w-3xl">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-              className="text-center mb-12"
-            >
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Pricing FAQ
-              </h2>
-            </motion.div>
-
-            <div className="space-y-4">
-              {[
-                {
-                  q: 'Do you offer annual discounts?',
-                  a: 'Yes! Contact our sales team for volume discounts and annual payment options that can save you up to 20%.',
-                },
-                {
-                  q: 'What is your refund policy?',
-                  a: 'We offer a 30-day money-back guarantee for all services. If you are not satisfied, we will refund your payment.',
-                },
-                {
-                  q: 'Can I mix and match different tiers?',
-                  a: 'Absolutely! Many clients use different tier levels for different services based on their specific needs.',
-                },
-                {
-                  q: 'Do prices include tax?',
-                  a: 'Prices shown are before tax. Applicable VAT/GST will be added at checkout based on your location.',
-                },
-                {
-                  q: 'What happens if I need to scale up?',
-                  a: 'Upgrades are instant and pro-rated. You only pay the difference for the remainder of your billing period.',
-                },
-                {
-                  q: 'Is there a long-term contract required?',
-                  a: 'No! All our services are month-to-month. You can cancel anytime with 30 days notice.',
-                },
-              ].map((faq, index) => (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {categories.map((category, index) => (
                 <motion.div
-                  key={index}
+                  key={category.id}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1, duration: 0.5 }}
                   viewport={{ once: true }}
-                  className="p-6 rounded-lg border border-white/10 bg-gradient-to-br from-soft to-surface hover:border-highlight/30 transition-all duration-300"
                 >
-                  <h3 className="text-lg font-bold text-white mb-2">Q: {faq.q}</h3>
-                  <p className="text-gray-400">A: {faq.a}</p>
+                  <Link
+                    href={`/pricing/${category.slug}`}
+                    className="group block h-full bg-gradient-to-br from-soft to-surface border border-white/10 rounded-2xl p-6 hover:border-highlight/50 transition-all duration-300 hover:shadow-xl hover:shadow-highlight/10"
+                  >
+                    <span className="text-4xl mb-4 block">{category.icon}</span>
+                    <h3 className="text-lg font-bold text-white mb-2 group-hover:text-highlight transition-colors leading-snug">
+                      {category.name}
+                    </h3>
+                    <p className="text-sm text-gray-400 mb-5 line-clamp-2 leading-relaxed">{category.tagline}</p>
+                    <div className="flex items-center justify-between pt-4 border-t border-white/5">
+                      <span className="text-xs text-gray-500">{category.services.length} services</span>
+                      <span className="flex items-center gap-2 text-highlight font-semibold text-sm">
+                        Compare pricing
+                        <FaArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                      </span>
+                    </div>
+                  </Link>
                 </motion.div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Final CTA */}
-        <section className="py-16 md:py-24 px-6 bg-gradient-to-r from-primary to-secondary relative overflow-hidden">
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-0 left-1/4 w-96 h-96 bg-highlight rounded-full blur-3xl" />
-            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent rounded-full blur-3xl" />
-          </div>
+        {/* FAQ */}
+        {pricingFaqs.length > 0 && (
+          <section className="py-16 md:py-20 px-6">
+            <div className="mx-auto max-w-3xl">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="text-center mb-10"
+              >
+                <h2 className="text-3xl md:text-4xl font-bold mb-3">Pricing FAQs</h2>
+                <p className="text-gray-400 text-lg">Straight answers to the questions we hear most</p>
+              </motion.div>
 
-          <div className="mx-auto max-w-4xl text-center relative z-10">
+              <div className="space-y-4">
+                {pricingFaqs.map((faq, index) => (
+                  <motion.div
+                    key={faq.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    className="p-5 rounded-xl border border-white/10 bg-white/5 hover:border-highlight/30 transition-all"
+                  >
+                    <h3 className="text-base font-bold text-white mb-2">Q: {faq.question}</h3>
+                    <p className="text-gray-400 text-sm">A: {faq.answer}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* CTA */}
+        <section className="py-16 px-6 bg-gradient-to-r from-highlight/20 to-accent/20">
+          <div className="mx-auto max-w-4xl text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">
-                Not Sure Which Plan Is Right for You?
-              </h2>
-
-              <p className="text-xl text-white/80 mb-8">
-                Our experts are ready to help you choose the perfect combination of services and pricing for your business.
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">Not Sure Which Tier Fits?</h2>
+              <p className="text-gray-300 mb-6">
+                Tell us about your goals and we'll recommend the right service and pricing tier — free of charge.
               </p>
-
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  href="/contact"
-                  className="px-8 py-4 bg-white text-primary font-bold rounded-lg hover:shadow-2xl transition-all duration-300"
-                >
-                  Get Personalized Quote
-                </Link>
-                <Link
-                  href="/contact"
-                  className="px-8 py-4 border-2 border-white text-white font-bold rounded-lg hover:bg-white/10 transition-all duration-300"
-                >
-                  Schedule Consultation
-                </Link>
-              </div>
+              <Link
+                href="/contact"
+                className="inline-block px-8 py-3 bg-gradient-to-r from-highlight to-accent text-white font-bold rounded-lg hover:shadow-lg transition-all"
+              >
+                Get a Free Recommendation
+              </Link>
             </motion.div>
           </div>
         </section>
