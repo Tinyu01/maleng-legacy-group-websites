@@ -1,0 +1,150 @@
+{
+  "categories": [
+    {
+      "id": "websites",
+      "name": "Corporate Websites",
+      "slug": "websites",
+      "icon": "🌐"
+    },
+    {
+      "id": "platforms",
+      "name": "Web & SaaS Platforms",
+      "slug": "platforms",
+      "icon": "💻"
+    },
+    {
+      "id": "systems",
+      "name": "Business Systems",
+      "slug": "systems",
+      "icon": "📊"
+    },
+    {
+      "id": "infrastructure",
+      "name": "Infrastructure Projects",
+      "slug": "infrastructure",
+      "icon": "🏗️"
+    }
+  ],
+  "projects": [
+    {
+      "id": "retailchain-website",
+      "slug": "retailchain-corporate-website",
+      "title": "RetailChain Corporate Website",
+      "client": "RetailChain International",
+      "category": "websites",
+      "industry": "Retail",
+      "year": "2025",
+      "location": "Johannesburg & Cape Town",
+      "thumbnail": "/portfolio/retailchain.jpg",
+      "shortDescription": "Modern, high-performance corporate website with multi-region support and integrated store locator.",
+      "description": "Complete redesign and development of a fast, SEO-optimised corporate website serving 180+ retail locations across South Africa. The new site features a clean design system, advanced store locator, and seamless integration with their existing inventory systems.",
+      "technologies": ["Next.js", "Tailwind CSS", "Headless CMS", "Vercel"],
+      "results": [
+        "Page load under 1.2s",
+        "42% increase in organic traffic",
+        "Mobile conversion +28%"
+      ],
+      "featured": true
+    },
+    {
+      "id": "healthcare-portal",
+      "slug": "healthcare-patient-portal",
+      "title": "HealthCare Patient Portal",
+      "client": "HealthCare Systems Inc",
+      "category": "platforms",
+      "industry": "Healthcare",
+      "year": "2025",
+      "location": "Pretoria",
+      "thumbnail": "/portfolio/healthcare-portal.jpg",
+      "shortDescription": "Secure patient portal with appointment booking, records access and POPIA-compliant authentication.",
+      "description": "Custom-built patient engagement platform integrated with existing hospital information systems. Includes secure login, appointment management, medical record viewing, and automated notifications — all fully POPIA compliant.",
+      "technologies": ["React", "Node.js", "PostgreSQL", "AWS"],
+      "results": [
+        "Patient self-service adoption 61%",
+        "Admin workload reduced 35%",
+        "Full POPIA compliance achieved"
+      ],
+      "featured": true
+    },
+    {
+      "id": "financeglobal-dashboard",
+      "slug": "financeglobal-operations-dashboard",
+      "title": "FinanceGlobal Operations Dashboard",
+      "client": "FinanceGlobal Ltd",
+      "category": "systems",
+      "industry": "Finance",
+      "year": "2024",
+      "location": "Sandton",
+      "thumbnail": "/portfolio/finance-dashboard.jpg",
+      "shortDescription": "Real-time operations and risk dashboard for a growing fintech.",
+      "description": "Internal business intelligence and monitoring platform with role-based access, real-time transaction monitoring, and comprehensive audit logging for regulatory compliance.",
+      "technologies": ["Next.js", "TypeScript", "Redis", "Grafana"],
+      "results": [
+        "Decision time reduced from hours to minutes",
+        "Full audit trail for compliance",
+        "Zero critical incidents in 14 months"
+      ],
+      "featured": true
+    },
+    {
+      "id": "manufacturing-mes",
+      "slug": "manufacturing-production-system",
+      "title": "Manufacturing Production System",
+      "client": "Manufacturing Corp",
+      "category": "systems",
+      "industry": "Manufacturing",
+      "year": "2024",
+      "location": "Durban",
+      "thumbnail": "/portfolio/manufacturing-mes.jpg",
+      "shortDescription": "Custom production monitoring and reporting system across multiple plants.",
+      "description": "Integrated shop-floor data collection, real-time production dashboards, automated shift reporting, and exception alerting across four manufacturing plants.",
+      "technologies": ["React", "Python", "IoT Gateway", "PostgreSQL"],
+      "results": [
+        "27% faster reporting cycles",
+        "Live visibility across 4 plants",
+        "Reduced manual data entry by 60%"
+      ],
+      "featured": false
+    },
+    {
+      "id": "retailtech-saas",
+      "slug": "retailtech-multi-tenant-saas",
+      "title": "RetailTech Multi-tenant SaaS Platform",
+      "client": "RetailTech Solutions",
+      "category": "platforms",
+      "industry": "SaaS / Retail Technology",
+      "year": "2025",
+      "location": "Cape Town",
+      "thumbnail": "/portfolio/retailtech-saas.jpg",
+      "shortDescription": "Scalable multi-tenant SaaS platform for independent retailers.",
+      "description": "Full platform architecture, custom business modules, multi-tenant isolation, and managed hosting environment designed for rapid scaling.",
+      "technologies": ["Next.js", "NestJS", "PostgreSQL", "Docker", "Kubernetes"],
+      "results": [
+        "Supports 3× concurrent users",
+        "99.95% uptime",
+        "Two new product modules launched successfully"
+      ],
+      "featured": true
+    },
+    {
+      "id": "enterprise-sdwan",
+      "slug": "enterprise-sdwan-deployment",
+      "title": "Enterprise SD-WAN Deployment",
+      "client": "RetailChain International",
+      "category": "infrastructure",
+      "industry": "Retail",
+      "year": "2025",
+      "location": "Nationwide",
+      "thumbnail": "/portfolio/sdwan.jpg",
+      "shortDescription": "Nationwide SD-WAN rollout connecting 180+ retail sites with centralised management.",
+      "description": "End-to-end design, procurement, deployment and ongoing management of enterprise SD-WAN connectivity across the entire retail network.",
+      "technologies": ["SD-WAN", "Fortinet", "Central Orchestration"],
+      "results": [
+        "Consistent performance across all sites",
+        "Simplified network operations",
+        "Reduced connectivity-related downtime by 78%"
+      ],
+      "featured": false
+    }
+  ]
+}
