@@ -13,6 +13,10 @@ module.exports = {
         success: '#00d084',
         surface: '#16213e',
       },
+      fontSize: {
+        'display-lg': '44px',
+        'display-md': '36px',
+      },
     },
   },
   plugins: [],
