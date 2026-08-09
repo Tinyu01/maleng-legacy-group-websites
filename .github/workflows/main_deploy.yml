@@ -23,7 +23,7 @@ jobs:
 
       - name: Check which folders changed
         id: filter
-        uses: dorny/paths-filter@v3
+        uses: dorny/paths-filter@v4
         with:
           filters: |
             parent:
@@ -87,7 +87,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
 
       - name: Prepare Parent Export (Sync + Export)
         working-directory: 01_Parent_Site_MalengLegacy.com/02_Code_and_Development/project
@@ -193,7 +193,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
 
       - name: Build ${{ matrix.subdomain }} Static Export
         working-directory: 02_Subsidiary_Sites_Template/${{ matrix.folder }}/02_Code_and_Development/project
