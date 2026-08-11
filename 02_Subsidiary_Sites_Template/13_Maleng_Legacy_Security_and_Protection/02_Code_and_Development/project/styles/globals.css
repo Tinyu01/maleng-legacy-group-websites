@@ -45,7 +45,7 @@ h3 { @apply text-2xl; }
   }
 
   .card {
-    @apply bg-surface/50 backdrop-blur border border-white/10 rounded-xl p-6 transition-all duration-300 hover:border-accent/50 hover:shadow-card;
+    @apply bg-surface/50 backdrop-blur border border-white/10 rounded-xl p-6 transition-all duration-300 hover:border-accent/50 hover:shadow-lg;
   }
 
   .section-title {
