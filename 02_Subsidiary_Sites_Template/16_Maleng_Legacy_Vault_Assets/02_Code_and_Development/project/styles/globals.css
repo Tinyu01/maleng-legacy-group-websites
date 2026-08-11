@@ -33,7 +33,7 @@ h3 { @apply text-2xl; }
 /* Modern Button Styles */
 @layer components {
   .btn-primary {
-    @apply px-8 py-4 bg-accent text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-btn hover:scale-105 active:scale-95;
+    @apply px-8 py-4 bg-accent text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg hover:scale-105 active:scale-95;
   }
 
   .btn-secondary {
@@ -45,7 +45,7 @@ h3 { @apply text-2xl; }
   }
 
   .card {
-    @apply bg-surface/50 backdrop-blur border border-white/10 rounded-xl p-6 transition-all duration-300 hover:border-accent/50 hover:shadow-card;
+    @apply bg-surface/50 backdrop-blur border border-white/10 rounded-xl p-6 transition-all duration-300 hover:border-accent/50 hover:shadow-lg;
   }
 
   .section-title {
