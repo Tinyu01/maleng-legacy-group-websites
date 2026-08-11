@@ -17,6 +17,10 @@ module.exports = {
         'display-lg': '44px',
         'display-md': '36px',
       },
+      boxShadow: {
+        'btn': '0 4px 15px rgba(229, 69, 96, 0.3)',
+        'card': '0 4px 20px rgba(0, 0, 0, 0.2)',
+      },
     },
   },
   plugins: [],
