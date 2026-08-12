@@ -105,9 +105,9 @@ export default function MalengTechPage() {
   return (
     <>
       <Head>
-        <title>Maleng Legacy Tech & Consulting | IT Solutions & Digital Transformation</title>
-        <meta name="description" content="Enterprise IT consulting, custom software development, and digital transformation services. Transform your business with cutting-edge technology solutions." />
-        <meta name="keywords" content="IT consulting South Africa, software development, digital transformation, cloud solutions, web development" />
+        <title>Maleng Legacy Tech & Consulting | Enterprise Software Development Johannesburg</title>
+        <meta name="description" content="Enterprise software development, IT consulting, cloud solutions, and digital transformation services for South African businesses." />
+        <meta name="keywords" content="enterprise software development Johannesburg, IT consulting South Africa, digital transformation, cloud solutions, cybersecurity consulting, web development" />
       </Head>
 
       <Header isSubsidiary={true} subsidiaryName="Tech & Consulting" />

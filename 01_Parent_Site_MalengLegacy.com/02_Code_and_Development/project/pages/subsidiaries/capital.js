@@ -108,6 +108,7 @@ export default function Capital() {
       <Head>
         <title>Maleng Legacy Capital & Investments | Private Equity & Venture Capital</title>
         <meta name="description" content="Strategic investment firm deploying private equity, venture capital, and acquisition capital across high-growth Limpopo businesses." />
+        <meta name="keywords" content="Maleng Legacy Capital, private equity South Africa, venture capital, investment firm, acquisition capital, growth funding" />
       </Head>
 
       <Navigation isSubsidiary={true} subsidiaryName="Capital & Investment" />

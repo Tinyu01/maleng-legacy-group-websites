@@ -108,6 +108,7 @@ export default function Facility() {
       <Head>
         <title>Maleng Legacy Facility Management | Commercial Cleaning & Building Maintenance</title>
         <meta name="description" content="Professional facility management services including commercial cleaning, industrial hygiene, building maintenance, and washroom services across Limpopo." />
+        <meta name="keywords" content="Maleng Legacy Facility Management, commercial cleaning, building maintenance, industrial hygiene, washroom services, facility services" />
       </Head>
 
       <Navigation isSubsidiary={true} subsidiaryName="Facility Management" />

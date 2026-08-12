@@ -108,6 +108,7 @@ export default function Property() {
       <Head>
         <title>Maleng Legacy Property Development | Strategic Real Estate Investment</title>
         <meta name="description" content="Premier property development company specializing in residential, commercial, and mixed-use projects across Limpopo Province." />
+        <meta name="keywords" content="Maleng Legacy Property Development, real estate investment, property development South Africa, mixed-use projects, residential development, commercial property" />
       </Head>
 
       <Navigation isSubsidiary={true} subsidiaryName="Property Development" />

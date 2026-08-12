@@ -8,11 +8,11 @@ import Testimonials from '../components/Homepage/Testimonials';
 import FinalCTA from '../components/Homepage/FinalCTA';
 
 const seoMetaTags = {
-  title: 'Enterprise Tech Solutions & Digital Transformation | Maleng Legacy Tech Johannesburg',
-  description: 'Maleng Legacy Tech & Consulting - 15+ years of enterprise software development, digital transformation, cloud infrastructure, and cybersecurity solutions. Serving 500+ enterprise clients across South Africa.',
+  title: 'Maleng Legacy Tech & Consulting | Enterprise Software Development Johannesburg',
+  description: 'Enterprise software development, cloud infrastructure, cybersecurity, and digital transformation for businesses in Johannesburg and across South Africa.',
   keywords: 'software development, digital transformation, enterprise solutions, cloud infrastructure, cybersecurity, tech consulting, Johannesburg, South Africa, Azure, AWS, Python, enterprise architecture',
-  ogTitle: 'Enterprise Tech Solutions for Digital Transformation',
-  ogDescription: 'Custom software development and technology consulting for enterprises. We transform businesses through digital innovation.',
+  ogTitle: 'Maleng Legacy Tech & Consulting | Enterprise Software Development Johannesburg',
+  ogDescription: 'Enterprise software development, cloud infrastructure, cybersecurity, and digital transformation for businesses in Johannesburg and across South Africa.',
   ogImage: 'https://tech.malenglegacy.co.za/og-tech-hero.png'
 };
 import Link from 'next/link';

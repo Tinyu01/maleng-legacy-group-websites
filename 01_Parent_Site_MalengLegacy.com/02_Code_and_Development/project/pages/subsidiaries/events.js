@@ -108,6 +108,7 @@ export default function Events() {
       <Head>
         <title>Maleng Legacy Event Management | Corporate & Private Event Planning</title>
         <meta name="description" content="Professional event management services for conferences, weddings, corporate functions, and private celebrations across Limpopo." />
+        <meta name="keywords" content="Maleng Legacy Event Management, event planning South Africa, corporate events, wedding planning, conference management, private celebrations" />
       </Head>
 
       <Navigation isSubsidiary={true} subsidiaryName="Events & Conferencing" />

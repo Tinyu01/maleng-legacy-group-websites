@@ -108,6 +108,7 @@ export default function Agri() {
       <Head>
         <title>Maleng Legacy Agri | Mopani Farms & Poultry Production</title>
         <meta name="description" content="Sustainable agriculture including mopani worm farming, free-range poultry, crop production, and agri-tourism experiences." />
+        <meta name="keywords" content="Maleng Legacy Agri, agriculture South Africa, poultry production, crop production, agri-tourism, mopani worm farming" />
       </Head>
 
       <Navigation isSubsidiary={true} subsidiaryName="Agri & Farming" />

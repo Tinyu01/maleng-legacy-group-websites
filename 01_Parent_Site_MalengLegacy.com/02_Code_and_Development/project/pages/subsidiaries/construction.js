@@ -108,6 +108,7 @@ export default function Construction() {
       <Head>
         <title>Maleng Legacy Construction & Infrastructure | Building Excellence</title>
         <meta name="description" content="NHBRC-registered construction company delivering residential, commercial, and civil infrastructure projects across Limpopo." />
+        <meta name="keywords" content="Maleng Legacy Construction, construction South Africa, NHBRC registered builder, civil infrastructure, residential construction, commercial construction" />
       </Head>
 
       <Navigation isSubsidiary={true} subsidiaryName="Construction & Infrastructure" />

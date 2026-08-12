@@ -8,7 +8,8 @@ export default function AboutPage() {
     <>
       <Head>
         <title>About Us | Maleng Legacy Group</title>
-        <meta name="description" content="Learn about Maleng Legacy Group Holdings - South Africa's premier diversified holding company with 18+ subsidiaries." />
+        <meta name="description" content="Learn about Maleng Legacy Group, a South African diversified business group with operations across multiple sectors and 18+ subsidiaries." />
+        <meta name="keywords" content="Maleng Legacy Group, South African business group, diversified holdings, subsidiaries, infrastructure, professional services, protection, agri-consumer, lifestyle sectors" />
       </Head>
 
       <Header />

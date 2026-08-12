@@ -108,6 +108,7 @@ export default function Training() {
       <Head>
         <title>Maleng Legacy Training Institute | SETA Accredited Skills Development</title>
         <meta name="description" content="Leading SETA-accredited training provider offering learnerships, skills programmes, apprenticeships, and corporate training across Limpopo." />
+        <meta name="keywords" content="Maleng Legacy Training Institute, SETA accredited training, learnerships South Africa, apprenticeships, skills development, corporate training" />
       </Head>
 
       <Navigation isSubsidiary={true} subsidiaryName="Training & Development" />

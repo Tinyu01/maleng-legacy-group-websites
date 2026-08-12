@@ -2,6 +2,9 @@
 import { Html, Head, Main, NextScript } from 'next/document';
 
 export default function Document() {
+  const googleVerificationCode = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || 'PLACEHOLDER-GOOGLE-VERIFICATION-CODE';
+  const gaId = process.env.NEXT_PUBLIC_GA_ID;
+
   const schemaOrgData = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -76,7 +79,22 @@ export default function Document() {
         <meta name="twitter:creator" content="@malenglegacy" />
 
         {/* Google Verification & Analytics Placeholders */}
-        <meta name="google-site-verification" content="PLACEHOLDER-GOOGLE-VERIFICATION-CODE" />
+        <meta name="google-site-verification" content={googleVerificationCode} />
+        {gaId ? (
+          <>
+            <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', '${gaId}', { page_path: window.location.pathname });
+                `,
+              }}
+            />
+          </>
+        ) : null}
 
         {/* Canonical URL */}
         <link rel="canonical" href="https://tech.malenglegacy.co.za" />

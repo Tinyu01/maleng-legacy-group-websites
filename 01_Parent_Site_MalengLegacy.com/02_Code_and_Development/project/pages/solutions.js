@@ -7,8 +7,9 @@ export default function SolutionsPage() {
   return (
     <>
       <Head>
-        <title>Our Solutions | Maleng Legacy Group</title>
-        <meta name="description" content="Explore our diversified portfolio of solutions across infrastructure, professional services, protection, and lifestyle sectors." />
+        <title>Maleng Legacy Group Solutions | Diversified Business Clusters</title>
+        <meta name="description" content="Explore Maleng Legacy Group's diversified business clusters across infrastructure, professional services, protection, and lifestyle sectors." />
+        <meta name="keywords" content="Maleng Legacy Group solutions, diversified business clusters, infrastructure solutions, professional services, protection services, lifestyle businesses" />
       </Head>
 
       <Header />

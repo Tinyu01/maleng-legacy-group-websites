@@ -8,7 +8,8 @@ export default function InvestorRelationsPage() {
     <>
       <Head>
         <title>Investor Relations | Maleng Legacy Group</title>
-        <meta name="description" content="Access financial information, reports, and investor resources for Maleng Legacy Group Holdings." />
+        <meta name="description" content="Access financial information, reports, and investor resources for Maleng Legacy Group." />
+        <meta name="keywords" content="Maleng Legacy Group investor relations, annual reports, financial information, shareholder resources, corporate governance" />
       </Head>
 
       <Header />

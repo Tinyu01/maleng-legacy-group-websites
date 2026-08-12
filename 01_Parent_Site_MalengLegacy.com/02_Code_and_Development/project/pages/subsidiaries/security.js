@@ -108,6 +108,7 @@ export default function Security() {
       <Head>
         <title>Maleng Legacy Security Services | PSIRA Registered Armed Response & Guarding</title>
         <meta name="description" content="Professional security services including manned guarding, armed response, CCTV surveillance, and event security across Limpopo." />
+        <meta name="keywords" content="Maleng Legacy Security Services, PSIRA security, armed response, CCTV surveillance, manned guarding, event security" />
       </Head>
 
       <Navigation isSubsidiary={true} subsidiaryName="Security Services" />

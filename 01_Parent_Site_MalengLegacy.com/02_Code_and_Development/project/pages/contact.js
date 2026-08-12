@@ -8,7 +8,8 @@ export default function ContactPage() {
     <>
       <Head>
         <title>Contact Us | Maleng Legacy Group</title>
-        <meta name="description" content="Get in touch with Maleng Legacy Group Holdings. Contact us for business inquiries, partnerships, and investor relations." />
+        <meta name="description" content="Get in touch with Maleng Legacy Group for business inquiries, partnerships, and investor relations in South Africa." />
+        <meta name="keywords" content="Maleng Legacy Group contact, business inquiries, partnerships, investor relations, South Africa" />
       </Head>
 
       <Header />
