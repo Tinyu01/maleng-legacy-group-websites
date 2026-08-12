@@ -9,6 +9,7 @@ export default function LeadershipPage() {
       <Head>
         <title>Leadership | Maleng Legacy Group</title>
         <meta name="description" content="Meet the executive leadership team driving Maleng Legacy Group's strategic vision and operational excellence." />
+        <meta name="keywords" content="Maleng Legacy Group leadership, executive team, board of directors, South African conglomerate leadership, corporate governance" />
       </Head>
 
       <Header />

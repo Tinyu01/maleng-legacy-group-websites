@@ -21,13 +21,13 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Maleng Legacy Group Holdings | Diversified Holding Company SA</title>
-        <meta name="description" content="South Africa's premier diversified holding company. 18+ subsidiaries across infrastructure, professional services, protection, and agri-consumer sectors." />
-        <meta name="keywords" content="holding company SA, business solutions, infrastructure, professional services, diversified portfolio, B-BBEE Level 1" />
+        <title>Maleng Legacy Group | Diversified Business Group in South Africa</title>
+        <meta name="description" content="Maleng Legacy Group is a South African diversified business group spanning infrastructure, professional services, protection, agri-consumer, and lifestyle sectors." />
+        <meta name="keywords" content="Maleng Legacy Group, diversified business group SA, South African conglomerate, infrastructure, professional services, protection, agri-consumer" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="utf-8" />
-        <meta property="og:title" content="Maleng Legacy Group Holdings | Diversified Solutions" />
-        <meta property="og:description" content="Building sustainable economic legacies through diversified solutions across key sectors." />
+        <meta property="og:title" content="Maleng Legacy Group | Diversified Business Group in South Africa" />
+        <meta property="og:description" content="A South African diversified business group spanning infrastructure, professional services, protection, agri-consumer, and lifestyle sectors." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.malenglegacy.co.za" />
         <meta property="og:image" content="https://www.malenglegacy.co.za/og-image.jpg" />

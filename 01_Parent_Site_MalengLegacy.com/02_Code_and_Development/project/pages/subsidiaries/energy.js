@@ -108,6 +108,7 @@ export default function Energy() {
       <Head>
         <title>Maleng Legacy Energy Solutions | Solar Power & Renewable Energy</title>
         <meta name="description" content="Leading renewable energy company specializing in solar PV systems, energy storage, and energy efficiency solutions across Limpopo." />
+        <meta name="keywords" content="Maleng Legacy Energy Solutions, solar power South Africa, renewable energy, solar PV systems, energy storage, energy efficiency" />
       </Head>
 
       <Navigation isSubsidiary={true} subsidiaryName="Energy & Solar" />

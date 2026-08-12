@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import Breadcrumb from './Breadcrumb';
 import ImageBackground from './ImageBackground';
 import ServiceBackground from './ServiceBackground';
@@ -10,12 +11,60 @@ export default function PageHeader({
   breadcrumb = [], cta, ctaSecondary,
   bg = 'default', isService = false 
 }) {
+  const router = useRouter();
+  const breadcrumbSchema = breadcrumb.length > 0
+    ? {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://tech.malenglegacy.co.za"
+          },
+          ...breadcrumb
+            .map((item, index) => {
+              const isLastItem = index === breadcrumb.length - 1;
+              const resolvedHref = item.href && item.href !== '#'
+                ? item.href
+                : isLastItem
+                  ? router.asPath.split('?')[0]
+                  : '';
+
+              if (!resolvedHref) {
+                return null;
+              }
+
+              const itemUrl = resolvedHref.startsWith('http')
+                ? resolvedHref
+                : `https://tech.malenglegacy.co.za${resolvedHref.startsWith('/') ? resolvedHref : `/${resolvedHref}`}`;
+
+              return {
+                "@type": "ListItem",
+                "position": index + 2,
+                "name": item.label,
+                "item": itemUrl
+              };
+            })
+            .filter(Boolean)
+        ]
+      }
+    : null;
+
   return (
     <section className="relative pt-20 pb-16 md:pt-28 md:pb-20 px-6 overflow-hidden">
       {isService ? <ServiceBackground category={{ id: bg }} /> : <ImageBackground page={bg} />}
 
       <div className="mx-auto max-w-6xl relative z-10">
         {breadcrumb.length > 0 && <Breadcrumb items={breadcrumb} />}
+
+        {breadcrumbSchema && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+          />
+        )}
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}

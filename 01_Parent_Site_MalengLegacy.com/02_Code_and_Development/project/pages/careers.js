@@ -8,7 +8,8 @@ export default function CareersPage() {
     <>
       <Head>
         <title>Careers | Maleng Legacy Group</title>
-        <meta name="description" content="Join our team and build your career with Maleng Legacy Group Holdings." />
+        <meta name="description" content="Join Maleng Legacy Group and build your career across a diversified South African business group." />
+        <meta name="keywords" content="Maleng Legacy Group careers, jobs in South Africa, graduate programmes, corporate careers, diversified business careers" />
       </Head>
 
       <Header />

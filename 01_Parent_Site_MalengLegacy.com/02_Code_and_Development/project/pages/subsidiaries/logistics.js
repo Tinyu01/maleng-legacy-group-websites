@@ -108,6 +108,7 @@ export default function Logistics() {
       <Head>
         <title>Maleng Legacy Logistics & Transport | Fleet, Warehousing & Distribution</title>
         <meta name="description" content="Professional logistics services including freight transport, warehousing, fleet management, and project logistics across Limpopo and South Africa." />
+        <meta name="keywords" content="Maleng Legacy Logistics, transport South Africa, freight transport, warehousing, fleet management, distribution logistics" />
       </Head>
 
       <Navigation isSubsidiary={true} subsidiaryName="Logistics & Transport" />

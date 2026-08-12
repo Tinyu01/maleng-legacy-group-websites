@@ -8,7 +8,8 @@ export default function InsightsPage() {
     <>
       <Head>
         <title>Insights & News | Maleng Legacy Group</title>
-        <meta name="description" content="Latest news, insights, and thought leadership from Maleng Legacy Group." />
+        <meta name="description" content="Latest news, insights, and thought leadership from Maleng Legacy Group across its operating clusters." />
+        <meta name="keywords" content="Maleng Legacy Group insights, group news, thought leadership, South African business news, diversified group updates, corporate announcements" />
       </Head>
 
       <Header />

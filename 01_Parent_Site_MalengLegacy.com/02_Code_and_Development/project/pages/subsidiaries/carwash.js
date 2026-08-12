@@ -108,6 +108,7 @@ export default function Carwash() {
       <Head>
         <title>Maleng Legacy Carwash & Grill | Premium Carwash & Restaurant Services</title>
         <meta name="description" content="Premium carwash and grill restaurant services across Limpopo offering automatic wash, hand detailing, fleet contracts, and quality meals." />
+        <meta name="keywords" content="Maleng Legacy Carwash, carwash Limpopo, vehicle detailing, fleet contracts, restaurant services, premium car wash" />
       </Head>
 
       <Navigation isSubsidiary={true} subsidiaryName="Car Wash & Detailing" />
