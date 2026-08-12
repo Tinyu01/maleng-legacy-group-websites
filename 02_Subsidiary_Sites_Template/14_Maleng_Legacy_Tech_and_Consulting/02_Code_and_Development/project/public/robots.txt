@@ -1,0 +1,20 @@
+# Maleng Legacy Tech & Consulting - robots.txt
+# Allow all search engines to crawl the site
+
+User-agent: *
+Allow: /
+
+# Disallow private/admin paths
+Disallow: /api/
+Disallow: /.next/
+Disallow: /node_modules/
+
+# Sitemap
+Sitemap: https://tech.malenglegacy.co.za/sitemap.xml
+
+# Specific crawl delays
+User-agent: Googlebot
+Crawl-delay: 0
+
+User-agent: Bingbot
+Crawl-delay: 1

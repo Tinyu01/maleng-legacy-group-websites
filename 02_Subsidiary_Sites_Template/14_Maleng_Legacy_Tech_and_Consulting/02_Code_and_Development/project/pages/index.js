@@ -6,6 +6,15 @@ import HighlightGrid from '../components/Homepage/HighlightGrid';
 import HowItWorks from '../components/Homepage/HowItWorks';
 import Testimonials from '../components/Homepage/Testimonials';
 import FinalCTA from '../components/Homepage/FinalCTA';
+
+const seoMetaTags = {
+  title: 'Enterprise Tech Solutions & Digital Transformation | Maleng Legacy Tech Johannesburg',
+  description: 'Maleng Legacy Tech & Consulting - 15+ years of enterprise software development, digital transformation, cloud infrastructure, and cybersecurity solutions. Serving 500+ enterprise clients across South Africa.',
+  keywords: 'software development, digital transformation, enterprise solutions, cloud infrastructure, cybersecurity, tech consulting, Johannesburg, South Africa, Azure, AWS, Python, enterprise architecture',
+  ogTitle: 'Enterprise Tech Solutions for Digital Transformation',
+  ogDescription: 'Custom software development and technology consulting for enterprises. We transform businesses through digital innovation.',
+  ogImage: 'https://tech.malenglegacy.co.za/og-tech-hero.png'
+};
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { FaArrowRight, FaStar, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
@@ -63,24 +72,22 @@ export default function HomePage() {
   return (
     <>
       <Head>
-        <title>Maleng Legacy Tech & Consulting | Software, Cloud & Connectivity Solutions</title>
-        <meta 
-          name="description" 
-          content="Maleng Legacy Tech & Consulting delivers software, cloud, connectivity, cybersecurity, design, and consulting solutions for modern enterprises." 
-        />
-        <meta 
-          name="keywords" 
-          content="software development, cloud infrastructure, telecommunications, cybersecurity, digital transformation, design systems, IT consulting, Maleng Legacy" 
-        />
+        <title>{seoMetaTags.title}</title>
+        <meta name="description" content={seoMetaTags.description} />
+        <meta name="keywords" content={seoMetaTags.keywords} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#003366" />
         <meta name="format-detection" content="telephone=no, date=no, email=no, address=no" />
         
         {/* Open Graph */}
-        <meta property="og:title" content="Maleng Legacy Tech & Consulting | Software, Cloud & Connectivity Solutions" />
-        <meta property="og:description" content="Software engineering, cloud infrastructure, telecoms, security, and consulting for enterprise clients." />
+        <meta property="og:title" content={seoMetaTags.ogTitle} />
+        <meta property="og:description" content={seoMetaTags.ogDescription} />
+        <meta property="og:image" content={seoMetaTags.ogImage} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://tech.malenglegacy.co.za" />
+        
+        {/* Canonical */}
+        <link rel="canonical" href="https://tech.malenglegacy.co.za/" />
       </Head>
 
       <Header isSubsidiary={true} subsidiaryName="Tech & Consulting" />
