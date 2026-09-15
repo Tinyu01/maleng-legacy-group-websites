@@ -90,6 +90,11 @@ export default function ServiceCategory({ category }) {
                   >
                     {category.tagline}
                   </motion.p>
+                  {category.serviceNature && (
+                    <p className="text-xs uppercase tracking-[0.2em] text-gray-400 mt-2">
+                      Service Nature: {category.serviceNature}
+                    </p>
+                  )}
                 </div>
               </div>
               
@@ -123,6 +128,16 @@ export default function ServiceCategory({ category }) {
             >
               {category.description}
             </motion.p>
+            {category.slug === 'hosting-infrastructure' && (
+              <motion.p
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.45 }}
+                className="text-gray-400 text-sm max-w-3xl mt-3"
+              >
+                This category covers hosting setup and operations services only. Hosting product plans are delivered via Legacy Hosting Platform.
+              </motion.p>
+            )}
 
             {/* Quick Stats */}
             <motion.div 

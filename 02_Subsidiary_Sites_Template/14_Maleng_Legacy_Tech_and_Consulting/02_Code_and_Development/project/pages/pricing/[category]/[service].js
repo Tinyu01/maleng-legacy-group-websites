@@ -90,6 +90,11 @@ export default function PricingServicePage({ category, service }) {
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-2">
                     {category.name}
                   </p>
+                  {service.serviceNature && (
+                    <p className="text-[11px] uppercase tracking-[0.2em] text-gray-400 mb-2">
+                      {service.serviceNature}
+                    </p>
+                  )}
                   <h1 className="text-2xl md:text-3xl font-bold text-white mb-3">
                     {service.name} Pricing
                   </h1>
@@ -114,6 +119,11 @@ export default function PricingServicePage({ category, service }) {
                 </div>
               </div>
             </motion.div>
+            {(service.slug === 'managed-web-hosting-platforms' || category.slug === 'hosting-infrastructure') && (
+              <p className="text-xs text-gray-500 mt-4">
+                Pricing shown is for setup, migration, and managed operations scope. For hosting product plans, use Legacy Hosting Platform.
+              </p>
+            )}
           </div>
         </section>
 

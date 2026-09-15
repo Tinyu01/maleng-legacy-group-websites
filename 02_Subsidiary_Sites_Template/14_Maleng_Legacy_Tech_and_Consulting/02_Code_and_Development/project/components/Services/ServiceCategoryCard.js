@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { FaArrowRight } from 'react-icons/fa';
 
 export default function ServiceCategoryCard({ category, index }) {
-  const { name, description, icon, slug, services } = category;
+  const { name, description, icon, slug, services, serviceNature, serviceType } = category;
 
   return (
     <motion.div
@@ -45,6 +45,21 @@ export default function ServiceCategoryCard({ category, index }) {
             <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-highlight transition-colors duration-300 leading-tight">
               {name}
             </h3>
+
+            {(serviceNature || serviceType) && (
+              <div className="flex flex-wrap gap-2 mb-4">
+                {serviceNature && (
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.16em] px-2.5 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent">
+                    {serviceNature}
+                  </span>
+                )}
+                {serviceType && (
+                  <span className="text-[10px] uppercase px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-gray-400">
+                    {serviceType.replace(/-/g, ' ')}
+                  </span>
+                )}
+              </div>
+            )}
 
             {/* Description */}
             <p className="text-gray-400 text-sm mb-6 line-clamp-3 leading-relaxed">

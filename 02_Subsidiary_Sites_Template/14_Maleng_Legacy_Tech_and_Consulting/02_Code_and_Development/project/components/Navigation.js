@@ -95,8 +95,14 @@ const Header = ({ isSubsidiary = false, subsidiaryName = '', subsidiaryUrl = '' 
     { label: 'Insights', href: '/blog' },
   ];
 
-  const categoryCount = services?.categories?.length || 0;
-  const totalServiceCount = services?.categories?.reduce((sum, c) => sum + (c.services?.length || 0), 0) || 0;
+  const serviceNatureOrder = ['Development', 'Support / Managed Operations', 'Networking'];
+  const allServiceCategories = services?.categories || [];
+  const orderedServiceCategories = [
+    ...serviceNatureOrder.flatMap((nature) => allServiceCategories.filter((category) => category.serviceNature === nature)),
+    ...allServiceCategories.filter((category) => !serviceNatureOrder.includes(category.serviceNature)),
+  ];
+  const categoryCount = orderedServiceCategories.length || 0;
+  const totalServiceCount = orderedServiceCategories.reduce((sum, c) => sum + (c.services?.length || 0), 0);
   const portfolioCategories = portfolioData?.categories || [];
   const portfolioProjects = portfolioData?.projects || [];
   const portfolioCategoryCount = portfolioCategories.length;
@@ -277,7 +283,7 @@ const Header = ({ isSubsidiary = false, subsidiaryName = '', subsidiaryUrl = '' 
                 <div className="pt-2">
                   <p className="text-xs text-gray-400 font-semibold mb-2 px-3">Services</p>
                   <div className="space-y-3">
-                    {services?.categories?.map((category) => (
+                    {orderedServiceCategories.map((category) => (
                       <div key={category.id}>
                         <Link href={`/services/${category.slug}`} className="block text-sm font-semibold text-white hover:text-accent py-1 px-3 rounded" onClick={() => setMobileMenuOpen(false)}>
                           {category.name}
@@ -306,7 +312,7 @@ const Header = ({ isSubsidiary = false, subsidiaryName = '', subsidiaryUrl = '' 
                 <div className="pt-3 border-t border-white/10 mt-3">
                   <p className="text-xs text-gray-400 font-semibold mb-2 px-3">Pricing</p>
                   <div className="space-y-3">
-                    {services?.categories?.map((category) => (
+                    {orderedServiceCategories.map((category) => (
                       <div key={category.id}>
                         <Link href={`/pricing/${category.slug}`} className="block text-sm font-semibold text-white hover:text-accent py-1 px-3 rounded" onClick={() => setMobileMenuOpen(false)}>
                           {category.name}
@@ -420,7 +426,7 @@ const Header = ({ isSubsidiary = false, subsidiaryName = '', subsidiaryUrl = '' 
                   <span className="text-xs text-accent">{categoryCount} Categories</span>
                 </div>
                 <div className="grid gap-8" style={{ gridTemplateColumns: `repeat(${Math.max(categoryCount, 1)}, minmax(0, 1fr))` }}>
-                  {services?.categories?.map((category) => {
+                  {orderedServiceCategories.map((category) => {
                     const categoryHref = `/services/${category.slug}`;
                     const categoryActive = isActivePath(categoryHref);
                     return (
@@ -447,6 +453,9 @@ const Header = ({ isSubsidiary = false, subsidiaryName = '', subsidiaryUrl = '' 
                   <Link href="/services" className="text-xs text-accent hover:text-accent/80 flex items-center gap-2 font-medium">View All Services <span>→</span></Link>
                   <Link href="/pricing" className="text-xs text-accent hover:text-accent/80 flex items-center gap-2 font-medium">See Pricing Per Service <span>→</span></Link>
                 </div>
+                <p className="mt-3 text-[11px] text-gray-500">
+                  We deliver engineering and managed services here. Hosting plans are offered via Legacy Hosting Platform.
+                </p>
               </div>
             </motion.div>
           )}
@@ -470,7 +479,7 @@ const Header = ({ isSubsidiary = false, subsidiaryName = '', subsidiaryUrl = '' 
                   <span className="text-xs text-accent">{totalServiceCount} Services · {categoryCount} Categories</span>
                 </div>
                 <div className="grid gap-8" style={{ gridTemplateColumns: `repeat(${Math.max(categoryCount, 1)}, minmax(0, 1fr))` }}>
-                  {services?.categories?.map((category) => {
+                  {orderedServiceCategories.map((category) => {
                     const categoryHref = `/pricing/${category.slug}`;
                     const categoryActive = isActivePath(categoryHref);
                     return (
@@ -497,6 +506,9 @@ const Header = ({ isSubsidiary = false, subsidiaryName = '', subsidiaryUrl = '' 
                   <Link href="/pricing" className="text-xs text-accent hover:text-accent/80 flex items-center gap-2 font-medium">View Full Pricing Catalog <span>→</span></Link>
                   <Link href="/contact" className="text-xs text-accent hover:text-accent/80 flex items-center gap-2 font-medium">Talk to Sales <span>→</span></Link>
                 </div>
+                <p className="mt-3 text-[11px] text-gray-500">
+                  Pricing here is for setup, engineering, and managed operations services. Hosting subscriptions live on Legacy Hosting Platform.
+                </p>
               </div>
             </motion.div>
           )}

@@ -67,6 +67,9 @@ export default function PricingCategory({ category }) {
                     {category.icon}
                   </div>
                   <h1 className="text-2xl md:text-3xl font-bold text-white mb-2">{category.name} Pricing</h1>
+                  {category.serviceNature && (
+                    <p className="text-[11px] uppercase tracking-[0.2em] text-accent mb-2">{category.serviceNature}</p>
+                  )}
                   <p className="text-gray-400 text-sm max-w-xl">{category.tagline}</p>
                 </div>
 
@@ -86,6 +89,11 @@ export default function PricingCategory({ category }) {
                 </div>
               </div>
             </motion.div>
+            {category.slug === 'hosting-infrastructure' && (
+              <p className="text-xs text-gray-500 mt-4">
+                These fees cover hosting setup and operations services; standalone hosting subscriptions are provided on Legacy Hosting Platform.
+              </p>
+            )}
           </div>
         </section>
 

@@ -4,6 +4,15 @@
 
 A fully-featured, enterprise-grade services architecture has been implemented following the 2026 B2B design specification.
 
+## 🔄 2026-09 Service Nature Restructure Update
+
+- Primary service presentation now leads with three nature pillars: **Development**, **Support / Managed Operations**, and **Networking**.
+- `data/services.json` now includes `division`, `serviceNature`, `serviceType`, and `deliveryModels` metadata on categories and services.
+- Hosting product copy was removed from this site and replaced with service wording:
+  - **Hosting Environment Setup & Migration**
+  - **Hosting Operations Management** scope language in infrastructure support services
+- Services and Pricing hubs now emphasize engineering + managed services, with explicit messaging that hosting plans/subscriptions are provided through **Legacy Hosting Platform**.
+
 ---
 
 ## 📁 Project Structure

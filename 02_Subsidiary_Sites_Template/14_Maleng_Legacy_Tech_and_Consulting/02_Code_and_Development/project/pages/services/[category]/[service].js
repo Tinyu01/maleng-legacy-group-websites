@@ -536,6 +536,11 @@ export default function IndividualService({ category, service }) {
                   >
                     {category.name}
                   </motion.p>
+                  {service.serviceNature && (
+                    <p className="text-xs uppercase tracking-[0.2em] text-gray-400 mt-2">
+                      {service.serviceNature}
+                    </p>
+                  )}
                 </div>
               </div>
               
@@ -549,7 +554,7 @@ export default function IndividualService({ category, service }) {
                   href="/contact"
                   className="px-5 py-2.5 bg-gradient-to-r from-highlight to-accent text-white font-semibold rounded-lg hover:shadow-lg transition-all text-sm"
                 >
-                  Start Free Trial
+                  Book Discovery Call
                 </Link>
                 <Link
                   href="/contact"
@@ -569,6 +574,16 @@ export default function IndividualService({ category, service }) {
             >
               {service.description}
             </motion.p>
+            {(service.slug === 'managed-web-hosting-platforms' || category.slug === 'hosting-infrastructure') && (
+              <motion.p
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.45 }}
+                className="text-gray-400 text-sm max-w-3xl mt-3"
+              >
+                This offer covers setup, migration, and managed operations services. Hosting plan subscriptions are delivered through Legacy Hosting Platform.
+              </motion.p>
+            )}
 
             {/* Quick Stats */}
             <motion.div 

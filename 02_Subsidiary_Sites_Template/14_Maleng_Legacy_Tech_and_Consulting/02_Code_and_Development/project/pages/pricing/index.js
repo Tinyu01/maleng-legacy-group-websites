@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { useMemo, useState } from 'react';
 import Navigation from '../../components/Navigation';
 import Footer from '../../components/Footer';
 import PageHeader from '../../components/PageHeader';
@@ -43,7 +44,16 @@ const engagementTiers = [
 
 export default function PricingHub() {
   const categories = services.categories;
-  const totalServices = categories.reduce((sum, c) => sum + c.services.length, 0);
+  const natureFilters = ['All', 'Development', 'Support / Managed Operations', 'Networking'];
+  const [activeNature, setActiveNature] = useState('All');
+
+  const filteredCategories = useMemo(() => (
+    activeNature === 'All'
+      ? categories
+      : categories.filter((category) => category.serviceNature === activeNature)
+  ), [activeNature, categories]);
+
+  const totalServices = filteredCategories.reduce((sum, c) => sum + c.services.length, 0);
   const pricingFaqs = faqs.pricing || [];
 
   return (
@@ -52,7 +62,7 @@ export default function PricingHub() {
         <title>Pricing | Maleng Legacy Tech & Consulting</title>
         <meta
           name="description"
-          content="Transparent pricing across every service line — 34 specialized services and three flexible engagement models, from fast-start advisory to enterprise transformation."
+          content="Transparent pricing for Development, Support/Managed Operations, and Networking services, with clear separation between service delivery fees and Legacy Hosting Platform product plans."
         />
       </Head>
 
@@ -63,7 +73,7 @@ export default function PricingHub() {
           badge="TRANSPARENT PRICING"
           title="Pricing Built Around"
           highlight="Your Ambition"
-          description="Choose an engagement model for how we work together, or browse detailed pricing comparisons by service category. No hidden fees — every number is a real starting point."
+          description="Choose how we deliver engineering and managed services, then browse pricing by service nature and category. Hosting product subscriptions are available through Legacy Hosting Platform."
           breadcrumb={[{ label: 'Pricing', href: '#' }]}
           bg="pricing"
           cta={{ text: 'Browse by Category', link: '#categories' }}
@@ -151,18 +161,47 @@ export default function PricingHub() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
+              className="mb-8 p-5 rounded-2xl border border-white/10 bg-white/5"
+            >
+              <p className="text-sm text-gray-300 leading-relaxed">
+                Service pricing below covers engineering, setup, and managed operations work delivered by Maleng Legacy Tech & Consulting.
+                <span className="text-accent font-semibold"> Hosting plans and subscriptions are offered via Legacy Hosting Platform.</span>
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
               className="text-center mb-12"
             >
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-accent mb-3">Full breakdown</p>
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Browse Pricing by Category</h2>
               <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-                {totalServices} services across {categories.length} categories. Pick a category for a full
+                {totalServices} services across {filteredCategories.length} categories in the <span className="text-accent">{activeNature}</span> view. Pick a category for a full
                 Starter / Professional / Enterprise / Custom comparison.
               </p>
             </motion.div>
 
+            <div className="flex flex-wrap gap-3 mb-8 justify-center">
+              {natureFilters.map((filter) => (
+                <button
+                  key={filter}
+                  onClick={() => setActiveNature(filter)}
+                  className={`px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-[0.16em] transition ${
+                    activeNature === filter
+                      ? 'bg-gradient-to-r from-highlight to-accent text-white'
+                      : 'bg-white/5 border border-white/10 text-gray-300 hover:border-highlight/40'
+                  }`}
+                >
+                  {filter}
+                </button>
+              ))}
+            </div>
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {categories.map((category, index) => (
+              {filteredCategories.map((category, index) => (
                 <motion.div
                   key={category.id}
                   initial={{ opacity: 0, y: 20 }}
@@ -178,6 +217,9 @@ export default function PricingHub() {
                     <h3 className="text-lg font-bold text-white mb-2 group-hover:text-highlight transition-colors leading-snug">
                       {category.name}
                     </h3>
+                    {category.serviceNature && (
+                      <p className="text-[10px] uppercase tracking-[0.16em] text-accent mb-2">{category.serviceNature}</p>
+                    )}
                     <p className="text-sm text-gray-400 mb-5 line-clamp-2 leading-relaxed">{category.tagline}</p>
                     <div className="flex items-center justify-between pt-4 border-t border-white/5">
                       <span className="text-xs text-gray-500">{category.services.length} services</span>
@@ -190,6 +232,10 @@ export default function PricingHub() {
                 </motion.div>
               ))}
             </div>
+
+            {filteredCategories.length === 0 && (
+              <p className="text-center text-gray-400 py-12">No pricing categories found for this service nature yet.</p>
+            )}
           </div>
         </section>
 

@@ -97,6 +97,9 @@ const Footer = ({ isSubsidiary = false }) => {
         <p className="text-xs text-gray-500 mt-8 text-center">
           This website contains confidential investment information. Unauthorized access is prohibited.
         </p>
+        <p className="text-xs text-gray-500 mt-3 text-center">
+          Maleng Legacy Tech & Consulting provides engineering and managed services. Hosting products and plans are provided through Legacy Hosting Platform.
+        </p>
       </div>
     </footer>
   );
