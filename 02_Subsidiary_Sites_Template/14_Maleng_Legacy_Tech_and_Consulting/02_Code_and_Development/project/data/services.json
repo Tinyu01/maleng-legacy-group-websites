@@ -761,6 +761,10 @@
           "slug": "cloud-it-infrastructure",
           "description": "Cloud landing-zone engineering, workload placement, and ongoing environment governance for business-critical platforms.",
           "icon": "☁️",
+          "deploymentOptions": [
+            "Cloud",
+            "Hybrid"
+          ],
           "pricing": {
             "starter": {
               "name": "Starter",
@@ -1029,6 +1033,10 @@
           "slug": "smart-av-workspace-procurement",
           "description": "Once-off capital procurement for Returnstar Technology boardrooms, classrooms, and connected presentation spaces.",
           "icon": "📺",
+          "deploymentOptions": [
+            "On-Premises",
+            "Hybrid"
+          ],
           "pricing": {
             "starter": {
               "name": "Plan 1",
@@ -1118,6 +1126,10 @@
           "slug": "on-premise-server-engineering",
           "description": "Structural installation and configuration of on-site server rooms, hardware firewalls, physical switches, and protected power layers.",
           "icon": "🗄️",
+          "deploymentOptions": [
+            "On-Premises",
+            "Hybrid"
+          ],
           "pricing": {
             "starter": {
               "name": "Starter",
@@ -1199,6 +1211,10 @@
             "project",
             "retainer",
             "managed-service"
+          ],
+          "deploymentOptions": [
+            "On-Premises",
+            "Hybrid"
           ]
         },
         {
@@ -2008,6 +2024,11 @@
           "deliveryModels": [
             "project",
             "managed-service"
+          ],
+          "deploymentOptions": [
+            "Cloud",
+            "On-Premises",
+            "Hybrid"
           ]
         },
         {
@@ -2100,6 +2121,11 @@
           "slug": "enterprise-connectivity-sdwan-orchestration",
           "description": "Multi-location SD-WAN, secure private tunnels, and QoS policies prioritizing telematics and Smart AV traffic.",
           "icon": "🕸️",
+          "deploymentOptions": [
+            "Cloud",
+            "On-Premises",
+            "Hybrid"
+          ],
           "pricing": {
             "starter": {
               "name": "Starter",
@@ -2176,6 +2202,11 @@
           "deliveryModels": [
             "project",
             "managed-service"
+          ],
+          "deploymentOptions": [
+            "Cloud",
+            "On-Premises",
+            "Hybrid"
           ]
         }
       ],

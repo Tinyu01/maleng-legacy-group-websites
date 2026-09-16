@@ -57,6 +57,31 @@ const clusters = [
 
 const totalSubsidiaries = clusters.reduce((sum, c) => sum + c.subsidiaries.length, 0);
 
+const portfolioProjectsByService = {
+  'website-development': ['retailchain-website'],
+  'seo-digital-growth-retainers': ['retailchain-website'],
+  'agentic-ai-workflow-orchestration': ['financeglobal-dashboard'],
+  'custom-software-development': ['healthcare-portal', 'manufacturing-mes'],
+  'saas-application-development': ['retailtech-saas'],
+  'digital-transformation-solutions': ['healthcare-portal', 'financeglobal-dashboard'],
+  'cybersecurity-solutions': ['healthcare-portal'],
+  'cloud-it-infrastructure': ['retailtech-saas'],
+  'managed-web-hosting-platforms': ['retailchain-website', 'retailtech-saas'],
+  'on-premise-server-engineering': ['manufacturing-mes'],
+  'automated-backup-disaster-recovery': ['healthcare-portal'],
+  'it-consulting-advisory': ['financeglobal-dashboard', 'enterprise-sdwan'],
+  'digital-transformation-consulting': ['healthcare-portal', 'financeglobal-dashboard'],
+  'cybersecurity-compliance-advisory': ['healthcare-portal', 'financeglobal-dashboard'],
+  'project-management-office': ['manufacturing-mes', 'enterprise-sdwan'],
+  'enterprise-connectivity-sdwan-orchestration': ['enterprise-sdwan'],
+  'cctv-system-design-installation': ['enterprise-sdwan'],
+  'access-control-systems': ['healthcare-portal'],
+  'product-design-ux': ['retailchain-website', 'healthcare-portal'],
+  'design-systems': ['retailchain-website', 'retailtech-saas'],
+  'prototyping-mvp-design': ['retailtech-saas'],
+  'creative-direction-branding': ['retailchain-website'],
+};
+
 const Header = ({ isSubsidiary = false, subsidiaryName = '', subsidiaryUrl = '' }) => {
   const router = useRouter();
   const [isScrolled, setIsScrolled] = useState(false);
@@ -103,10 +128,11 @@ const Header = ({ isSubsidiary = false, subsidiaryName = '', subsidiaryUrl = '' 
   ];
   const categoryCount = orderedServiceCategories.length || 0;
   const totalServiceCount = orderedServiceCategories.reduce((sum, c) => sum + (c.services?.length || 0), 0);
-  const portfolioCategories = portfolioData?.categories || [];
   const portfolioProjects = portfolioData?.projects || [];
-  const portfolioCategoryCount = portfolioCategories.length;
-  const portfolioProjectCount = portfolioProjects.length;
+
+  const getPortfolioProjects = (serviceSlug) => portfolioProjects.filter((project) =>
+    portfolioProjectsByService[serviceSlug]?.includes(project.id)
+  );
 
   return (
     <>
@@ -337,27 +363,25 @@ const Header = ({ isSubsidiary = false, subsidiaryName = '', subsidiaryUrl = '' 
                   </div>
                 </div>
 
-                {/* Portfolio — category based */}
+                {/* Portfolio — service based */}
                 <div className="pt-3 border-t border-white/10 mt-3">
                   <p className="text-xs text-gray-400 font-semibold mb-2 px-3">Portfolio</p>
                   <div className="space-y-3">
-                    {portfolioCategories.map((category) => {
-                      const categoryProjects = portfolioProjects.filter((p) => p.category === category.id);
+                    {orderedServiceCategories.map((category) => {
                       return (
                         <div key={category.id}>
-                          <p className="text-sm font-semibold text-white py-1 px-3 flex items-center gap-2">
-                            <span>{category.icon}</span>
+                          <Link href={`/services/${category.slug}`} className="block text-sm font-semibold text-white hover:text-accent py-1 px-3 rounded" onClick={() => setMobileMenuOpen(false)}>
                             {category.name}
-                          </p>
+                          </Link>
                           <div className="pl-3 space-y-1">
-                            {categoryProjects.slice(0, 3).map((project) => (
+                            {category.services?.map((service) => (
                               <Link
-                                key={project.id}
-                                href={`/portfolio/${project.slug}`}
+                                key={service.slug}
+                                href={getPortfolioProjects(service.slug)[0] ? `/portfolio/${getPortfolioProjects(service.slug)[0].slug}` : `/services/${category.slug}/${service.slug}`}
                                 className="block text-xs text-gray-400 hover:text-accent py-1 px-3 rounded"
                                 onClick={() => setMobileMenuOpen(false)}
                               >
-                                {project.title}
+                                {service.name}
                               </Link>
                             ))}
                           </div>
@@ -514,7 +538,7 @@ const Header = ({ isSubsidiary = false, subsidiaryName = '', subsidiaryUrl = '' 
           )}
         </AnimatePresence>
 
-        {/* Portfolio Mega Menu — category based (same style as Services & Pricing) */}
+        {/* Portfolio Mega Menu — service based (same structure as Pricing) */}
         <AnimatePresence>
           {portfolioDropdownOpen && (
             <motion.div
@@ -528,40 +552,57 @@ const Header = ({ isSubsidiary = false, subsidiaryName = '', subsidiaryUrl = '' 
             >
               <div className="mx-auto px-6 py-8">
                 <div className="flex items-center justify-between mb-6">
-                  <h3 className="text-sm font-bold text-white">Our Portfolio</h3>
+                  <h3 className="text-sm font-bold text-white">Portfolio by Service</h3>
                   <span className="text-xs text-accent">
-                    {portfolioProjectCount} Projects · {portfolioCategoryCount} Categories
+                    {totalServiceCount} Services · {categoryCount} Categories
                   </span>
                 </div>
 
                 <div
                   className="grid gap-8"
-                  style={{ gridTemplateColumns: `repeat(${Math.max(portfolioCategoryCount, 1)}, minmax(0, 1fr))` }}
+                  style={{ gridTemplateColumns: `repeat(${Math.max(categoryCount, 1)}, minmax(0, 1fr))` }}
                 >
-                  {portfolioCategories.map((category) => {
-                    const categoryProjects = portfolioProjects.filter((p) => p.category === category.id);
+                  {orderedServiceCategories.map((category) => {
+                    const categoryHref = `/services/${category.slug}`;
+                    const categoryActive = isActivePath(categoryHref);
+
                     return (
-                      <div key={category.id}>
-                        <p className="flex items-center gap-2 text-sm font-semibold text-white mb-3 pb-2 border-b border-white/10">
-                          <span>{category.icon}</span>
+                      <div key={category.id} className={categoryActive ? 'rounded-lg bg-highlight/5 -m-2 p-2' : ''}>
+                        <Link
+                          href={categoryHref}
+                          className={`block text-sm font-semibold transition mb-3 pb-2 border-b ${
+                            categoryActive ? 'text-highlight border-highlight/30' : 'text-white hover:text-accent border-white/10'
+                          }`}
+                        >
                           {category.name}
-                        </p>
+                        </Link>
+
                         <div className="space-y-2">
-                          {categoryProjects.map((project) => {
-                            const href = `/portfolio/${project.slug}`;
-                            const projectActive = isExactPath(href);
+                          {category.services?.map((service) => {
+                            const relatedProjects = getPortfolioProjects(service.slug);
+                            const serviceHref = `/services/${category.slug}/${service.slug}`;
                             return (
-                              <Link
-                                key={project.id}
-                                href={href}
-                                className={`block text-xs px-2 -mx-2 py-0.5 rounded transition ${
-                                  projectActive
-                                    ? 'bg-highlight/10 text-highlight font-medium'
-                                    : 'text-gray-400 hover:text-accent'
-                                }`}
-                              >
-                                {project.title}
-                              </Link>
+                              <div key={service.slug} className="px-2 -mx-2">
+                                <Link
+                                  href={serviceHref}
+                                  className={`block text-xs font-medium leading-snug transition ${isExactPath(serviceHref) ? 'text-highlight' : 'text-gray-300 hover:text-accent'}`}
+                                >
+                                  {service.name}
+                                </Link>
+                                {relatedProjects.length > 0 && (
+                                  <div className="mt-1 space-y-1 border-l border-white/10 pl-2">
+                                    {relatedProjects.map((project) => (
+                                      <Link
+                                        key={project.id}
+                                        href={`/portfolio/${project.slug}`}
+                                        className={`block text-[11px] leading-snug transition ${isExactPath(`/portfolio/${project.slug}`) ? 'text-highlight' : 'text-gray-500 hover:text-accent'}`}
+                                      >
+                                        {project.title}
+                                      </Link>
+                                    ))}
+                                  </div>
+                                )}
+                              </div>
                             );
                           })}
                         </div>

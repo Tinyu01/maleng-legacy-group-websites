@@ -98,25 +98,6 @@ export default function ServiceCategory({ category }) {
                 </div>
               </div>
               
-              <motion.div
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                className="flex gap-3"
-              >
-                <Link
-                  href="/contact"
-                  className="px-6 py-2.5 bg-gradient-to-r from-highlight to-accent text-white font-semibold rounded-lg hover:shadow-lg transition-all text-sm"
-                >
-                  Get Started
-                </Link>
-                <Link
-                  href="/contact"
-                  className="px-6 py-2.5 border border-white/20 text-white font-semibold rounded-lg hover:bg-white/10 transition-all text-sm"
-                >
-                  Request Quote
-                </Link>
-              </motion.div>
             </div>
 
             {/* Category Description */}
@@ -128,41 +109,36 @@ export default function ServiceCategory({ category }) {
             >
               {category.description}
             </motion.p>
+
+            <motion.div
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.45 }}
+              className="mt-6 flex flex-wrap gap-3"
+            >
+              <Link
+                href="/contact"
+                className="px-6 py-2.5 bg-gradient-to-r from-highlight to-accent text-white font-semibold rounded-lg hover:shadow-lg transition-all text-sm"
+              >
+                Get Started
+              </Link>
+              <Link
+                href="/contact"
+                className="px-6 py-2.5 border border-white/20 text-white font-semibold rounded-lg hover:bg-white/10 transition-all text-sm"
+              >
+                Request Quote
+              </Link>
+            </motion.div>
             {category.slug === 'hosting-infrastructure' && (
               <motion.p
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.45 }}
-                className="text-gray-400 text-sm max-w-3xl mt-3"
+                transition={{ duration: 0.5, delay: 0.5 }}
+                className="text-gray-400 text-sm max-w-3xl mt-4"
               >
-                This category covers hosting setup and operations services only. Hosting product plans are delivered via Legacy Hosting Platform.
+                This category covers hosting setup, migration, and operations services only. Hosting product plans are delivered via Legacy Hosting Platform.
               </motion.p>
             )}
-
-            {/* Quick Stats */}
-            <motion.div 
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8"
-            >
-              <div className={`p-3 rounded-lg ${colors.bg} border ${colors.border} backdrop-blur-sm`}>
-                <p className="text-2xl font-bold">{category.services?.length || 0}</p>
-                <p className="text-xs text-gray-400">Services Available</p>
-              </div>
-              <div className={`p-3 rounded-lg ${colors.bg} border ${colors.border} backdrop-blur-sm`}>
-                <p className="text-2xl font-bold">24/7</p>
-                <p className="text-xs text-gray-400">Support Available</p>
-              </div>
-              <div className={`p-3 rounded-lg ${colors.bg} border ${colors.border} backdrop-blur-sm`}>
-                <p className="text-2xl font-bold">2-4 Weeks</p>
-                <p className="text-xs text-gray-400">Avg. Setup Time</p>
-              </div>
-              <div className={`p-3 rounded-lg ${colors.bg} border ${colors.border} backdrop-blur-sm`}>
-                <p className="text-2xl font-bold">99.9%</p>
-                <p className="text-xs text-gray-400">Uptime SLA</p>
-              </div>
-            </motion.div>
           </div>
         </section>
 

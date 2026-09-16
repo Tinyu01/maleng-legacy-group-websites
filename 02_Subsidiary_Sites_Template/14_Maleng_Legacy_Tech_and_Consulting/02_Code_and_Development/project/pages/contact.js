@@ -98,7 +98,7 @@ export default function ContactPage() {
                                         </svg>
                                     </div>
                                     <h3 className="text-xl font-bold mb-2">Message Sent!</h3>
-                                    <p className="text-gray-400">We'll get back to you within 24 hours.</p>
+                                    <p className="text-gray-400">We&apos;ll get back to you within 24 hours.</p>
                                 </div>
                             ) : (
                                 <form onSubmit={handleSubmit} className="space-y-5">

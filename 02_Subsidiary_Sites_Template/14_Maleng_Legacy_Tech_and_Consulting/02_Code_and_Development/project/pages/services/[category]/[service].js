@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -16,10 +16,21 @@ import { FaArrowRight, FaCheckCircle, FaClock, FaMobileAlt, FaChartLine, FaHeads
 export default function IndividualService({ category, service }) {
   const [selectedTier, setSelectedTier] = useState('professional');
   const [isClient, setIsClient] = useState(false);
+  const deploymentOptions = useMemo(
+    () => (Array.isArray(service?.deploymentOptions) ? service.deploymentOptions : []),
+    [service?.deploymentOptions]
+  );
+  const [selectedDeployment, setSelectedDeployment] = useState(deploymentOptions[0] || '');
 
   useEffect(() => {
     setIsClient(true);
   }, []);
+
+  useEffect(() => {
+    if (deploymentOptions.length > 0 && !deploymentOptions.includes(selectedDeployment)) {
+      setSelectedDeployment(deploymentOptions[0]);
+    }
+  }, [deploymentOptions, selectedDeployment]);
 
   if (!service) {
     return (
@@ -41,6 +52,12 @@ export default function IndividualService({ category, service }) {
     id: key,
     ...value,
   }));
+
+  const deploymentDescriptions = {
+    Cloud: 'Hosted in managed cloud environments with elastic scaling, centralized monitoring, and remote operations support.',
+    'On-Premises': 'Runs inside your own facility with dedicated hardware, local controls, and site-level performance governance.',
+    Hybrid: 'Blends cloud services with on-site infrastructure for phased migration, resilience, and governance flexibility.',
+  };
 
   const popularTier = 'professional';
 
@@ -585,6 +602,46 @@ export default function IndividualService({ category, service }) {
               </motion.p>
             )}
 
+            {deploymentOptions.length > 0 && (
+              <motion.div
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.46 }}
+                className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-5 max-w-3xl"
+              >
+                <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
+                  <div>
+                    <p className="text-[11px] uppercase tracking-[0.2em] text-accent mb-1">Deployment Model</p>
+                    <p className="text-gray-400 text-sm">Choose the deployment approach that fits your environment.</p>
+                  </div>
+                </div>
+
+                <div className="mt-4 flex flex-wrap gap-3">
+                  {deploymentOptions.map((option) => (
+                    <button
+                      key={option}
+                      type="button"
+                      onClick={() => setSelectedDeployment(option)}
+                      className={`px-4 py-2 rounded-lg border text-sm font-semibold transition-all ${
+                        selectedDeployment === option
+                          ? 'border-highlight bg-highlight/15 text-white'
+                          : 'border-white/10 bg-transparent text-gray-300 hover:border-highlight/40 hover:text-white'
+                      }`}
+                    >
+                      {option}
+                    </button>
+                  ))}
+                </div>
+
+                {selectedDeployment && (
+                  <p className="mt-4 text-sm text-gray-300 leading-relaxed">
+                    <span className="text-highlight font-semibold">{selectedDeployment}:</span>{' '}
+                    {deploymentDescriptions[selectedDeployment] || 'Tailored to your operational needs and governance model.'}
+                  </p>
+                )}
+              </motion.div>
+            )}
+
             {/* Quick Stats */}
             <motion.div 
               initial={{ y: 20, opacity: 0 }}
@@ -668,7 +725,7 @@ export default function IndividualService({ category, service }) {
                 <span className="text-accent font-bold text-sm">📋 SERVICE OVERVIEW</span>
               </div>
               <h2 className="text-3xl md:text-4xl font-bold mb-3">
-                What's Included
+                What&apos;s Included
               </h2>
               <p className="text-gray-400 text-lg max-w-2xl mx-auto">
                 Everything you need to know about {service.name}
@@ -745,7 +802,7 @@ export default function IndividualService({ category, service }) {
               <h2 className="text-2xl md:text-3xl font-bold mb-3">
                 Detailed Features Breakdown
               </h2>
-              <p className="text-gray-400">Compare what's included in each tier</p>
+              <p className="text-gray-400">Compare what&apos;s included in each tier</p>
             </motion.div>
 
             <FeatureComparison

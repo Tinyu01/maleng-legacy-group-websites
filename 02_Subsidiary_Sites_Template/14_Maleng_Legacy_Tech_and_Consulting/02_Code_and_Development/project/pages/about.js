@@ -97,7 +97,7 @@ export default function AboutPage() {
                             >
                                 <h2 className="text-2xl font-bold mb-4">Our Vision</h2>
                                 <p className="text-gray-300 leading-relaxed">
-                                    To become Africa's most trusted technology partner for enterprise digital transformation,
+                                    To become Africa&apos;s most trusted technology partner for enterprise digital transformation,
                                     recognized for innovation, reliability, and client success.
                                 </p>
                             </motion.div>

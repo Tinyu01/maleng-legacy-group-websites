@@ -92,6 +92,20 @@ const categoryImages = {
     overlay: 'from-primary/80 via-primary/60 to-primary/80',
     pattern: 'circuits',
   },
+
+  // Portfolio Page
+  portfolio: {
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&q=80',
+    overlay: 'from-primary/85 via-primary/65 to-primary/80',
+    pattern: 'dots',
+  },
+
+  // Group / Subsidiaries Page
+  subsidiaries: {
+    image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1920&q=80',
+    overlay: 'from-primary/85 via-primary/65 to-primary/80',
+    pattern: 'dots',
+  },
 };
 
 export default function ImageBackground({ category = 'default', page = null, variant = 'hero' }) {

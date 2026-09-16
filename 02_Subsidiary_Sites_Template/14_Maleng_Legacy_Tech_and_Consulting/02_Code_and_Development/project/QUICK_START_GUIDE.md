@@ -114,10 +114,13 @@ Server will start at `http://localhost:3000`
 npm run build
 ```
 
-### Export Static Site (if needed)
+### Serve the Static Site Locally
 ```bash
-next export
+npm run build
+npm start
 ```
+
+The project uses Next.js static export, so `npm start` serves the generated `out` directory. Configure `/portal`, `/billing`, and `/client-area` redirects at the production hosting layer because Next.js redirects are not supported by static export.
 
 ### Check for Build Errors
 - Look for any TypeScript/ESLint warnings

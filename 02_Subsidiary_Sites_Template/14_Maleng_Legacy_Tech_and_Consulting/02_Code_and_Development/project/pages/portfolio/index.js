@@ -11,12 +11,12 @@ import { FaArrowRight } from 'react-icons/fa';
 export default function PortfolioHub() {
   const [activeCategory, setActiveCategory] = useState('all');
   const categories = portfolioData.categories || [];
-  const projects = portfolioData.projects || [];
 
   const filteredProjects = useMemo(() => {
+    const projects = portfolioData.projects || [];
     if (activeCategory === 'all') return projects;
     return projects.filter((p) => p.category === activeCategory);
-  }, [activeCategory, projects]);
+  }, [activeCategory]);
 
   return (
     <>
@@ -41,6 +41,36 @@ export default function PortfolioHub() {
           cta={{ text: 'Browse Projects', link: '#projects' }}
           ctaSecondary={{ text: 'Discuss a Project', link: '/contact' }}
         />
+
+        <section className="px-6 pt-10 pb-4">
+          <div className="mx-auto max-w-6xl">
+            <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-soft to-surface p-6 md:p-8">
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-accent mb-3">The 4-Cluster Model</p>
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">16+ subsidiaries across four strategic clusters</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mt-6">
+                {[
+                  { slug: 'infrastructure', title: 'Infrastructure & Built Environment', description: 'Construction, property, and energy businesses creating physical infrastructure and long-term value.', items: ['Construction & Infrastructure', 'Property Development', 'Energy Solutions'] },
+                  { slug: 'professional', title: 'Professional & Capital Services', description: 'Technology, advisory, media, training, and investment businesses supporting enterprise growth.', items: ['Tech & Consulting', 'Media & Signage', 'Corporate Services', 'Training Institute', 'Capital & Investments'] },
+                  { slug: 'protection', title: 'Protection & Operations', description: 'Security, logistics, facilities, and customer operations that keep organisations protected and moving.', items: ['Security Services', 'Logistics & Transport', 'Facility Management', 'Carwash & Grill'] },
+                  { slug: 'agri', title: 'Agri-Consumer & Lifestyle', description: 'Agriculture, food, events, and retail businesses strengthening local supply chains and experiences.', items: ['Agri', 'Catering & Supplies', 'Event Management', 'Retail & Distribution'] },
+                ].map((cluster) => (
+                  <div key={cluster.slug} className="rounded-xl border border-white/10 bg-white/5 p-4">
+                    <h3 className="text-sm font-bold text-white mb-3">{cluster.title}</h3>
+                    <p className="mb-4 text-xs leading-relaxed text-gray-400">{cluster.description}</p>
+                    <ul className="space-y-2 text-sm text-gray-300">
+                      {cluster.items.map((item) => (
+                        <li key={item}>• {item}</li>
+                      ))}
+                    </ul>
+                    <Link href={`/subsidiaries/${cluster.slug}`} className="mt-4 inline-flex items-center gap-2 text-xs font-semibold text-accent transition hover:text-highlight">
+                      Explore cluster <span>→</span>
+                    </Link>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* Filter */}
         <section className="pt-10 pb-6 px-6">

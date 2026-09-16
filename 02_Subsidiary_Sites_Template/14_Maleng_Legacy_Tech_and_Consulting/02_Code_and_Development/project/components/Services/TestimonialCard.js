@@ -27,7 +27,7 @@ export default function TestimonialCard({ testimonial, index }) {
 
         {/* Quote */}
         <p className="text-gray-300 text-sm mb-6 leading-relaxed italic">
-          "{testimonial.quote}"
+          &quot;{testimonial.quote}&quot;
         </p>
 
         {/* Author info */}

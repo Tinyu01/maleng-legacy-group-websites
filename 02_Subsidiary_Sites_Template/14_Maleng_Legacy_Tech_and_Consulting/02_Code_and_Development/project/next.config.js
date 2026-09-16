@@ -9,37 +9,17 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: '/portal',
-        destination: 'https://billing.malenglegacy.co.za/',
-        permanent: true,
+        source: '/pricing/design-creative',
+        destination: '/pricing',
+        permanent: false,
       },
       {
-        source: '/portal/:path*',
-        destination: 'https://billing.malenglegacy.co.za/:path*',
-        permanent: true,
-      },
-      {
-        source: '/billing',
-        destination: 'https://billing.malenglegacy.co.za/',
-        permanent: true,
-      },
-      {
-        source: '/billing/:path*',
-        destination: 'https://billing.malenglegacy.co.za/:path*',
-        permanent: true,
-      },
-      {
-        source: '/client-area',
-        destination: 'https://billing.malenglegacy.co.za/',
-        permanent: true,
-      },
-      {
-        source: '/client-area/:path*',
-        destination: 'https://billing.malenglegacy.co.za/:path*',
-        permanent: true,
+        source: '/services/hosting-infrastructure/cloud-it-infrastructure',
+        destination: '/services/hosting-infrastructure',
+        permanent: false,
       },
     ];
   },
-}
+};
 
 module.exports = nextConfig

@@ -283,7 +283,7 @@ export default function PricingHub() {
             >
               <h2 className="text-2xl md:text-3xl font-bold mb-4">Not Sure Which Tier Fits?</h2>
               <p className="text-gray-300 mb-6">
-                Tell us about your goals and we'll recommend the right service and pricing tier — free of charge.
+                Tell us about your goals and we&apos;ll recommend the right service and pricing tier — free of charge.
               </p>
               <Link
                 href="/contact"

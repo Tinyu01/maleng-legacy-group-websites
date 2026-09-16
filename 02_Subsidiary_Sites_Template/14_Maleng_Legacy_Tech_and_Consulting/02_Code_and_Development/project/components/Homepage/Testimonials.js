@@ -48,7 +48,7 @@ export default function Testimonials() {
             <span className="text-accent font-bold text-sm">CLIENT SUCCESS STORIES</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Hear from clients who've transformed their businesses with us
+            Hear from clients who&apos;ve transformed their businesses with us
           </h2>
         </motion.div>
 
@@ -147,7 +147,7 @@ function TestimonialCard({ testimonial }) {
         </div>
 
         <p className="text-lg text-gray-200 mb-6 flex-grow leading-relaxed">
-          "{testimonial.quote}"
+          &quot;{testimonial.quote}&quot;
         </p>
 
         <div className="border-t border-white/10 pt-4">

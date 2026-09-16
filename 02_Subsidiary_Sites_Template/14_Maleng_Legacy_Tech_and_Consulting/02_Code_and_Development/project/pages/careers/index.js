@@ -126,7 +126,7 @@ export default function CareersPage() {
                         We focus on finding the right people for the right roles
                       </h2>
                       <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-                        At Maleng Legacy Tech & Consulting, we're passionate about building a team of energetic and talented individuals who are excited about enterprise technology. We offer competitive compensation, continuous learning opportunities, and the chance to work on impactful projects serving 500+ enterprise clients across Africa.
+                        At Maleng Legacy Tech &amp; Consulting, we&apos;re passionate about building a team of energetic and talented individuals who are excited about enterprise technology. We offer competitive compensation, continuous learning opportunities, and the chance to work on impactful projects serving 500+ enterprise clients across Africa.
                       </p>
                     </motion.div>
                   </div>
@@ -163,7 +163,7 @@ export default function CareersPage() {
                     >
                       <h2 className="text-3xl md:text-4xl font-bold mb-6">Register Your CV Online</h2>
                       <p className="text-lg text-gray-300 mb-8">
-                        Don't see your perfect role right now? Register your CV with us and receive notifications as new opportunities are posted.
+                        Don&apos;t see your perfect role right now? Register your CV with us and receive notifications as new opportunities are posted.
                       </p>
                       
                       <form onSubmit={handleCVSubmit} className="flex flex-col sm:flex-row gap-3 mb-6">
@@ -184,7 +184,7 @@ export default function CareersPage() {
                       </form>
                       
                       {submitted && (
-                        <p className="text-green-400 font-semibold">✓ CV registered successfully! We'll be in touch.</p>
+                        <p className="text-green-400 font-semibold">✓ CV registered successfully! We&apos;ll be in touch.</p>
                       )}
                     </motion.div>
                   </div>
@@ -252,7 +252,7 @@ export default function CareersPage() {
                     >
                       <h2 className="text-3xl md:text-4xl font-bold mb-6">Get In Touch</h2>
                       <p className="text-gray-300 mb-8">
-                        Have questions about career opportunities? We'd love to hear from you.
+                        Have questions about career opportunities? We&apos;d love to hear from you.
                       </p>
                       <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <a
