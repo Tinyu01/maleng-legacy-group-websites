@@ -43,7 +43,7 @@ export default function AboutPage() {
   title="Building Digital"
   highlight="Legacies Since 2011"
   description="Maleng Legacy Tech & Consulting delivers enterprise-grade technology solutions."
-  breadcrumb={[{ label: 'About', href: '#' }]}
+          breadcrumb={[{ label: 'About', href: '/about' }]}
   bg="about"
 />
 

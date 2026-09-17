@@ -76,7 +76,7 @@ export default function SubsidiariesOverview() {
           title="Maleng Legacy"
           highlight="Group Network"
           description="A diversified portfolio of business units operating across infrastructure, professional services, protection, and agri-consumer sectors."
-          breadcrumb={[{ label: 'Our Group', href: '#' }]}
+          breadcrumb={[{ label: 'Our Group', href: '/subsidiaries' }]}
           bg="subsidiaries"
           cta={{ text: 'Explore Companies', link: '#clusters' }}
           ctaSecondary={{ text: 'Request a Consultation', link: '/contact' }}
@@ -102,7 +102,7 @@ export default function SubsidiariesOverview() {
                     {cluster.subsidiaries.map((sub) => (
                       <li key={sub.slug}>
                         <Link
-                          href={`/subsidiaries/${sub.slug}`}
+                          href={`/subsidiaries/${cluster.id}/${sub.slug}`}
                           className="group flex items-center justify-between rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm text-gray-200 transition hover:border-highlight/40 hover:bg-highlight/5"
                         >
                           <span>{sub.name}</span>

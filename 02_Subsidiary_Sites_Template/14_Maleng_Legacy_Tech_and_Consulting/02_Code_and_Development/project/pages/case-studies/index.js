@@ -36,7 +36,7 @@ export default function CaseStudiesPage() {
           title="Enterprise"
           highlight="Success Stories"
           description="See how we've helped enterprises transform their infrastructure, security, and digital capabilities."
-          breadcrumb={[{ label: 'Case Studies', href: '#' }]}
+          breadcrumb={[{ label: 'Case Studies', href: '/case-studies' }]}
           bg="default"
         />
 

@@ -5,13 +5,14 @@ import Link from 'next/link';
 import Navigation from '../../../components/Navigation';
 import Footer from '../../../components/Footer';
 import Breadcrumb from '../../../components/Breadcrumb';
+import PageHeader from '../../../components/PageHeader';
 import ServiceBackground from '../../../components/ServiceBackground';  
 import PricingCard from '../../../components/Services/PricingCard';
 import FeatureComparison from '../../../components/Services/FeatureComparison';
 import TestimonialCard from '../../../components/Services/TestimonialCard';
 import TrustIndicators from '../../../components/Services/TrustIndicators';
 import services from '../../../data/services.json';
-import { FaArrowRight, FaCheckCircle, FaClock, FaMobileAlt, FaChartLine, FaHeadset } from 'react-icons/fa';
+import { FaArrowRight, FaCheckCircle } from 'react-icons/fa';
 
 export default function IndividualService({ category, service }) {
   const [selectedTier, setSelectedTier] = useState('professional');
@@ -60,14 +61,6 @@ export default function IndividualService({ category, service }) {
   };
 
   const popularTier = 'professional';
-
-  // Stats for the compact header
-  const stats = [
-    { icon: FaClock, label: 'Setup Time', value: service.setupTime || '2-4 weeks' },
-    { icon: FaMobileAlt, label: 'Mobile Optimized', value: service.mobile ? 'Yes ✓' : 'N/A' },
-    { icon: FaChartLine, label: 'SEO Ready', value: service.seo ? 'Yes ✓' : 'N/A' },
-    { icon: FaHeadset, label: 'Support', value: '24/7 Available' },
-  ];
 
   const isLiveTelematics = service.slug === 'live-telematics-engines';
 
@@ -160,7 +153,6 @@ export default function IndividualService({ category, service }) {
             <div className="mx-auto max-w-6xl relative z-10">
               <Breadcrumb
                 items={[
-                  { label: 'Home', href: '/' },
                   { label: 'Services', href: '/services' },
                   { label: 'Security & Surveillance Services (Physical Operations & Telematics)', href: '/services/security-surveillance' },
                   { label: 'Live Telematics Engines', href: '#' },
@@ -511,103 +503,32 @@ export default function IndividualService({ category, service }) {
       <div className="min-h-screen bg-primary text-white">
         <Navigation isSubsidiary={true} subsidiaryName="Tech & Consulting" />
 
-        {/* Hero Section with Dynamic Background */}
-        <section className="relative pt-6 pb-12 md:pt-8 md:pb-16 px-6 overflow-hidden">
-          {/* Dynamic Background based on category */}
-          <ServiceBackground category={category} variant="hero" />
-          
-          <div className="mx-auto max-w-6xl relative z-10">
-            <Breadcrumb 
-              items={[
-                { label: 'Services', href: '/services' },
-                { label: category.name, href: `/services/${category.slug}` },
-                { label: service.name, href: '#' }
-              ]} 
-            />
+        <PageHeader
+          badge={service.serviceNature ? `SERVICE NATURE: ${service.serviceNature.toUpperCase()}` : category.name.toUpperCase()}
+          icon={service.icon}
+          title={service.name}
+          description={service.description}
+          breadcrumb={[{ label: 'Services', href: '/services' }, { label: category.name, href: `/services/${category.slug}` }, { label: service.name, href: '#' }]}
+          bg={category.slug}
+          isService={true}
+          cta={{ text: 'Book Discovery Call', link: '/contact' }}
+          ctaSecondary={{ text: 'Chat with Expert', link: '/contact' }}
+        />
 
-            {/* Service Header */}
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mt-6">
-              <div className="flex items-center gap-5">
-                <motion.div 
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ duration: 0.5 }}
-                  className="w-20 h-20 rounded-2xl bg-gradient-to-br from-highlight/20 to-accent/20 border border-highlight/30 flex items-center justify-center"
-                >
-                  <span className="text-5xl">{service.icon}</span>
-                </motion.div>
-                <div>
-                  <motion.h1 
-                    initial={{ x: -20, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 0.1 }}
-                    className="text-2xl md:text-3xl lg:text-4xl font-bold"
-                  >
-                    {service.name}
-                  </motion.h1>
-                  <motion.p 
-                    initial={{ x: -20, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                    className="text-highlight text-sm md:text-base"
-                  >
-                    {category.name}
-                  </motion.p>
-                  {service.serviceNature && (
-                    <p className="text-xs uppercase tracking-[0.2em] text-gray-400 mt-2">
-                      {service.serviceNature}
-                    </p>
-                  )}
-                </div>
-              </div>
-              
-              <motion.div
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                className="flex gap-3"
-              >
-                <Link
-                  href="/contact"
-                  className="px-5 py-2.5 bg-gradient-to-r from-highlight to-accent text-white font-semibold rounded-lg hover:shadow-lg transition-all text-sm"
-                >
-                  Book Discovery Call
-                </Link>
-                <Link
-                  href="/contact"
-                  className="px-5 py-2.5 border border-highlight text-highlight font-semibold rounded-lg hover:bg-highlight/10 transition-all text-sm"
-                >
-                  Chat with Expert
-                </Link>
-              </motion.div>
-            </div>
+        {(service.slug === 'managed-web-hosting-platforms' || category.slug === 'hosting-infrastructure') && (
+          <p className="mx-auto max-w-6xl px-6 pt-4 text-sm text-gray-400">
+            This offer covers setup, migration, and managed operations services. Hosting plan subscriptions are delivered through Legacy Hosting Platform.
+          </p>
+        )}
 
-            {/* Service Description */}
-            <motion.p 
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="text-gray-300 text-base max-w-3xl mt-6 leading-relaxed"
-            >
-              {service.description}
-            </motion.p>
-            {(service.slug === 'managed-web-hosting-platforms' || category.slug === 'hosting-infrastructure') && (
-              <motion.p
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.45 }}
-                className="text-gray-400 text-sm max-w-3xl mt-3"
-              >
-                This offer covers setup, migration, and managed operations services. Hosting plan subscriptions are delivered through Legacy Hosting Platform.
-              </motion.p>
-            )}
-
-            {deploymentOptions.length > 0 && (
+        {deploymentOptions.length > 0 && (
+          <section className="px-6 pt-6">
+            <div className="mx-auto max-w-6xl">
               <motion.div
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.46 }}
-                className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-5 max-w-3xl"
+                className="rounded-2xl border border-white/10 bg-white/5 p-5"
               >
                 <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
                   <div>
@@ -640,25 +561,9 @@ export default function IndividualService({ category, service }) {
                   </p>
                 )}
               </motion.div>
-            )}
-
-            {/* Quick Stats */}
-            <motion.div 
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8"
-            >
-              {stats.map((stat, idx) => (
-                <div key={idx} className="p-3 rounded-lg bg-white/5 border border-white/10 backdrop-blur-sm">
-                  <stat.icon className="w-4 h-4 text-highlight mb-1" />
-                  <p className="text-lg font-bold text-highlight">{stat.value}</p>
-                  <p className="text-xs text-gray-400">{stat.label}</p>
-                </div>
-              ))}
-            </motion.div>
-          </div>
-        </section>
+            </div>
+          </section>
+        )}
 
         {/* PRICING & PACKAGES - Moved to top (UX priority) */}
         <section className="py-12 md:py-16 px-6 bg-soft">

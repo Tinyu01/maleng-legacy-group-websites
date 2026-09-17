@@ -64,12 +64,12 @@ const clusterCatalog = Object.fromEntries(
   clusters.map((cluster) => [cluster.id, { ...cluster, kind: 'cluster', clusterName: cluster.name }])
 );
 
+export const groupClusters = clusters;
+export const subsidiaryCatalog = catalog;
+
 export async function getStaticPaths() {
   return {
-    paths: [
-      ...clusters.map((cluster) => ({ params: { slug: cluster.id } })),
-      ...allSubsidiaries.map((sub) => ({ params: { slug: sub.slug } })),
-    ],
+    paths: clusters.map((cluster) => ({ params: { slug: cluster.id } })),
     fallback: false,
   };
 }
@@ -127,7 +127,7 @@ export default function SubsidiaryPage({ entry }) {
                     <p className="mt-3 text-sm leading-relaxed text-gray-300">{sub.focus}</p>
                     <p className="mt-4 text-xs uppercase tracking-[0.16em] text-gray-500">Serving {sub.clients}</p>
                     <div className="mt-6 flex flex-wrap gap-3">
-                      <Link href={`/subsidiaries/${sub.slug}`} className="inline-flex items-center rounded-lg bg-gradient-to-r from-highlight to-accent px-4 py-2 text-sm font-semibold text-white transition hover:shadow-lg">
+                      <Link href={`/subsidiaries/${entry.id}/${sub.slug}`} className="inline-flex items-center rounded-lg bg-gradient-to-r from-highlight to-accent px-4 py-2 text-sm font-semibold text-white transition hover:shadow-lg">
                         Company profile
                       </Link>
                       <a href={sub.website} target="_blank" rel="noreferrer" className="inline-flex items-center rounded-lg border border-white/15 px-4 py-2 text-sm font-semibold text-white transition hover:border-highlight/40 hover:bg-white/5">
@@ -165,6 +165,7 @@ export default function SubsidiaryPage({ entry }) {
           description={entry.focus}
           breadcrumb={[
             { label: 'Our Group', href: '/subsidiaries' },
+            { label: entry.clusterName, href: `/subsidiaries/${entry.clusterId}` },
             { label: entry.name, href: '#' },
           ]}
           bg="about"
@@ -222,8 +223,8 @@ export default function SubsidiaryPage({ entry }) {
                 >
                   Visit Website
                 </a>
-                <Link href="/subsidiaries" className="inline-flex items-center justify-center rounded-lg border border-white/15 px-5 py-3 font-semibold text-white transition hover:border-highlight/40 hover:bg-white/5">
-                  Back to Group
+                <Link href={`/subsidiaries/${entry.clusterId}`} className="inline-flex items-center justify-center rounded-lg border border-white/15 px-5 py-3 font-semibold text-white transition hover:border-highlight/40 hover:bg-white/5">
+                  Back to Cluster
                 </Link>
               </div>
             </aside>
@@ -239,7 +240,7 @@ export default function SubsidiaryPage({ entry }) {
                 {cluster.subsidiaries.map((sub) => (
                   <Link
                     key={sub.slug}
-                    href={`/subsidiaries/${sub.slug}`}
+                    href={`/subsidiaries/${entry.clusterId}/${sub.slug}`}
                     className={`rounded-xl border p-4 transition ${sub.slug === entry.slug ? 'border-highlight/60 bg-highlight/5' : 'border-white/10 bg-white/5 hover:border-highlight/40 hover:bg-highlight/5'}`}
                   >
                     <p className="text-sm font-semibold text-white">{sub.name}</p>

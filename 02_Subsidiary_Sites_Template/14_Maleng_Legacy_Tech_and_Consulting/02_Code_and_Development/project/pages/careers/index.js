@@ -109,7 +109,7 @@ export default function CareersPage() {
                     title="Start Your Career in"
                     highlight="Enterprise Tech"
                     description="500+ enterprise clients trust us. Join our growing team of developers, architects, and consultants in Johannesburg."
-                    breadcrumb={[{ label: 'Careers', href: '#' }]}
+                    breadcrumb={[{ label: 'Careers', href: '/careers' }]}
                     bg="careers"
                     cta={{ text: 'View Open Positions', link: '#openings' }}
                 />

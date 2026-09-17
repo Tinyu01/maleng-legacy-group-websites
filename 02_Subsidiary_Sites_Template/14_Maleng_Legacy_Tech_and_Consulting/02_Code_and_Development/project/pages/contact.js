@@ -49,7 +49,7 @@ export default function ContactPage() {
                     title="Let's Talk About"
                     highlight="Your Project"
                     description="Ready to transform your business? Our experts are here to help. Free consultation available."
-                    breadcrumb={[{ label: 'Contact', href: '#' }]}
+                    breadcrumb={[{ label: 'Contact', href: '/contact' }]}
                     bg="contact"
                 />
 

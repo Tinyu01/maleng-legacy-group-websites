@@ -23,7 +23,7 @@ export default function SecurityPage() {
                     title="Enterprise-Grade"
                     highlight="Security"
                     description="Your data is protected by industry-leading security practices, certifications, and 24/7 monitoring."
-                    breadcrumb={[{ label: 'Security', href: '#' }]}
+                    breadcrumb={[{ label: 'Security', href: '/security' }]}
                     bg="security"
                 />
 

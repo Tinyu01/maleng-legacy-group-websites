@@ -115,7 +115,7 @@ export default function BlogPage() {
           title="Tech Insights for"
           highlight="Enterprise Leaders"
           description="Expert insights on cybersecurity, digital transformation, cloud computing, and enterprise technology trends."
-          breadcrumb={[{ label: 'Blog', href: '#' }]}
+          breadcrumb={[{ label: 'Insights', href: '/blog' }]}
           bg="blog"
         />
 

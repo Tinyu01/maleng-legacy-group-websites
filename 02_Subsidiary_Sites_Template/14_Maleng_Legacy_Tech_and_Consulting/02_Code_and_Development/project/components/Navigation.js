@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { motion, AnimatePresence } from 'framer-motion';
 import services from '../data/services.json';
 import portfolioData from '../data/portfolio.json';
+import { getPortfolioCategorySlug } from '../data/portfolioServiceCategories';
 
 // ---------------------------------------------------------------------------
 // GROUP STRUCTURE DATA
@@ -14,9 +15,9 @@ const clusters = [
     name: 'Infrastructure & Built Environment',
     icon: '🏗️',
     subsidiaries: [
-      { name: 'Construction & Infrastructure', url: '/subsidiaries/construction', focus: 'Building projects, civil works, renovations, NHBRC compliance', clients: 'Government, commercial, residential', price: 'R2-8M' },
-      { name: 'Property Development', url: '/subsidiaries/property', focus: 'Land acquisition, development, property management', clients: 'Investors, corporates, government', price: 'R1-5M' },
-      { name: 'Energy Solutions', url: '/subsidiaries/energy', focus: 'Solar, renewable energy consulting, energy audits', clients: 'Industrial, commercial, residential', price: 'R500K-2M' },
+      { name: 'Construction & Infrastructure', url: '/subsidiaries/infrastructure/construction', focus: 'Building projects, civil works, renovations, NHBRC compliance', clients: 'Government, commercial, residential', price: 'R2-8M' },
+      { name: 'Property Development', url: '/subsidiaries/infrastructure/property', focus: 'Land acquisition, development, property management', clients: 'Investors, corporates, government', price: 'R1-5M' },
+      { name: 'Energy Solutions', url: '/subsidiaries/infrastructure/energy', focus: 'Solar, renewable energy consulting, energy audits', clients: 'Industrial, commercial, residential', price: 'R500K-2M' },
     ],
   },
   {
@@ -24,11 +25,11 @@ const clusters = [
     name: 'Professional & Capital Services',
     icon: '💼',
     subsidiaries: [
-      { name: 'Tech & Consulting', url: '/subsidiaries/tech', focus: 'IT consulting, software dev, digital transformation, cybersecurity', clients: 'SMEs, corporates, government', price: 'R2-5M' },
-      { name: 'Media & Signage', url: '/subsidiaries/media', focus: 'Branding, design, printing, signage, digital media', clients: 'All clusters + external clients', price: 'R1-3M' },
-      { name: 'Corporate Services', url: '/subsidiaries/corporate', focus: 'CIPC registration, compliance, secretarial, shelf companies', clients: 'Entrepreneurs, startups, investors', price: 'R500K-1.5M' },
-      { name: 'Training Institute', url: '/subsidiaries/training', focus: 'SETA-accredited skills training (security, hospitality, construction)', clients: 'Internal + external trainees', price: 'R300K-1M' },
-      { name: 'Capital & Investments', url: '/subsidiaries/capital', focus: 'Investment arm, acquisitions, equity stakes in startups', clients: 'Portfolio companies, strategic partners', price: 'R1-10M' },
+      { name: 'Tech & Consulting', url: '/subsidiaries/professional/tech', focus: 'IT consulting, software dev, digital transformation, cybersecurity', clients: 'SMEs, corporates, government', price: 'R2-5M' },
+      { name: 'Media & Signage', url: '/subsidiaries/professional/media', focus: 'Branding, design, printing, signage, digital media', clients: 'All clusters + external clients', price: 'R1-3M' },
+      { name: 'Corporate Services', url: '/subsidiaries/professional/corporate', focus: 'CIPC registration, compliance, secretarial, shelf companies', clients: 'Entrepreneurs, startups, investors', price: 'R500K-1.5M' },
+      { name: 'Training Institute', url: '/subsidiaries/professional/training', focus: 'SETA-accredited skills training (security, hospitality, construction)', clients: 'Internal + external trainees', price: 'R300K-1M' },
+      { name: 'Capital & Investments', url: '/subsidiaries/professional/capital', focus: 'Investment arm, acquisitions, equity stakes in startups', clients: 'Portfolio companies, strategic partners', price: 'R1-10M' },
     ],
   },
   {
@@ -36,10 +37,10 @@ const clusters = [
     name: 'Protection & Operations',
     icon: '🛡️',
     subsidiaries: [
-      { name: 'Security Services', url: '/subsidiaries/security', focus: 'Site security, armed response, access control, surveillance', clients: 'Corporates, estates, construction sites', price: 'R2-6M' },
-      { name: 'Logistics & Transport', url: '/subsidiaries/logistics', focus: 'Fleet management, goods transport, warehousing', clients: 'SMEs, construction, retail, internal', price: 'R1.5-4M' },
-      { name: 'Facility Management', url: '/subsidiaries/facility', focus: 'Commercial cleaning, hygiene, maintenance', clients: 'Corporates, government, schools, hospitals', price: 'R1-3M' },
-      { name: 'Carwash & Grill', url: '/subsidiaries/carwash', focus: 'Premium carwash, grill/food, fleet contracts', clients: 'Private, commercial fleets', price: 'R500K-1.5M' },
+      { name: 'Security Services', url: '/subsidiaries/protection/security', focus: 'Site security, armed response, access control, surveillance', clients: 'Corporates, estates, construction sites', price: 'R2-6M' },
+      { name: 'Logistics & Transport', url: '/subsidiaries/protection/logistics', focus: 'Fleet management, goods transport, warehousing', clients: 'SMEs, construction, retail, internal', price: 'R1.5-4M' },
+      { name: 'Facility Management', url: '/subsidiaries/protection/facility', focus: 'Commercial cleaning, hygiene, maintenance', clients: 'Corporates, government, schools, hospitals', price: 'R1-3M' },
+      { name: 'Carwash & Grill', url: '/subsidiaries/protection/carwash', focus: 'Premium carwash, grill/food, fleet contracts', clients: 'Private, commercial fleets', price: 'R500K-1.5M' },
     ],
   },
   {
@@ -47,10 +48,10 @@ const clusters = [
     name: 'Agri-Consumer & Lifestyle',
     icon: '🌾',
     subsidiaries: [
-      { name: 'Agri (Mopani Farms + Poultry)', url: '/subsidiaries/agri', focus: 'Mopani worm farming, poultry production, agri-tourism', clients: 'Catering (internal), retail, export', price: 'R1-4M' },
-      { name: 'Catering & Supplies (Mopani Protein™)', url: '/subsidiaries/catering', focus: 'Catering services, Signature Mopani Protein brand, equipment rental', clients: 'Events, corporates, private, retail', price: 'R2-6M' },
-      { name: 'Event Management', url: '/subsidiaries/events', focus: 'Corporate events, conferences, weddings, coordination', clients: 'Corporates, private clients', price: 'R800K-2M' },
-      { name: 'Retail & Distribution', url: '/subsidiaries/retail', focus: 'FMCG distribution, retail partnerships, brand licensing', clients: 'Retailers, wholesalers, consumers', price: 'R500K-3M' },
+      { name: 'Agri (Mopani Farms + Poultry)', url: '/subsidiaries/agri/agri', focus: 'Mopani worm farming, poultry production, agri-tourism', clients: 'Catering (internal), retail, export', price: 'R1-4M' },
+      { name: 'Catering & Supplies (Mopani Protein™)', url: '/subsidiaries/agri/catering', focus: 'Catering services, Signature Mopani Protein brand, equipment rental', clients: 'Events, corporates, private, retail', price: 'R2-6M' },
+      { name: 'Event Management', url: '/subsidiaries/agri/events', focus: 'Corporate events, conferences, weddings, coordination', clients: 'Corporates, private clients', price: 'R800K-2M' },
+      { name: 'Retail & Distribution', url: '/subsidiaries/agri/retail', focus: 'FMCG distribution, retail partnerships, brand licensing', clients: 'Retailers, wholesalers, consumers', price: 'R500K-3M' },
     ],
   },
 ];
@@ -311,7 +312,7 @@ const Header = ({ isSubsidiary = false, subsidiaryName = '', subsidiaryUrl = '' 
                   <div className="space-y-3">
                     {orderedServiceCategories.map((category) => (
                       <div key={category.id}>
-                        <Link href={`/services/${category.slug}`} className="block text-sm font-semibold text-white hover:text-accent py-1 px-3 rounded" onClick={() => setMobileMenuOpen(false)}>
+                        <Link href={`/portfolio/${category.slug}`} className="block text-sm font-semibold text-white hover:text-accent py-1 px-3 rounded" onClick={() => setMobileMenuOpen(false)}>
                           {category.name}
                         </Link>
                         <div className="pl-3 space-y-1">
@@ -370,14 +371,16 @@ const Header = ({ isSubsidiary = false, subsidiaryName = '', subsidiaryUrl = '' 
                     {orderedServiceCategories.map((category) => {
                       return (
                         <div key={category.id}>
-                          <Link href={`/services/${category.slug}`} className="block text-sm font-semibold text-white hover:text-accent py-1 px-3 rounded" onClick={() => setMobileMenuOpen(false)}>
+                          <Link href={`/portfolio/${category.slug}`} className="block text-sm font-semibold text-white hover:text-accent py-1 px-3 rounded" onClick={() => setMobileMenuOpen(false)}>
                             {category.name}
                           </Link>
                           <div className="pl-3 space-y-1">
                             {category.services?.map((service) => (
                               <Link
                                 key={service.slug}
-                                href={getPortfolioProjects(service.slug)[0] ? `/portfolio/${getPortfolioProjects(service.slug)[0].slug}` : `/services/${category.slug}/${service.slug}`}
+                                href={getPortfolioProjects(service.slug)[0]
+                                  ? `/portfolio/${getPortfolioCategorySlug(getPortfolioProjects(service.slug)[0])}/${getPortfolioProjects(service.slug)[0].slug}`
+                                  : `/portfolio/${category.slug}`}
                                 className="block text-xs text-gray-400 hover:text-accent py-1 px-3 rounded"
                                 onClick={() => setMobileMenuOpen(false)}
                               >
@@ -406,14 +409,13 @@ const Header = ({ isSubsidiary = false, subsidiaryName = '', subsidiaryUrl = '' 
                   <div className="space-y-3">
                     {clusters.map((cluster) => (
                       <div key={cluster.id}>
-                        <p className="text-sm font-semibold text-white py-1 px-3 flex items-center gap-2">
-                          <span>{cluster.icon}</span>{cluster.name}
-                        </p>
+                          <Link href={`/subsidiaries/${cluster.id}`} className="block text-sm font-semibold text-white hover:text-accent py-1 px-3 rounded" onClick={() => setMobileMenuOpen(false)}>
+                            <span className="mr-2">{cluster.icon}</span>{cluster.name}
+                          </Link>
                         <div className="pl-3 space-y-1">
                           {cluster.subsidiaries.map((sub) => (
-                            <Link key={sub.name} href={sub.url} className="flex items-center justify-between text-xs text-gray-400 hover:text-accent py-1 px-3 rounded" onClick={() => setMobileMenuOpen(false)}>
-                              <span>{sub.name}</span>
-                              <span className="text-[10px] text-accent/80">{sub.price}</span>
+                            <Link key={sub.name} href={sub.url} className="block text-xs text-gray-400 hover:text-accent py-1 px-3 rounded" onClick={() => setMobileMenuOpen(false)}>
+                              {sub.name}
                             </Link>
                           ))}
                         </div>
@@ -563,7 +565,7 @@ const Header = ({ isSubsidiary = false, subsidiaryName = '', subsidiaryUrl = '' 
                   style={{ gridTemplateColumns: `repeat(${Math.max(categoryCount, 1)}, minmax(0, 1fr))` }}
                 >
                   {orderedServiceCategories.map((category) => {
-                    const categoryHref = `/services/${category.slug}`;
+                    const categoryHref = `/portfolio/${category.slug}`;
                     const categoryActive = isActivePath(categoryHref);
 
                     return (
@@ -579,30 +581,18 @@ const Header = ({ isSubsidiary = false, subsidiaryName = '', subsidiaryUrl = '' 
 
                         <div className="space-y-2">
                           {category.services?.map((service) => {
-                            const relatedProjects = getPortfolioProjects(service.slug);
-                            const serviceHref = `/services/${category.slug}/${service.slug}`;
+                            const relatedProject = getPortfolioProjects(service.slug)[0];
+                            const showcaseHref = relatedProject
+                              ? `/portfolio/${getPortfolioCategorySlug(relatedProject)}/${relatedProject.slug}`
+                              : `/portfolio/${category.slug}`;
                             return (
-                              <div key={service.slug} className="px-2 -mx-2">
-                                <Link
-                                  href={serviceHref}
-                                  className={`block text-xs font-medium leading-snug transition ${isExactPath(serviceHref) ? 'text-highlight' : 'text-gray-300 hover:text-accent'}`}
-                                >
-                                  {service.name}
-                                </Link>
-                                {relatedProjects.length > 0 && (
-                                  <div className="mt-1 space-y-1 border-l border-white/10 pl-2">
-                                    {relatedProjects.map((project) => (
-                                      <Link
-                                        key={project.id}
-                                        href={`/portfolio/${project.slug}`}
-                                        className={`block text-[11px] leading-snug transition ${isExactPath(`/portfolio/${project.slug}`) ? 'text-highlight' : 'text-gray-500 hover:text-accent'}`}
-                                      >
-                                        {project.title}
-                                      </Link>
-                                    ))}
-                                  </div>
-                                )}
-                              </div>
+                              <Link
+                                key={service.slug}
+                                href={showcaseHref}
+                                className={`block text-xs px-2 -mx-2 py-0.5 rounded transition ${isExactPath(showcaseHref) ? 'bg-highlight/10 text-highlight font-medium' : 'text-gray-400 hover:text-accent'}`}
+                              >
+                                {service.name}
+                              </Link>
                             );
                           })}
                         </div>
@@ -644,17 +634,15 @@ const Header = ({ isSubsidiary = false, subsidiaryName = '', subsidiaryUrl = '' 
                 <div className="grid grid-cols-4 gap-8">
                   {clusters.map((cluster) => (
                     <div key={cluster.id}>
-                      <p className="flex items-center gap-2 text-sm font-semibold text-white mb-3 pb-2 border-b border-white/10">
+                      <Link href={`/subsidiaries/${cluster.id}`} className="flex items-center gap-2 text-sm font-semibold text-white mb-3 pb-2 border-b border-white/10 hover:text-accent">
                         <span>{cluster.icon}</span>{cluster.name}
-                      </p>
+                      </Link>
                       <div className="space-y-3">
                         {cluster.subsidiaries.map((sub) => {
                           const subActive = isActivePath(sub.url);
                           return (
                             <Link key={sub.name} href={sub.url} className={`block group rounded px-2 -mx-2 py-1 transition ${subActive ? 'bg-highlight/10' : ''}`}>
                               <p className={`text-xs font-semibold transition ${subActive ? 'text-highlight' : 'text-gray-300 group-hover:text-accent'}`}>{sub.name}</p>
-                              <p className="text-[11px] text-gray-500 mt-0.5 leading-snug">{sub.focus}</p>
-                              <span className="inline-block mt-1 text-[10px] text-accent bg-accent/10 rounded px-1.5 py-0.5">{sub.price}</span>
                             </Link>
                           );
                         })}
@@ -663,7 +651,7 @@ const Header = ({ isSubsidiary = false, subsidiaryName = '', subsidiaryUrl = '' 
                   ))}
                 </div>
                 <div className="mt-8 pt-4 border-t border-white/10 flex justify-between items-center">
-                  <Link href="/about#group-structure" className="text-xs text-accent hover:text-accent/80 flex items-center gap-2 font-medium">
+                  <Link href="/subsidiaries" className="text-xs text-accent hover:text-accent/80 flex items-center gap-2 font-medium">
                     Explore The Full Group Structure <span>→</span>
                   </Link>
                   <Link href="/portfolio" className="text-xs text-accent hover:text-accent/80 flex items-center gap-2 font-medium">

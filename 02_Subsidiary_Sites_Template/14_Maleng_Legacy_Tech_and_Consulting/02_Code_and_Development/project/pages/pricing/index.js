@@ -74,7 +74,7 @@ export default function PricingHub() {
           title="Pricing Built Around"
           highlight="Your Ambition"
           description="Choose how we deliver engineering and managed services, then browse pricing by service nature and category. Hosting product subscriptions are available through Legacy Hosting Platform."
-          breadcrumb={[{ label: 'Pricing', href: '#' }]}
+          breadcrumb={[{ label: 'Pricing', href: '/pricing' }]}
           bg="pricing"
           cta={{ text: 'Browse by Category', link: '#categories' }}
           ctaSecondary={{ text: 'Talk to Sales', link: '/contact' }}

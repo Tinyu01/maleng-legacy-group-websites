@@ -4,12 +4,10 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Navigation from '../../../components/Navigation';
 import Footer from '../../../components/Footer';
-import Breadcrumb from '../../../components/Breadcrumb';
-import ServiceBackground from '../../../components/ServiceBackground';
+import PageHeader from '../../../components/PageHeader';
 import ServiceGrid from '../../../components/Services/ServiceGrid';
 import TrustIndicators from '../../../components/Services/TrustIndicators';
 import services from '../../../data/services.json';
-import { FaArrowRight } from 'react-icons/fa';
 
 export default function ServiceCategory({ category }) {
   if (!category) {
@@ -28,17 +26,6 @@ export default function ServiceCategory({ category }) {
     );
   }
 
-  // Get color for the category
-  const categoryColors = {
-    'software-solutions': { border: 'border-blue-500/30', text: 'text-blue-400', bg: 'bg-blue-500/10' },
-    'hosting-infrastructure': { border: 'border-cyan-500/30', text: 'text-cyan-400', bg: 'bg-cyan-500/10' },
-    'consulting': { border: 'border-amber-500/30', text: 'text-amber-400', bg: 'bg-amber-500/10' },
-    'connectivity': { border: 'border-red-500/30', text: 'text-red-400', bg: 'bg-red-500/10' },
-    'security-surveillance': { border: 'border-purple-500/30', text: 'text-purple-400', bg: 'bg-purple-500/10' },
-    'design-creative': { border: 'border-pink-500/30', text: 'text-pink-400', bg: 'bg-pink-500/10' },
-  };
-  const colors = categoryColors[category.id] || categoryColors['software-solutions'];
-
   return (
     <>
       <Head>
@@ -49,98 +36,17 @@ export default function ServiceCategory({ category }) {
       <div className="min-h-screen bg-primary text-white">
         <Navigation isSubsidiary={true} subsidiaryName="Tech & Consulting" />
 
-        {/* Hero Section with Dynamic Background */}
-        <section className="relative pt-6 pb-12 md:pt-8 md:pb-16 px-6 overflow-hidden">
-          {/* Dynamic Background */}
-          <ServiceBackground category={category} variant="hero" />
-          
-          <div className="mx-auto max-w-6xl relative z-10">
-            <Breadcrumb 
-              items={[
-                { label: 'Services', href: '/services' },
-                { label: category.name, href: '#' }
-              ]} 
-            />
-            
-            {/* Category Header with Cultural Elements */}
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mt-6">
-              <div className="flex items-center gap-5">
-                <motion.div 
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ duration: 0.5 }}
-                  className={`w-20 h-20 rounded-2xl ${colors.bg} border ${colors.border} flex items-center justify-center`}
-                >
-                  <span className="text-5xl">{category.icon}</span>
-                </motion.div>
-                <div>
-                  <motion.h1 
-                    initial={{ x: -20, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 0.1 }}
-                    className="text-3xl md:text-4xl lg:text-5xl font-bold"
-                  >
-                    {category.name}
-                  </motion.h1>
-                  <motion.p 
-                    initial={{ x: -20, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                    className={`${colors.text} text-base md:text-lg mt-2`}
-                  >
-                    {category.tagline}
-                  </motion.p>
-                  {category.serviceNature && (
-                    <p className="text-xs uppercase tracking-[0.2em] text-gray-400 mt-2">
-                      Service Nature: {category.serviceNature}
-                    </p>
-                  )}
-                </div>
-              </div>
-              
-            </div>
-
-            {/* Category Description */}
-            <motion.p 
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="text-gray-300 text-base md:text-lg max-w-3xl mt-6 leading-relaxed"
-            >
-              {category.description}
-            </motion.p>
-
-            <motion.div
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.45 }}
-              className="mt-6 flex flex-wrap gap-3"
-            >
-              <Link
-                href="/contact"
-                className="px-6 py-2.5 bg-gradient-to-r from-highlight to-accent text-white font-semibold rounded-lg hover:shadow-lg transition-all text-sm"
-              >
-                Get Started
-              </Link>
-              <Link
-                href="/contact"
-                className="px-6 py-2.5 border border-white/20 text-white font-semibold rounded-lg hover:bg-white/10 transition-all text-sm"
-              >
-                Request Quote
-              </Link>
-            </motion.div>
-            {category.slug === 'hosting-infrastructure' && (
-              <motion.p
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.5 }}
-                className="text-gray-400 text-sm max-w-3xl mt-4"
-              >
-                This category covers hosting setup, migration, and operations services only. Hosting product plans are delivered via Legacy Hosting Platform.
-              </motion.p>
-            )}
-          </div>
-        </section>
+        <PageHeader
+          badge={category.serviceNature ? `SERVICE NATURE: ${category.serviceNature.toUpperCase()}` : 'OUR SERVICES'}
+          icon={category.icon}
+          title={category.name}
+          description={`${category.tagline} ${category.description}`}
+          breadcrumb={[{ label: 'Services', href: '/services' }, { label: category.name, href: '#' }]}
+          bg={category.slug}
+          isService={true}
+          cta={{ text: 'Get Started', link: '/contact' }}
+          ctaSecondary={{ text: 'Request Quote', link: '/contact' }}
+        />
 
         {/* Available Services Grid */}
         <section className="py-16 md:py-20 px-6 bg-gradient-to-b from-transparent to-soft/20">
@@ -152,8 +58,8 @@ export default function ServiceCategory({ category }) {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <div className={`inline-block px-4 py-1.5 ${colors.bg} border ${colors.border} rounded-full mb-4`}>
-                <span className={`${colors.text} font-bold text-sm`}>🎯 OUR SERVICES</span>
+              <div className="inline-block px-4 py-1.5 bg-accent/10 border border-accent/30 rounded-full mb-4">
+                <span className="text-accent font-bold text-sm">OUR SERVICES</span>
               </div>
               <h2 className="text-3xl md:text-4xl font-bold mb-3">
                 Explore Our {category.name}

@@ -8,6 +8,7 @@ import { FaArrowRight } from 'react-icons/fa';
 
 export default function PageHeader({ 
   title, highlight, description, badge,
+  icon,
   breadcrumb = [], cta, ctaSecondary,
   bg = 'default', isService = false 
 }) {
@@ -72,6 +73,12 @@ export default function PageHeader({
           transition={{ duration: 0.6 }}
           className="text-center"
         >
+          {icon && (
+            <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl border border-highlight/30 bg-gradient-to-br from-highlight/20 to-accent/20 text-4xl">
+              {icon}
+            </div>
+          )}
+
           {badge && (
             <div className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full mb-6">
               <span className="text-accent font-bold text-sm tracking-wider">{badge}</span>

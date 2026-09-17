@@ -70,7 +70,7 @@ export default function ServicesHub() {
           title="Enterprise Tech"
           highlight="Engineering & Managed Services"
           description="We deliver engineering, managed operations, and networking outcomes through specialized service lines. Hosting plans and product subscriptions are provided via Legacy Hosting Platform."
-          breadcrumb={[{ label: 'Services', href: '#' }]}
+          breadcrumb={[{ label: 'Services', href: '/services' }]}
           bg="default"
           cta={{ text: 'Explore Primary Pillars', link: '#pillars' }}
           ctaSecondary={{ text: 'Request Demo', link: '/contact' }}

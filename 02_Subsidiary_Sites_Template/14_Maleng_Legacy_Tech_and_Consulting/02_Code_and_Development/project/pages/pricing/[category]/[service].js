@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Navigation from '../../../components/Navigation';
 import Footer from '../../../components/Footer';
-import Breadcrumb from '../../../components/Breadcrumb';
+import PageHeader from '../../../components/PageHeader';
 import services from '../../../data/services.json';
 import { FaCheck, FaArrowRight, FaRocket } from 'react-icons/fa';
 
@@ -65,67 +65,22 @@ export default function PricingServicePage({ category, service }) {
       <div className="min-h-screen bg-primary text-white">
         <Navigation isSubsidiary={true} subsidiaryName="Tech & Consulting" />
 
-        {/* Hero */}
-        <section className="pt-8 pb-12 md:pt-12 md:pb-16 px-6">
-          <div className="mx-auto max-w-6xl">
-            <Breadcrumb
-              items={[
-                { label: 'Pricing', href: '/pricing' },
-                { label: category.name, href: `/pricing/${category.slug}` },
-                { label: service.name, href: '#' },
-              ]}
-            />
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="bg-gradient-to-br from-soft to-surface border border-white/10 rounded-3xl p-8 md:p-10"
-            >
-              <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
-                <div>
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-highlight/20 to-accent/20 border border-highlight/30 flex items-center justify-center text-4xl mb-4">
-                    {service.icon}
-                  </div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-2">
-                    {category.name}
-                  </p>
-                  {service.serviceNature && (
-                    <p className="text-[11px] uppercase tracking-[0.2em] text-gray-400 mb-2">
-                      {service.serviceNature}
-                    </p>
-                  )}
-                  <h1 className="text-2xl md:text-3xl font-bold text-white mb-3">
-                    {service.name} Pricing
-                  </h1>
-                  <p className="text-gray-400 text-sm max-w-xl leading-relaxed">
-                    {service.description}
-                  </p>
-                </div>
-
-                <div className="flex flex-wrap gap-3 md:flex-shrink-0">
-                  <Link
-                    href={`/services/${category.slug}/${service.slug}`}
-                    className="px-6 py-3 border border-white/20 text-white font-semibold rounded-lg hover:bg-white/10 transition-all text-sm text-center"
-                  >
-                    View Full Service Details
-                  </Link>
-                  <Link
-                    href="/contact"
-                    className="px-6 py-3 bg-gradient-to-r from-highlight to-accent text-white font-semibold rounded-lg hover:shadow-lg transition-all text-sm text-center"
-                  >
-                    Talk to Sales
-                  </Link>
-                </div>
-              </div>
-            </motion.div>
-            {(service.slug === 'managed-web-hosting-platforms' || category.slug === 'hosting-infrastructure') && (
-              <p className="text-xs text-gray-500 mt-4">
-                Pricing shown is for setup, migration, and managed operations scope. For hosting product plans, use Legacy Hosting Platform.
-              </p>
-            )}
-          </div>
-        </section>
+        <PageHeader
+          badge={service.serviceNature ? `SERVICE NATURE: ${service.serviceNature.toUpperCase()}` : category.name.toUpperCase()}
+          icon={service.icon}
+          title={service.name}
+          highlight="Pricing"
+          description={service.description}
+          breadcrumb={[{ label: 'Pricing', href: '/pricing' }, { label: category.name, href: `/pricing/${category.slug}` }, { label: service.name, href: '#' }]}
+          bg="pricing"
+          cta={{ text: 'View Full Service Details', link: `/services/${category.slug}/${service.slug}` }}
+          ctaSecondary={{ text: 'Talk to Sales', link: '/contact' }}
+        />
+        {(service.slug === 'managed-web-hosting-platforms' || category.slug === 'hosting-infrastructure') && (
+          <p className="mx-auto max-w-6xl px-6 pt-4 text-xs text-gray-500">
+            Pricing shown is for setup, migration, and managed operations scope. For hosting product plans, use Legacy Hosting Platform.
+          </p>
+        )}
 
         {/* Pricing Packages */}
         <section className="pb-16 md:pb-20 px-6">

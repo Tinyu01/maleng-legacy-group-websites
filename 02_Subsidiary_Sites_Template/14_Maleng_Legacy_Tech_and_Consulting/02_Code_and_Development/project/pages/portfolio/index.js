@@ -6,6 +6,7 @@ import Navigation from '../../components/Navigation';
 import Footer from '../../components/Footer';
 import PageHeader from '../../components/PageHeader';
 import portfolioData from '../../data/portfolio.json';
+import { getPortfolioCategorySlug } from '../../data/portfolioServiceCategories';
 import { FaArrowRight } from 'react-icons/fa';
 
 export default function PortfolioHub() {
@@ -36,7 +37,7 @@ export default function PortfolioHub() {
           title="Selected"
           highlight="Projects"
           description="A showcase of websites, platforms and systems we have designed and delivered for clients across retail, healthcare, finance and manufacturing."
-          breadcrumb={[{ label: 'Portfolio', href: '#' }]}
+          breadcrumb={[{ label: 'Portfolio', href: '/portfolio' }]}
           bg="portfolio"
           cta={{ text: 'Browse Projects', link: '#projects' }}
           ctaSecondary={{ text: 'Discuss a Project', link: '/contact' }}
@@ -116,7 +117,7 @@ export default function PortfolioHub() {
                   viewport={{ once: true }}
                 >
                   <Link
-                    href={`/portfolio/${project.slug}`}
+                    href={`/portfolio/${getPortfolioCategorySlug(project)}/${project.slug}`}
                     className="group block h-full bg-gradient-to-br from-soft to-surface border border-white/10 rounded-2xl overflow-hidden hover:border-highlight/50 transition-all duration-300 hover:shadow-xl hover:shadow-highlight/10"
                   >
                     {/* Image placeholder */}

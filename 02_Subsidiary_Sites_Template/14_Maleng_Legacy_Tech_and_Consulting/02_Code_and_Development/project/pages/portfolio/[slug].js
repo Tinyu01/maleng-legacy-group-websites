@@ -5,9 +5,11 @@ import Navigation from '../../components/Navigation';
 import Footer from '../../components/Footer';
 import Breadcrumb from '../../components/Breadcrumb';
 import portfolioData from '../../data/portfolio.json';
+import services from '../../data/services.json';
+import { getPortfolioCategorySlug } from '../../data/portfolioServiceCategories';
 import { FaCheck, FaArrowLeft } from 'react-icons/fa';
 
-export default function PortfolioDetail({ project, category }) {
+export default function PortfolioDetail({ project, category, serviceCategory }) {
   if (!project) {
     return (
       <>
@@ -42,6 +44,7 @@ export default function PortfolioDetail({ project, category }) {
             <Breadcrumb
               items={[
                 { label: 'Portfolio', href: '/portfolio' },
+                ...(serviceCategory ? [{ label: serviceCategory.name, href: `/portfolio/${serviceCategory.slug}` }] : []),
                 { label: project.title, href: '#' },
               ]}
             />
@@ -164,9 +167,10 @@ export async function getStaticProps({ params }) {
   if (!project) return { notFound: true };
 
   const category = (portfolioData.categories || []).find((c) => c.id === project.category) || null;
+  const serviceCategory = (services.categories || []).find((c) => c.slug === getPortfolioCategorySlug(project)) || null;
 
   return {
-    props: { project, category },
+    props: { project, category, serviceCategory },
   };
 }
 

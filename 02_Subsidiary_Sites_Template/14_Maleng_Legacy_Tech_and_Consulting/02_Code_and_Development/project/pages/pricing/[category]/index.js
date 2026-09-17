@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Navigation from '../../../components/Navigation';
 import Footer from '../../../components/Footer';
-import Breadcrumb from '../../../components/Breadcrumb';
+import PageHeader from '../../../components/PageHeader';
 import services from '../../../data/services.json';
 
 // Comparison-table columns — order matters, and every service in services.json
@@ -45,57 +45,22 @@ export default function PricingCategory({ category }) {
       <div className="min-h-screen bg-primary text-white">
         <Navigation isSubsidiary={true} subsidiaryName="Tech & Consulting" />
 
-        {/* Hero */}
-        <section className="pt-8 pb-12 md:pt-12 md:pb-16 px-6">
-          <div className="mx-auto max-w-6xl">
-            <Breadcrumb
-              items={[
-                { label: 'Pricing', href: '/pricing' },
-                { label: category.name, href: '#' },
-              ]}
-            />
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="bg-gradient-to-br from-soft to-surface border border-white/10 rounded-3xl p-8 md:p-10"
-            >
-              <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
-                <div>
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-highlight/20 to-accent/20 border border-highlight/30 flex items-center justify-center text-4xl mb-4">
-                    {category.icon}
-                  </div>
-                  <h1 className="text-2xl md:text-3xl font-bold text-white mb-2">{category.name} Pricing</h1>
-                  {category.serviceNature && (
-                    <p className="text-[11px] uppercase tracking-[0.2em] text-accent mb-2">{category.serviceNature}</p>
-                  )}
-                  <p className="text-gray-400 text-sm max-w-xl">{category.tagline}</p>
-                </div>
-
-                <div className="flex flex-wrap gap-3 md:flex-shrink-0">
-                  <Link
-                    href={`/services/${category.slug}`}
-                    className="px-6 py-3 border border-white/20 text-white font-semibold rounded-lg hover:bg-white/10 transition-all text-sm text-center"
-                  >
-                    View Full Service Details
-                  </Link>
-                  <Link
-                    href="/contact"
-                    className="px-6 py-3 bg-gradient-to-r from-highlight to-accent text-white font-semibold rounded-lg hover:shadow-lg transition-all text-sm text-center"
-                  >
-                    Talk to Sales
-                  </Link>
-                </div>
-              </div>
-            </motion.div>
-            {category.slug === 'hosting-infrastructure' && (
-              <p className="text-xs text-gray-500 mt-4">
-                These fees cover hosting setup and operations services; standalone hosting subscriptions are provided on Legacy Hosting Platform.
-              </p>
-            )}
-          </div>
-        </section>
+        <PageHeader
+          badge={category.serviceNature ? `SERVICE NATURE: ${category.serviceNature.toUpperCase()}` : 'PRICING BY SERVICE'}
+          icon={category.icon}
+          title={category.name}
+          highlight="Pricing"
+          description={category.tagline}
+          breadcrumb={[{ label: 'Pricing', href: '/pricing' }, { label: category.name, href: '#' }]}
+          bg="pricing"
+          cta={{ text: 'View Full Service Details', link: `/services/${category.slug}` }}
+          ctaSecondary={{ text: 'Talk to Sales', link: '/contact' }}
+        />
+        {category.slug === 'hosting-infrastructure' && (
+          <p className="mx-auto max-w-6xl px-6 pt-4 text-xs text-gray-500">
+            These fees cover hosting setup and operations services; standalone hosting subscriptions are provided on Legacy Hosting Platform.
+          </p>
+        )}
 
         {/* Comparison Table */}
         <section className="pb-16 md:pb-20 px-6">
